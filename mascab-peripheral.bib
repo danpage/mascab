@@ -1,0 +1,203 @@
+% =============================================================================
+@STRING{KEYWORDS={peripheral,cache}}
+
+@article{MASCAB:SubJonTop:13,
+  keywords     = KEYWORDS,
+  author       = {K.T. Sundararajan and T.M. Jones and N.P. Topham},
+  title        = {The Smart Cache: An Energy-Efficient Cache Architecture Through Dynamic Adaptation},
+  journal      = {International Journal of Parallel Programming},
+  volume       = {41},
+  number       = {2},
+  pages        = {305--330},
+  year         = {2013}
+}
+
+@inproceedings{MASCAB:KFBM:02,
+  keywords     = KEYWORDS,
+  author       = {N.S. Kim and K. Flautner and D. Blaauw and T.N. Mudge},
+  title        = {Drowsy Instruction Caches: Leakage Power Reduction using Dynamic Voltage Scaling and Cache Sub-bank Prediction},
+  booktitle    = {ACM/IEEE International Symposium on Microarchitecture (MICRO)}, 
+  pages        = {219--230}, 
+  year         = {2002}
+}
+
+@inproceedings{MASCAB:KKMBM:02,
+  keywords     = KEYWORDS,
+  author       = {K. Flautner and N.S. Kim and S. Martin and D. Blaauw and T.N. Mudge},
+  title        = {Drowsy Caches: Simple Techniques for Reducing Leakage Power},
+  booktitle    = {International Symposium on Computer Architecture (ISCA)}, 
+  pages        = {148--157}, 
+  year         = {2002}
+}
+
+@inproceedings{MASCAB:KaxHuMar:01,
+  keywords     = KEYWORDS,
+  author       = {S. Kaxiras and Z. Hu and M. Martonosi},
+  title        = {Cache decay: exploiting generational behavior to reduce cache leakage power},
+  booktitle    = {International Symposium on Computer Architecture (ISCA)}, 
+  pages        = {240--251}, 
+  year         = {2001}
+}
+
+@inproceedings{MASCAB:PYFRV:00,
+  keywords     = KEYWORDS,
+  author       = {M. Powell and S.-H. Yang and B. Falsafi and K. Roy and T. N. Vijaykumar},
+  title        = {{Gated-Vdd}: A circuit technique to reduce leakage in deep-submicron cache memories},
+  booktitle    = {International Symposium on Low Power Electronics and Design}, 
+  pages        = {90--95},
+  year         = {2000}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={peripheral,cache}}
+
+@inproceedings{MASCAB:Inoue:06,
+  keywords     = KEYWORDS,
+  author       = {K. Inoue},
+  title        = {Lock and Unlock: A Data Management Algorithm for A Security-Aware Cache},
+  booktitle    = {IEEE International Conference on Electronics, Circuits and Systems (ICECS)}, 
+  pages        = {1093--1096}, 
+  year         = {2006},
+  addendum     = {
+    This paper is peripheral at best, in the sense it details a cache design
+    intended to prevent buffer overflow attacks; the idea is quite involved,
+    but basically uses the cache as a redundant, hardware-backed stack which
+    can detect manipulation of return addresses.  The peripheral connection 
+    to cache-based attacks stems from the inclusion of a mechanism for cache
+    line locking: each line can be controlled st. eviction is prevented.
+  }
+}
+
+@inproceedings{MASCAB:RacPat:03,
+  keywords     = KEYWORDS,
+  author       = {P. Racunas and Y.N. Patt},
+  title        = {Partitioned First-level Cache Design for Clustered Microarchitectures},
+  booktitle    = {International Conference on Supercomputing (ICS)},
+  pages        = {22--31},
+  year         = {2003}
+} 
+
+@inproceedings{MASCAB:PetOra:01,
+  keywords     = KEYWORDS,
+  author       = {P. Petrov and A. Orailoglu},
+  title        = {Towards effective embedded processors in codesigns: customizable partitioned caches},
+  booktitle    = {Hardware/Software Codesign (CODES)},
+  pages        = {79--84},
+  year         = {2001}
+}
+
+@inproceedings{MASCAB:KVKSIG:01,
+  keywords     = KEYWORDS,
+  author       = {S. Kim and N. Vijaykrishnan and M. Kandemir and A. Sivasubramaniam and M.J. Irwin and E. Geethanjali},
+  title        = {Power-aware Partitioned Cache Architectures},
+  booktitle    = {International Symposium on Low Power Electronics and Design (ISLPED)},
+  pages        = {64--67},
+  year         = {2001}
+} 
+
+@inproceedings{MASCAB:RanAdvJou:00,
+  keywords     = KEYWORDS,
+  author       = {P. Ranganathan and S. Adve and N.P. Jouppi},
+  title        = {Reconfigurable Caches and Their Application to Media Processing},
+  booktitle    = {International Symposium on Computer Architecture (ISCA)},
+  pages        = {214--224},
+  year         = {2000},
+}
+
+@inproceedings{MASCAB:GonAliVal:95,
+  keywords     = KEYWORDS,
+  author       = {A. Gonz\'{a}lez and C. Aliagas and M. Valero},
+  title        = {A Data Cache with Multiple Caching Strategies Tuned to Different Types of Locality},
+  booktitle    = {International Conference on Supercomputing (ICS)},
+  pages        = {338--347},
+  year         = {1995}
+} 
+
+@inproceedings{MASCAB:JuaRoyNav:95,
+  keywords     = KEYWORDS,
+  author       = {T. Juan and D. Royo and J.J. Navarro},
+  title        = {Dynamic Cache Splitting},
+  booktitle    = {International Confernce of the Chilean Computational Society},
+  year         = {1995}
+}
+
+% =============================================================================
+@STRING{KEYWORDS={peripheral,recover}}
+
+@inproceedings{MASCAB:PoeSib:15,
+  keywords     = KEYWORDS,
+  author       = {B. Poettering and D.L. Sibborn},
+  title        = {Cold Boot Attacks in the Discrete Logarithm Setting},
+  booktitle    = {Topics in Cryptology (CT-RSA)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 9048},
+  pages        = {449--465},
+  year         = {2015} 
+}
+
+@inproceedings{MASCAB:PoeSib:15,
+  keywords     = KEYWORDS,
+  author       = {K.G. Paterson and A. Polychroniadou and D.L. Sibborn},
+  title        = {A Coding-Theoretic Approach to Recovering Noisy {RSA} Keys},
+  booktitle    = {Advances in Cryptology (ASIACRYPT)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 7658},
+  pages        = {386--403},
+  year         = {2012} 
+}
+
+@inproceedings{MASCAB:HenSha:09,
+  keywords     = KEYWORDS,
+  author       = {N. Heninger and H. Shacham},
+  title        = {Reconstructing {RSA} Private Keys from Random Key Bits},
+  booktitle    = {Advances in Cryptology (CRYPTO)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 5677},
+  pages        = {1--17},
+  year         = {2009} 
+}
+
+@inproceedings{MASCAB:Walter:03,
+  keywords    = KEYWORDS,
+  author      = {C.D. Walter},
+  title       = {Longer Keys May Facilitate Side Channel Attacks},
+  booktitle   = {Selected Areas in Cryptography (SAC)},
+  publisher   = {Springer-Verlag},
+  series      = {LNCS 3006},
+  pages       = {42--57},
+  year        = {2003}
+}
+
+% =============================================================================
+@STRING{KEYWORDS={peripheral,attack}}
+
+@inproceedings{MASCAB:GBHP:16,
+  keywords     = KEYWORDS,
+  author       = {S. Ghandali and G.T. Becker and D. Holcomb and C. Paar},
+  title        = {A Design Methodology for Stealthy Parametric Trojans and Its Application to Bug Attacks},
+  booktitle    = {Cryptographic Hardware and Embedded Systems (CHES)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 9813}, 
+  pages        = {625--647}, 
+  year         = {2016}
+}
+
+@inproceedings{MASCAB:RNRDBS:15,
+  keywords     = KEYWORDS,
+  author       = {L. Rivi\'{e}re and Z. Najm and P. Rauzy and J.-L. Danger and J. Bringer and L. Sauvage},
+  title        = {High precision fault injections on the instruction cache of {ARMv7-M} architectures},
+  booktitle    = {IEEE International Symposium on Hardware Oriented Security and Trust (HOST)},
+  pages        = {62--67},
+  year         = {2015}
+}
+
+@inproceedings{MASCAB:GruGhi:02,
+  keywords     = KEYWORDS,
+  author       = {D. Grunwald and S. Ghiasi},
+  title        = {Microarchitectural Denial of Service: Insuring Microarchitectural Fairness},
+  booktitle    = {ACM/IEEE International Symposium on Microarchitecture (MICRO)},
+  pages        = {409--418},
+  year         = {2002}
+} 
+
+% =============================================================================

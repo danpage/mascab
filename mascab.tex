@@ -1,0 +1,101 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage{adjustbox}
+\usepackage{hyperref}
+\usepackage[backend=biber,style=draft,hyperref=true,defernumbers=true]{biblatex}
+\usepackage[margin=2cm]{geometry}
+\usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
+
+\addbibresource{mascab.bib}
+\addbibresource{mascab-peripheral.bib}
+\addbibresource{mascab-scratchpad.bib}
+
+\DeclareSourcemap{
+  \maps[datatype=bibtex]{
+    \map{\step[fieldset=keywords,fieldvalue={unclassified}]}
+  }
+}
+
+\DeclareFieldFormat{addendum}{\newline\adjustbox{minipage=[H]{\linewidth},frame={1pt 1ex 0ex}}{\color{darkgray} #1}} 
+\renewcommand*\finentrypunct{}
+\defbibheading{subsubbibnumbered}[\bibname]{\subsubsection{#1}\markboth{#1}{#1}}
+
+\title{{MASCAB}: a Micro-Architectural Side-Channel Attack Bibliography}
+\date{\today}
+\author{\url{http://www.github.com/danpage/mascab}}
+
+\begin{document}
+
+\maketitle \tableofcontents \nocite{*} 
+
+% =============================================================================
+
+\section{Miscellaneous}
+
+\printbibliography[heading={subbibnumbered},title={History}, keyword={misc},keyword={history} ]
+\printbibliography[heading={subbibnumbered},title={Patents}, keyword={misc},keyword={patent}  ]
+\printbibliography[heading={subbibnumbered},title={Surveys}, keyword={misc},keyword={survey}  ]
+\printbibliography[heading={subbibnumbered},title={Books},   keyword={misc},keyword={book}    ]
+\printbibliography[heading={subbibnumbered},title={Theses},  keyword={misc},keyword={thesis}  ]
+\printbibliography[heading={subbibnumbered},title={Software},keyword={misc},keyword={software}]
+
+% =============================================================================
+
+\section{Covert channels}
+
+\printbibliography[heading={subbibnumbered},   title={Constructive cases (e.g., countermeasures): hardware-based},                                 keyword={covert},                 keyword={constructive},keyword={hardware}                    ]
+\printbibliography[heading={subbibnumbered},   title={Constructive cases (e.g., countermeasures): software-based},                                 keyword={covert},                 keyword={constructive},keyword={software}                    ]
+
+% =============================================================================
+
+\section{Side-channels}
+
+\subsection{Caches (data {\em and} instruction)}
+
+\printbibliography[heading={subsubbibnumbered},title={ Destructive cases (e.g.,         attacks):     access-driven attacks on        data caches},keyword={side},  keyword={cache}, keyword= {destructive},keyword=       {data},keyword={access}]
+\printbibliography[heading={subsubbibnumbered},title={ Destructive cases (e.g.,         attacks): time/trace-driven attacks on        data caches},keyword={side},  keyword={cache}, keyword= {destructive},keyword=       {data},keyword= {trace}]
+\printbibliography[heading={subsubbibnumbered},title={ Destructive cases (e.g.,         attacks):     power-related attacks on        data caches},keyword={side},  keyword={cache}, keyword= {destructive},keyword=       {data},keyword= {power}]
+\printbibliography[heading={subsubbibnumbered},title={ Destructive cases (e.g.,         attacks):                   attacks on instruction caches},keyword={side},  keyword={cache}, keyword= {destructive},keyword={instruction}                 ]
+\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): hardware-based},                                 keyword={side},  keyword={cache}, keyword={constructive},keyword={hardware}                    ]
+\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): software-based},                                 keyword={side},  keyword={cache}, keyword={constructive},keyword={software}                    ]
+\printbibliography[heading={subsubbibnumbered},title={Miscellaneous},                                                                              keyword={side},  keyword={cache}, keyword=        {misc}                                       ]
+
+\subsection{Branch-target buffer}
+
+\printbibliography[heading={subsubbibnumbered},title={ Destructive cases (e.g.,         attacks)},                                                 keyword={side},  keyword={branch},keyword= {destructive}                                       ]
+\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): hardware-based},                                 keyword={side},  keyword={branch},keyword={constructive},keyword={hardware}                    ]
+\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): software-based},                                 keyword={side},  keyword={branch},keyword={constructive},keyword={software}                    ]
+
+\subsection{Arithmetic}
+
+\printbibliography[heading={subsubbibnumbered},title={ Destructive cases (e.g.,         attacks)},                                                 keyword={side},  keyword={arith}, keyword= {destructive}                                       ]
+\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): hardware-based},                                 keyword={side},  keyword={arith}, keyword={constructive},keyword={hardware}                    ]
+\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): software-based},                                 keyword={side},  keyword={arith}, keyword={constructive},keyword={software}                    ]
+
+\subsection{Network-on-Chip (NoC)}
+
+\printbibliography[heading={subsubbibnumbered},title={ Destructive cases (e.g.,         attacks)},                                                 keyword={side},  keyword={noc},   keyword= {destructive}                                       ]
+\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): hardware-based},                                 keyword={side},  keyword={noc},   keyword={constructive},keyword={hardware}                    ]
+\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): software-based},                                 keyword={side},  keyword={noc},   keyword={constructive},keyword={software}                    ]
+
+\subsection{Miscellaneous}
+
+\printbibliography[heading={subsubbibnumbered},title={ Destructive cases (e.g.,         attacks)},                                                 keyword={side},  keyword= {misc}, keyword= {destructive}                                       ]
+\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): hardware-based},                                 keyword={side},  keyword= {misc}, keyword={constructive},keyword={hardware}                    ]
+\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): software-based},                                 keyword={side},  keyword= {misc}, keyword={constructive},keyword={software}                    ]
+
+% =============================================================================
+
+\section{Peripheral topics}
+
+\printbibliography[heading={subbibnumbered},title={Cache designs},   keyword={peripheral},keyword={cache}  ]
+\printbibliography[heading={subbibnumbered},title={Key recovery},    keyword={peripheral},keyword={recover}]
+\printbibliography[heading={subbibnumbered},title={Attack paradigms},keyword={peripheral},keyword={attack} ]
+
+% =============================================================================
+
+\printbibliography[heading={bibnumbered},   title={Residual unclassified entries},keyword={unclassified}]
+
+% =============================================================================
+
+\end{document}

@@ -1,0 +1,1345 @@
+% =============================================================================
+@STRING{KEYWORDS={misc,history}}
+
+@inproceedings{MASCAB:BerLanSch:12,
+  keywords     = KEYWORDS,
+  author       = {D.J. Bernstein and T. Lange and P. Schwabe},
+  title        = {The Security Impact of a New Cryptographic Library},
+  booktitle    = {Progress in Cryptology (LATINCRYPT)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 7533},
+  pages        = {159--176},
+  year         = {2012},
+  addendum     = {
+    See Section $3$ for a detailed description of by-design security against
+    micro-architectural attack in the NaCl library.
+  }
+} 
+
+@inproceedings{MASCAB:Bernstein:08,
+  keywords     = KEYWORDS,
+  author       = {D.J. Bernstein},
+  title        = {The {Salsa20} family of stream ciphers},
+  booktitle    = {New Stream Cipher Designs: The eSTREAM Finalists}, 
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 4986}, 
+  pages        = {84--97}, 
+  year         = {2008},
+  addendum     = {
+    Section $2.3$ of this paper presents an argument for security-by-design,
+    wrt. use of look-up tables for S-boxes and more generally, noting for
+    example that
+    ``{\em [a] further argument against S-box lookups is that, on most platforms, they are vulnerable to timing attacks}''.
+  }
+}
+
+@article{MASCAB:KSWH:00,
+  keywords     = KEYWORDS,
+  author       = {J. Kelsey and B. Schneier and D. Wagner and C. Hall},
+  title        = {Side Channel Cryptanalysis of Product Ciphers},
+  journal      = {Journal of Computer Security}, 
+  volume       = {8},
+  number       = {2-3}, 
+  pages        = {141--158}, 
+  year         = {2000},
+  addendum     = {
+    This paper starts to make more confident predictions about the threat of
+    micro-architectural attacks, stating that
+    ``{\em [w]e believe attacks based on cache hit ratio in large S-box ciphers like Blowfish, CAST, and Khufu are possible}''.
+  }
+}
+
+@inproceedings{MASCAB:SchWhi:98,
+  keywords     = KEYWORDS,
+  author       = {B. Schneier and D. Whiting},
+  title        = {{Twofish} on Smart Cards},
+  booktitle    = {Smart Card Research and Applications (CARDIS)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 1820}, 
+  pages        = {265--276}, 
+  year         = {1998},
+  addendum     = {
+    This paper is evidence that attention to micro-architectural attacks can
+    be identified quite early within the history of academic publications on 
+    side-channel attacks more generally.  
+    Two quotes in Section $4.6$ stand out, for example:
+    1) ``{\em [t]iming attacks based on cache hits are not applicable to smart cards as they typically do not have a cache}''
+       and
+    2) ``{\em [o]n some CPUs the multiply instruction uses an ``early out'' algorithm}''.
+    Clearly the former is reasonable based on the date of publication, even
+    if invalidated wrt. modern examples; the latter acts as a prediction of
+    sorts, later realised in concrete attacks using exactly this behaviour.
+  }
+}
+
+@inproceedings{MASCAB:Kocher:96,
+  keywords     = KEYWORDS,
+  author       = {P.C. Kocher},
+  title        = {Timing Attacks on Implementations of {Diffie-Hellman}, {RSA}, {DSS}, and Other Systems},
+  booktitle    = {Advances in Cryptology (CRYPTO)},
+  publisher    = {Springer-Verlag LNCS 1109}, 
+  pages        = {104--113}, 
+  year         = {1996},
+  addendum     = {
+    This paper is evidence that attention to micro-architectural attacks can
+    be identified quite early within the history of academic publications on 
+    side-channel attacks more generally.
+    The point is made in various places, but in Section $11$ for example the
+    paper states that
+    ``{\em RAM cache hits can produce timing characteristics in implementations of Blowfish, SEAL, DES, and other ciphers if tables in memory are not used identically in every encryption}''
+    thus clearly predicting later, concrete attacks.
+  }
+}
+
+@article{MASCAB:Lampson:73,
+  keywords     = KEYWORDS,
+  author       = {B.W. Lampson},
+  title        = {A note on the confinement problem},
+  journal      = {Communications of the ACM (CACM)},
+  volume       = {16},
+  number       = {10},
+  pages        = {613--615},
+  year         = {1973},
+  addendum     = {
+    This is a seminal paper, exploring various foundational topics: in the
+    abstract, it
+    1) defines the confinement problem, namely the problem of preventing a
+       process communicating with some other process during execution,
+    2) defines some terminology, namely
+       a covert  channel as ``those not intended for information transfer at all, such as the service program's effect on the system load'',
+       and
+       a storage channel as ``[s]torage of various kinds maintained by the supervisor which can be written by the service and read by an unconfined program, either shortly after it is written or at some later time'',
+    3) defines various necessary conditions for confinement, concluding
+       ``[t]here is not likely to be any rigorous way of identifying every channel in any system of even moderate complexity''
+       st. sufficient conditions are hard to provide in a generic manner.
+  }
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={misc,patent}}
+
+@unpublished{MASCAB:MulReb:13,
+  keywords     = KEYWORDS,
+  author       = {D. Mukhopadhyay and C.D. Rebeiro},
+  title        = {Resistance to cache timing attacks on block cipher encryption},
+  note         = {U.S. Patent Number 14/350,044},
+  year         = {2013}
+}
+
+@unpublished{MASCAB:RaiGueShe:13,
+  keywords     = KEYWORDS,
+  author       = {S. Raikin and S. Gueron and G. Sheaffer},
+  title        = {Protecting private data from cache attacks},
+  note         = {U.S. Patent Number 11/950,963},
+  year         = {2013}
+}
+
+@unpublished{MASCAB:DolAha:08,
+  keywords     = KEYWORDS,
+  author       = {B. Dolgunov and A. Aharonov},
+  title        = {Memory Randomization For Protection Against Side Channel Attacks},
+  note         = {U.S. Patent Number 12/254,225},
+  year         = {2008}
+}
+
+@unpublished{MASCAB:SebGue:08,
+  keywords     = KEYWORDS,
+  author       = {J. Sebot and S. Gueron},
+  title        = {Mitigating Branch Prediction and Other Timing Based Side Channel Attacks},
+  note         = {U.S. Patent Number 11/950,658},
+  year         = {2008}
+}
+
+@unpublished{MASCAB:BGGKM:07,
+  keywords     = KEYWORDS,
+  author       = {E.F. Brickell and S. Ghetie and S. Gueron and A. Karrar and F.X. McKeen},
+  title        = {Protecting a Branch Instruction from Side Channel Vulnerabilities},
+  note         = {U.S. Patent Number 11/951,999},
+  year         = {2007}
+}
+
+@unpublished{MASCAB:StrJenDhe:07,
+  keywords     = KEYWORDS,
+  author       = {M. Stribaek and J. Jensen and J.-F. Dhem},
+  title        = {Random Cache Line Refill},
+  note         = {U.S. Patent Number 11/943,751},
+  year         = {2007}
+}
+
+@unpublished{MASCAB:Baker:06,
+  keywords     = KEYWORDS,
+  author       = {B.S. Baker},
+  title        = {Avoiding cache line sharing in virtual machines},
+  note         = {U.S. Patent Number 11/490,785},
+  year         = {2006}
+}
+
+@unpublished{MASCAB:MPBC:06,
+  keywords     = KEYWORDS,
+  author       = {F.X. McKeen and L.K. Puthiyedath and E.F. Brickell and J.B. Crossland},
+  title        = {Method and apparatus for preventing software side channel attacks},
+  note         = {U.S. Patent Number 11/513,871},
+  year         = {2006}
+}
+
+@unpublished{MASCAB:NevSei:05,
+  keywords     = KEYWORDS,
+  author       = {M. Neve and J.-P. Seifert},
+  title        = {Resisting cache timing based attacks},
+  note         = {U.S. Patent Number 11/302,579},
+  year         = {2005}
+}
+
+@unpublished{MASCAB:Trostle:04,
+  keywords     = KEYWORDS,
+  author       = {J.T. Trostle},
+  title        = {Timing attacks against user logon and network {I/O}},
+  note         = {U.S. Patent Number 10/937,079},
+  year         = {2004}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={misc,survey}}
+
+@misc{MASCAB:Szefer:16,
+  keywords     = KEYWORDS,
+  author       = {J. Szefer},
+  title        = {Survey of Microarchitectural Side and Covert Channels, Attacks, and Defences},
+  howpublished = {Cryptology ePrint Archive, Report 2016/479},
+  year         = {2016},
+  url          = {http://eprint.iacr.org/2016/479}
+}
+
+@misc{MASCAB:GYCH:16,
+  keywords     = KEYWORDS,
+  author       = {Q. Ge and Y. Yarom and D. Cock and G. Heiser},
+  title        = {A Survey of Microarchitectural Timing Attacks and Countermeasures on Contemporary Hardware},
+  howpublished = {Cryptology ePrint Archive, Report 2016/613},
+  year         = {2016},
+  url          = {http://eprint.iacr.org/2016/613}
+}
+
+@inproceedings{MASCAB:ShaLit:15,
+  keywords     = KEYWORDS,
+  author       = {A. Shahzad and A. Litchfield},
+  title        = {Virtualization Technology: Cross-{VM} Cache Side Channel Attacks make it Vulnerable},
+  booktitle    = {Australasian Conference on Information Systems (ACIS)},
+  year         = {2015}
+}
+
+@article{MASCAB:AciSeiKoc:07,
+  keywords     = KEYWORDS,
+  author       = {O. Ac\i{}i\c{c}mez and J.-P. Seifert and \c{C}.K. Ko\c{c}},
+  title        = {Micro-Architectural Cryptanalysis},
+  journal      = {IEEE Security \& Privacy}, 
+  volume       = {5},
+  number       = {4},
+  pages        = {62--64},
+  year         = {2007}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={misc,book}}
+
+@book{MASCAB:RebMukBha:15,
+  keywords     = KEYWORDS,
+  author       = {C. Rebeiro and D. Mukhopadhyay and S. Bhattacharya},
+  title        = {Timing Channels in Cryptography: A Micro-Architectural Perspective},
+  publisher    = {Springer},
+  year         = {2015}
+}
+
+@incollection{MASCAB:AciKoc:09,
+  keywords     = KEYWORDS,
+  author       = {O. Ac\i{}i\c{c}mez and \c{C}.K. Ko\c{c}},
+  title        = {Microarchitectural Attacks and Countermeasures},
+  chapter      = {18},
+  pages        = {475--504},
+  editor       = {{\c{C}.K. Ko\c{c}}},
+  booktitle    = {Cryptographic Engineering},
+  publisher    = {Springer},
+  year         = {2009}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={misc,thesis}}
+
+@phdthesis{MASCAB:Gallais:11,
+  keywords     = KEYWORDS,
+  author       = {J.-F. Gallais},
+  title        = {Microarchitectural Side-Channel Attacks},
+  school       = {University of Luxembourg},
+  year         = {2013},
+  addendum     = {
+    In particular, see
+    Chapter $2$ (relating to cache-based attacks), 
+    and
+    Chapter $4$ (relating to the peripheral topic of hardware Trojans).
+  }
+}
+
+@phdthesis{MASCAB:Brumley:11,
+  keywords     = KEYWORDS,
+  author       = {B.B. Brumley},
+  title        = {Covert Timing Channels, Caching, and Cryptography},
+  school       = {Aalto University},
+  year         = {2011}
+}
+
+@phdthesis{MASCAB:Grabher:10,
+  keywords     = KEYWORDS,
+  author       = {P. Grabher},
+  title        = {Processor Design Techniques for Efficient and Secure Execution of Cryptographic Algorithms},
+  school       = {University of Bristol},
+  year         = {2010},
+  addendum     = {
+    In particular, see
+    Chapter $5$ (relating to cache-based attacks on low-power designs),
+    and
+    Chapter $6$ (relating to cache-based attacks on instruction caches).
+  }
+}
+
+@phdthesis{MASCAB:Aciicmez:07a,
+  keywords     = KEYWORDS,
+  author       = {O. Ac\i{}i\c{c}mez},
+  title        = {Advances in side-channel cryptanalysis: Microarchitectural attacks},
+  school       = {Oregon State University}, 
+  year         = {2007}
+}
+
+@phdthesis{MASCAB:Neve:06,
+  keywords     = KEYWORDS,
+  author       = {M. Neve},
+  title        = {Cache-based Vulnerabilities and {SPAM} analysis},
+  school       = {Universit\'{e} catholique de Louvain}, 
+  year         = {2006}
+}
+
+@mastersthesis{MASCAB:Huang:10,
+  keywords     = KEYWORDS,
+  author       = {B. Huang},
+  title        = {Cache-collision timing attacks against {AES-GCM}},
+  school       = {University of Delaware},
+  year         = {2010}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={misc,software}}
+
+@unpublished{MASCAB:Yarom:XX,
+  keywords     = KEYWORDS,
+  author       = {Y. Yarom},
+  title        = {{Mastik}: a micro-architectural side-channel toolkit},
+  url          = {http://cs.adelaide.edu.au/~yval/Mastik/}
+}
+
+@unpublished{MASCAB:Percival:XX,
+  keywords     = KEYWORDS,
+  author       = {C. Percival},
+  title        = {{TRICL}: a timing attack resistant cryptographic library},
+  url          = {http://www.daemonology.net/tricl}
+}
+
+% =============================================================================
+@STRING{KEYWORDS={side,cache,destructive,data,access}}
+
+@inproceedings{MASCAB:YarGenHen:16,
+  keywords     = KEYWORDS,
+  author       = {Y. Yarom and D. Genkin and N. Heninger},
+  title        = {{CacheBleed}: A Timing Attack on {OpenSSL} Constant Time {RSA}},
+  booktitle    = {Cryptographic Hardware and Embedded Systems (CHES)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 9813}, 
+  pages        = {346--367}, 
+  year         = {2016},
+  addendum     = {
+    To address~\cite{MASCAB:Percival:05}, Intel contributed an implementation
+    of the scatter-gather countermeasure to OpenSSL; it basically patched the
+    sliding window based modular exponentiation function as used by RSA.  The
+    original attack was able to distinguish between pre-computed values (thus
+    inferring bits of the exponent used to select them) because they mapped to 
+    different cache lines; scatter-gather interleaves said values (in a sense
+    transposing them in memory), st. the {\em same} cache lines are accessed
+    irrespective of the value.  This is based on intuition which suggests the
+    latency of access leaks no information below cache line granularity.
+
+    This paper effectively defeats the scatter-gather countermeasure.  Using
+    the fact (per ~\cite{MASCAB:Bernstein:05} and~\cite{MASCAB:TroOsvSha:10})
+    bank conflicts alter the latency of access to the L1 cache, the intuition
+    above is invalidated: an attack process intentionally constructed to probe
+    a specific bank can monitor access to that bank by the target (by virtue 
+    of the resulting difference in latency of access), and so infer associated
+    access {\em within} some cache line.  This approach is harnessed to mount
+    a concrete attack, which requires some post-processing to cope with the
+    (relatively) low number of exponent bits recovered and thereby perform key
+    recovery.
+  }
+}
+
+@inproceedings{MASCAB:BHLY:16,
+  keywords     = KEYWORDS,
+  author       = {L.G. Bruinderink and A. H\"{u}lsing and T. Lange and Y. Yarom},
+  title        = {{Flush}, {Gauss}, and {Reload} - A Cache Attack on the {BLISS} Lattice-Based Signature Scheme},
+  booktitle    = {Cryptographic Hardware and Embedded Systems (CHES)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 9813}, 
+  pages        = {323--345}, 
+  year         = {2016}
+}
+
+@article{MASCAB:GruMauWag:15,
+  keywords     = KEYWORDS,
+  author       = {D. Gruss and C. Maurice and K. Wagner},
+  title        = {Flush+Flush: {A} Stealthier Last-Level Cache Attack},
+  journal      = {CoRR},
+  volume       = {abs/1511.04594},
+  year         = {2015},
+  url          = {http://arxiv.org/abs/1511.04594},
+  addendum     = {
+    Although the title suggests a focus on the latter, this paper makes three
+    main contributions: it
+    1) analyses the use of performance counters as a means of (dynamically, 
+       at run-time) detecting cache-based side-channel attack; this suggests
+       measuring last-level cache misses and references is enough,
+    2) formulates a metric for said detection that normalises wrt. the size
+       of kernel (since an attack process exhibits behaviour in the cache via
+       a tight attack loop),
+       and
+    3) following roughly the same model as {\sc Flush+Reload}, an alternative
+       attack strategy, namely {\sc Flush+Flush}, is presented: the strategy 
+       hinges on the fact that {\tt clflush} has address-dependent execution
+       time (longer if an inclusive flush is required, shorter if not: this
+       is sort of the opposite to a cache hit and cache miss, since it needs
+       longer to flush if the data is resident), so it is possible to replace 
+       the reload memory access with a second use of {\tt clflush} and hence
+       a) has a faster attack loop since {\tt clflush} has lower latency than 
+          memory access (although this also implies lower fidelity, since the 
+          difference in latency is also less),
+       b) is less invasive, in the sense flushes do not trigger prefetching
+          (vs. a reload, which, since it is a memory access, {\em does}),
+          and
+       c) is more stealthy, since flushes do not count as cache misses.
+     The attack is evaluated by applying it in a range of contexts, e.g., to 
+     perform input distinguishing (Section $VI$) wrt. GTK, and recovery of 
+     cryptographic keys (Section $VII$) wrt. AES as implemented by OpenSSL.
+     There are some further insights into {\tt clflush} itself in Section
+     $VIII$, and a detailed comparison of countermeasure techniques within
+     Section $IX$.
+  }
+}
+
+@inproceedings{MASCAB:LGSM:16,
+  keywords     = KEYWORDS,
+  author       = {M. Lipp and D. Gruss and R. Spreitzer and S. Mangard},
+  title        = {{ARMageddon}: Last-Level Cache Attacks on Mobile Devices},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {549--564},
+  year         = {2016},
+  addendum     = {
+    The application of access-driven, cache-based side-channel attacks to 
+    an ARM processor implies various challenges: for example,
+    a) ARM use a random replacement policy, which complicates the challenge
+       of interrogating residency of some target data (i.e., by introducing 
+       noise),
+    b) the ARM-based analogy of the x86 Time-Stamp Counter (TSC) can only be
+       used in user mode {\em if} permission is granted from kernel mode,
+    c) a dedicated flush instruction can only be executed in kernel mode,
+       and
+    d) ARM use an LLC that is not inclusive (i.e., data resident in the L1
+       cache is not guaranteed to be resident in the LLC), which differs 
+       from various alternatives.
+    This paper addresses these challenges, mounting {\sc Prime+Probe} and 
+    {\sc Evict+Reload} style, access-driven cache attacks on the Android 
+    touch-screen interface (in order to recover tap and swipe events), and 
+    BouncyCastle AES implementation.
+  }
+}
+
+@unpublished{MASCAB:ZSSLH:16,
+  keywords     = KEYWORDS,
+  author       = {N. Zhang and K. Sun and D. Shands and W. Lou and Y.T. Hou},
+  title        = {{TruSpy}: Cache Side-Channel Information Leakage from the Secure World on {ARM} Devices},
+  howpublished = {Cryptology ePrint Archive, Report 2016/980},
+  year         = {2016},
+  url          = {http://eprint.iacr.org/2016/980},
+  addendum     = {
+    Set within the context of ARM TrustZone, this paper essentially shows the
+    NS bit does {\em not} prevent a non-secure attacker mounting cache-based 
+    attacks on a secure target.  Put another way, the NS bit prevents access,
+    but {\em not} eviction: the non-secure attacker can interrogate residency  
+    of content relating to the secure target, by using the approach of timing 
+    (controlled) eviction as per {\sc Prime+Probe}.  The paper harnesses this 
+    fact to mount concrete attacks on OpenSSL-based AES, via the L1 cache (so 
+    avoiding issues such as inclusivity), using an interrupt-based (vs. the 
+    x86 time stamp counter, for example) method for timing accesses.
+  }
+}
+
+@inproceedings{MASCAB:Hornby:16,
+  keywords     = KEYWORDS,
+  author       = {T. Hornby},
+  title        = {Side-Channel Attacks on Everyday Applications: Distinguishing Inputs with {\sc Flush+Reload}},
+  booktitle    = {BlackHat USA},
+  year         = {2016},
+  url          = {http://www.defuse.ca/side-channel-attacks-on-everyday-applications.htm},
+  addendum     = {
+    This paper shifts the target of side-channel attack from key recovery to
+    privacy; the main contribution is a {\sc Prime+Probe} style, access-driven 
+    cache attacks used as an input distinguisher (e.g., to determine web-site 
+    access by Links, or which PDF loaded by libpoppler, or whether a TrueCrypt 
+    volume contains a hidden volume).  This alone is interesting, but Section 
+    $3.1$ offers an additional contribution, (briefly) outlining an approach 
+    to automate selection of probe addresses.
+  }
+}
+
+@inproceedings{MASCAB:ABFPY:16,
+  keywords     = KEYWORDS,
+  author       = {T. Allan and B.B. Brumley and K. Falkner and J. van de Pol and Y. Yarom}, 
+  title        = {Amplifying Side Channels Through Performance Degradation},
+  booktitle    = {Annual Computer Security Applications Conference (ACSAC)},
+  pages        = {},
+  year         = {2016},
+  addendum     = {
+    There is a central idea in this paper, then used in a second step so as
+    to mount an (improved) attack on OpenSSL-based ECDSA.  Essentially, the 
+    idea is to execute a process dedicated to aggressively evicting content
+    associated with a target; this increases the latency of memory accesses
+    and thus execution time, so degrading performance.  The {\em reason} to
+    do is is that increased execution time thereby allows a higher-fidelity
+    measurement within, for example, {\sc Prime+Probe} style, access-driven 
+    cache attacks wrt. the LLC.
+  }
+}
+
+@inproceedings{MASCAB:GarBruYar:16,
+  keywords     = KEYWORDS,
+  author       = {C.P. Garc\'{i}a and B.B. Brumley and Y. Yarom},
+  title        = {Make Sure {DSA} Signing Exponentiations Really are Constant-Time},
+  booktitle    = {Computer and Communications Security (CCS)},
+  pages        = {1639--1650},
+  year         = {2016},
+  addendum     = {
+    An observation, namely identification of a bug, enables contributions of
+    this paper.  OpenSSL included a new flag to each multi-precision integer 
+    representation, indicating whether or not it is deemed security-critical 
+    (e.g., is an RSA private exponent); the flag is used to select either a
+    variable- or constant-time exponentiation implementation.  This property
+    {\em should} be propagated through arithmetic operations, but, it turns
+    out, is {\em not} due to a bug (or at least poor API design).  This fact 
+    is harnessed in an attack against OpenSSL DSA implementation, combining 
+    use of
+    a) performance degradation, 
+    b) a {\sc Flush+Reload} style, access-driven cache attack wrt. the LLC,
+       plus
+    c) a lattice-based key recovery phase;
+    the attack is applied both to TLS and SSH.
+  }
+}
+
+@inproceedings{MASCAB:GruSprMan:15,
+  keywords     = KEYWORDS,
+  title        = {Cache Template Attacks: Automating Attacks on Inclusive Last-Level Caches},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {897--912},
+  year         = {2015},
+  addendum     = {
+    In a sense, this paper generalises and adds some degree of automation to
+    {\sc Flush+Reload} attack style, access-driven cache attacks (as hinted
+    by the title, wrt. inclusive LLCs).  A central idea stems from DPA-style 
+    template attacks: the attack is in two phases, namely
+    1) a profiling (or characterisation) phase (Section $3.1$)
+       where, for each event of interest, {\sc Flush+Reload} is applied to 
+       each address in the (controlled) target; this yields a template wrt. 
+       the event, which is essentially a profile of related cache activity,
+       then
+    2) an exploitation                   phase (Section $3.2$)
+       where the real target is executed: {\sc Flush+Reload} is applied to 
+       each address, and the resulting profile compared (using a suitable
+       similarity metric) to the corpus of templates st. the event can be
+       identified.
+    The concept of an event is described in the abstract: it could be 
+    a) high-level, e.g., a key-press within some application, 
+       or 
+    b)  low-level, e.g., a table access,
+    for example.  The paper harnesses the concept to mount various concrete
+    attacks, e.g., on both Linux and Windows UI (Sections $5.1$ and $5.3$),
+    and AES as implemented by OpenSSL (Section $5.4$).
+  }
+} 
+
+@inproceedings{MASCAB:Brumley:15,
+  keywords     = KEYWORDS,
+  author       = {B.B. Brumley},
+  title        = {Cache Storage Attacks},
+  booktitle    = {Topics in Cryptology (CT-RSA)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 9048},
+  pages        = {22--34},
+  year         = {2015},
+  addendum     = {
+    This paper focuses first on a covert channel predicated on the NS bit in
+    ARM-based caches: based on the storage channel paradigm, the idea is for
+    a channel to be formed between a (insecure) sender and (secure) receiver
+    by
+    1) the receiver priming the cache with (insecure) content,
+    2) the sends evicts some of that content, say wrt. an address $x$, thus
+       replacing with with (secure) content of their own,
+    3) the receiver probes the cache: when they access address $x$ this is
+       disallowed, causes an interrupt and thus completes transmission.
+    This general approach is then translated into the side-channel setting,
+    where an access-driven attack using a similar principle is presented; an
+    advantage of this is the strong signal is exhibits (vs. use of timing to
+    interrogate residency), but a disadvantage seems to be the need to use
+    physical addresses since the probe stage need to specifically access $x$ 
+    (vs. some congruent $x'$) to violate the access permissions.
+  }
+}
+
+@inproceedings{MASCAB:YarFal:14,
+  keywords     = KEYWORDS,
+  author       = {Y. Yarom and K. Falkner},
+  title        = {{\sc Flush+Reload}: A High Resolution, Low Noise, {L3} Cache Side-channel Attack},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {719--732},
+  year         = {2014},
+  addendum     = {
+    This paper introduces the {\sc Flush+Reload} attack strategy: crucially,
+    this approach
+    a) targets the LLC (modulo issues such as inclusivity),
+       so
+    b) permits inter-core attacks st. an attack process executing on one 
+       core can attack a target process executing on another; this allows 
+       relaxation of previous restrictions on core co-residency, and thus
+       enables cross-VM attacks (modulo issues such as shared memory, via 
+       de-duplication).
+    The attack strategy could be viewed as a variant of {\sc Prime+Probe},
+    in the sense it assumes access to a shared memory region but uses the
+    x86-based {\em clflush} instruction to prime (i.e., {\em invalidate}) 
+    specific cache lines; Figure $4$ supports a detailed overview of the
+    attack process kernel, noting the need for memory fences to serialise
+    memory accesses (and the caveat wrt. using {\tt cpuid} instead, which
+    may in fact be virtualised).  Section $4$ applies the strategy to the
+    GnuPG implementation of RSA, probing addresses in modular squaring
+    and multiplication functions to destinguish the two and hence recover
+    bits of a $2048$-bit exponent based on which they are invoked.
+  }
+} 
+
+@inproceedings{MASCAB:TroOsvSha:10,
+  keywords     = KEYWORDS,
+  author       = {E. Tromer and D.A. Osvik and A. Shamir},
+  title        = {Efficient Cache Attacks on {AES}, and Countermeasures},
+  journal      = {Journal of Cryptology},
+  publisher    = {Springer-Verlag},
+  volume       = {23},
+  number       = {1},
+  pages        = {37--71},
+  year         = {2010},
+  addendum     = {
+    This full version of~\cite{MASCAB:OsvShaTro:06}, so appearing quite some
+    time afterwards, offers numerous seminal contributions.  For example, it
+    1) formalises terminology wrt. synchronous vs. asynchronous attacks,
+    2) introduces both the 
+       {\sc Evict+Time}  (Section $3.4$)
+       {\em and} 
+       {\sc Prime+Probe} (Section $3.5$)
+       attack strategies, applying variants of them to AES implementations
+       within OpenSSL and the Linux {\tt dm-crypt} disk encryption system;
+       both implementations depend on quasi-parallel execution (in this
+       case via x86-based HypherThreading), and target activity in the L1 
+       (and to a lesser extent L2, or at least not shared between core and
+       so not LLC) cache,
+    3) offers a detailed survey of potential countermeasures (Section 5),
+       and
+    4) makes several wider predictions and comments, such as the fact
+       ``bank collisions (e.g., in Athlon 64 processors) likewise cause timing to be affected by low address bits''.
+  }
+}
+
+@inproceedings{MASCAB:OsvShaTro:06,
+  keywords     = KEYWORDS,
+  author       = {D.A. Osvik and A. Shamir and E. Tromer},
+  title        = {Cache Attacks and Countermeasures: The Case of {AES}},
+  booktitle    = {Topics in Cryptology (CT-RSA)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 3860},
+  pages        = {1--20},
+  year         = {2005}
+}
+
+@unpublished{MASCAB:Percival:05,
+  keywords     = KEYWORDS,
+  author       = {C. Percival},
+  title        = {Cache Missing For Fun And Profit},
+  year         = {2005},
+  url          = {http://www.daemonology.net/papers/htt.pdf},
+  addendum     = {
+    This is a seminal paper, which 
+    1) introduces the {\sc Prime+Probe} attack strategy, targeting either 
+       L1 or L2 cache of a Pentium $4$ core using an attack process that
+       executes in quasi-parallel (via x86-based HypherThreading) with 
+       the target process,
+       and
+    2) applies this to the RSA implementation in OpenSSL; since this uses
+       the CRT and sliding window exponentiation, some effort is required
+       to perform key recovery (i.e., the attack recovers $\sim 300$ of 
+       $512$ bits of $p$ and $q$, so an approach is needed to recover the
+       rest via a post-processing phase).
+    This alone is important (contemporary attacks were against symmetric
+    targets such as block ciphers), but the paper also includes various
+    additional details of interest: a central example is the detailed 
+    attack process in Figure $1$ that
+    a) copes with influence of the prefetch system,
+    b) copes with latency of {\tt rdtsc} by artificially elongating the
+       critical path using extra, dependent instructions.
+  }
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={side,cache,destructive,data,trace}}
+
+@inproceedings{MASCAB:BHNS:10,
+  keywords     = KEYWORDS,
+  author       = {B.B. Brumley and R.M. Hakala and K. Nyberg and S. Sovio},
+  title        = {Consecutive {S-box} Lookups: A Timing Attack on {SNOW 3G}},
+  booktitle    = {Information and Communications Security (ICICS)}, 
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 6476},
+  pages        = {171--185},
+  year         = {2010}
+}
+
+@unpublished{MASCAB:ZhaWanZhe:09,
+  keywords     = KEYWORDS,
+  author       = {X.-J. Zhao and T. Wang and Y.-Y. Zheng},
+  title        = {Cache Timing Attacks on {Camellia} Block Cipher},
+  note         = {Cryptology ePrint Archive, Report 2009/354},
+  year         = {2009},
+  url          = {http://eprint.iacr.org/2009/354},
+}
+
+@inproceedings{MASCAB:LeaZenHaw:09,
+  keywords     = KEYWORDS,
+  author       = {G. Leander and E. Zenner and P. Hawkes},
+  title        = {Cache Timing Analysis of {LFSR}-based Stream Ciphers},
+  booktitle    = {Cryptography \& Coding},
+  publisher    = {Springer-Verlag LNCS 5921},
+  pages        = {433--445},
+  year         = {2009}
+}
+
+@inproceedings{MASCAB:Zenner:08,
+  keywords     = KEYWORDS,
+  author       = {E. Zenner},
+  title        = {A Cache Timing Analysis of {HC-256}},
+  booktitle    = {Selected Areas in Cryptography (SAC)}, 
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 5381},
+  pages        = {199--213},
+  year         = {2008},
+  addendum     = {
+    Perhaps more interesting than the attack on HC-256 in this paper, is the
+    fact that
+    1) it applies to a stream cipher, whereas other attacks focus either on
+       block ciphers (e.g., AES) or RSA almost exclusively; in a sense, the
+       paper extends the remit of micro-architectural attacks,
+    2) Section $5.2$ includes a discussion of security-by-design, i.e., the
+       idea of (re)designing a stream cipher to offer explicit by-design vs. 
+       after-the-fact, ``patched'' countermeasures,
+       and, perhaps most importantly,
+    3) Section $6$ generalises the attack model, allowing analysis of any
+       stream cipher; various other papers use~\cite{MASCAB:LeaZenHaw:09} or
+       extended~\cite{MASCAB:BHNS:10} it.
+  }
+}
+
+@inproceedings{MASCAB:AciKoc:06,
+  keywords     = KEYWORDS,
+  author       = {O. Ac\i{}i\c{c}mez and \c{C}.K. Ko\c{c}},
+  title        = {Trace-Driven Cache Attacks on {AES}},
+  booktitle    = {Information and Communications Security (ICS)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 4307},   
+  pages        = {112--121},
+  year         = {2006}
+}
+
+@inproceedings{MASCAB:TSSSM:03,
+  keywords     = KEYWORDS,
+  author       = {Y. Tsunoo and T. Saito and T. Suzaki and M. Shigeri and H. Miyauchi},
+  title        = {Cryptanalysis of {DES} Implemented on Computers with Cache},
+  booktitle    = {Cryptographic Hardware and Embedded Systems (CHES)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 2779}, 
+  pages        = {62--76}, 
+  year         = {2003},
+  addendum     = {
+    This is a seminal paper, in that it represents one of the first concrete
+    cache-based timing attack on a cryptographic primitive, namely optimised
+    DES (i.e., with wide look-up tables that include the permutations).  The
+    paper uses a $1$-round toy example (in Figure $1$) to explain the attack
+    strategy (Section $2$), which includes
+    1) an acquisition phase, using either the
+       a) non-elimination (or constructive) approach that uses evidence of
+          many cache hits   to infer   equality (upto cache line granularity)
+          of two S-box indices,
+       a)     elimination (or constructive) approach that uses evidence of
+          many cache misses to infer inequality (upto cache line granularity)
+          of two S-box indices,
+       then
+    2) a cryptanalytic post-processing phase, that uses the key difference 
+       produced by the acquisition phase to guide a constrained brute-force
+       search and thus perform key recovery.
+    This is then extended to full DES (Section $3$); the experiment reported
+    assumes a cold L1 cache (which is flushed before every DES invocation),
+    and uses the x86 {\tt rdtsc} to measure execution time inline with said
+    invocation (vs. with a separate attack and target process).
+  }
+}
+
+@inproceedings{MASCAB:TTMM:02,
+  keywords     = KEYWORDS,
+  author       = {Y. Tsunoo and E. Tsujihara and K. Minematsu and H. Miyauchi},
+  title        = {Cryptanalysis of Block Ciphers Implemented on Computers with Cache},
+  booktitle    = {International Symposium on Information Theory and Its Applications (ISITA)}, 
+  pages        = {803--806},
+  year         = {2002},
+  addendum     = {
+    Although the title does not suggest it, this paper presents an attack on
+    the MISTY block cipher.
+  }
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={side,cache,destructive,data,power}}
+
+@inproceedings{MASCAB:MorHin:15,
+  keywords     = KEYWORDS,
+  author       = {A. Moradi and G. Hinterw\"{a}lder},
+  title        = {Side-Channel Security Analysis of Ultra-Low-Power {FRAM}-Based {MCUs}},
+  booktitle    = {Constructive Side-Channel Analysis and Secure Design (COSADE)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 9064},
+  pages        = {239--254},
+  addendum     = {
+    Versus~\cite{MASCAB:BZBMP:05}, for instance, where the power consumption
+    of a cache is {\em simulated}, this paper presents some concrete results
+    for AES executed on a low-power micro-controller: Figure $5$ provides a
+    clear illustration of how cache hits and misses can be distinguished in 
+    a trace of power consumption, a fact then leveraged in a trace-driven
+    attack.
+  }
+}
+
+@inproceedings{MASCAB:FouTun:06,
+  keywords     = KEYWORDS,
+  author       = {J.J.A. Fournier and M. Tunstall},
+  title        = {Cache Based Power Analysis Attacks on {AES}},
+  booktitle    = {Australasian Conference on Information Security and Privacy (ACISP)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 4058},
+  pages        = {17--28},
+  year         = {2006},
+  addendum     = {
+    This paper presents two (theoretical): there is no experimental data for
+    either) attacks on AES, based on the assumption that the attacker could
+    monitor power consumption and hence cache behaviour of a target.  The
+    attacks target
+    1) look-ups to the pre-computed S-box within {\tt SubBytes},
+       and
+    2) look-ups to the pre-computed {\tt xtime} within {\tt MixColumns}.
+    Both could be characterised as trace-driven, and stem from the attacker
+    searching specific plaintext bytes: when a cache hit is observed, they
+    can form a relationship between known and unknown variables (i.e., the
+    plaintext and key material), and thus allow subsequent cryptanalysis.
+  }
+}
+
+@inproceedings{MASCAB:BZBMP:05,
+  keywords     = KEYWORDS,
+  author       = {G. Bertoni and V. Zaccaria and L. Breveglieri and M. Monchiero and G. Palermo},
+  title        = {{AES} power attack based on induced cache miss and countermeasure},
+  booktitle    = {Information Technology: Coding and Computing (ITCC)},
+  pages        = {586--591},
+  year         = {2005},
+  addendum     = {
+    This paper mounts a (sort of) trace-driven cache attack on AES: the power
+    consumption of a target device is used to distinguish between cache hits 
+    and misses, yielding said trace.  That said, the strategy, namely
+    1) execute AES to prime the cache with S-box content,
+    2) read $i$-th element of an array whose base address mirrors the S-box,
+       thus evicting the $i$-th S-box entry,
+    3) (re)execute AES, and infer use of S-box element $i$ iff. a cache miss
+       is observed,
+    has a distinctly access-driven flavour: the attack model assumes a user
+    mode attacker, and kernel mode cryptographic service as the target.  The
+    attack is validated using simulation (via the MIPS-based SimpleScalar
+    framework).
+  }
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={side,cache,destructive,instruction}}
+
+@inproceedings{MASCAB:AciBruGra:10,
+  keywords     = KEYWORDS,
+  author       = {O. Ac\i{}i\c{c}mez and B. Brumley and P. Grabher},
+  title        = {New Results on Instruction Cache Attacks},
+  booktitle    = {Cryptographic Hardware and Embedded Systems (CHES)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 6225}, 
+  pages        = {110--124}, 
+  year         = {2010}
+}
+
+@inproceedings{MASCAB:AciSch:08,
+  keywords     = KEYWORDS,
+  author       = {O. Ac\i{}i\c{c}mez and W. Schindler},
+  title        = {A Vulnerability in {RSA} Implementations Due to Instruction Cache Analysis and Its Demonstration on {OpenSSL}},
+  booktitle    = {Topics in Cryptology (CT-RSA)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 4964}, 
+  pages        = {256--273}, 
+  year         = {2008}
+}
+
+@inproceedings{MASCAB:Aciicmez:07b,
+  keywords     = KEYWORDS,
+  author       = {O. Ac\i{}i\c{c}mez},
+  title        = {Yet Another MicroArchitectural Attack: Exploiting {I}-cache},
+  booktitle    = {ACM Workshop on Computer Security Architecture},
+  pages        = {11--18},
+  year         = {2007}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={side,cache,constructive,hardware}}
+
+@article{MASCAB:KASK:08,
+  keywords     = KEYWORDS,
+  author       = {G. Keramidas and A. Antonopoulos and D. N. Serpanos and S. Kaxiras},
+  title        = {Non deterministic caches: A simple and effective defense against side channel attacks},
+  booktitle    = {Design Automation for Embedded Systems}, 
+  publisher    = {Springer-Verlag},
+  volume       = {12},
+  number       = {3}, 
+  pages        = {221--230}, 
+  year         = {2008},
+  addendum     = {
+    This paper repurposes an existing idea, namely cache decay (or, simply,
+    timed cache line invalidation), as a countermeasure against cache-based
+    side-channel attack; originally designed as a mechanism to reduce power
+    consumption, a per line counter disables (and so invalidates) said line 
+    once a period of inactivity (the decay interval) passes.  The proposal
+    is to reset the counters with a random value, which induces a level of
+    non-deterministic behaviour due to randomisation of the decay interval
+    and hence triggered invalidation.  This noise wrt. cache behaviour acts
+    to degrade the validity of inferences based on a given acquisition (e.g., 
+    that longer execution time implies more cache misses {\em solely} due to 
+    algorithmic behaviour).
+  }
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={side,cache,constructive,software}}
+
+@inproceedings{MASCAB:ZouReiZan:16,
+  keywords     = KEYWORDS,
+  author       = {Z. Zhou and M.K. Reiter and Y. Zhang},
+  title        = {A software approach to defeating side channels in last-level caches},
+  booktitle    = {Computer and Communications Security (CCS)},
+  pages        = {871--882},
+  year         = {2016},
+  addendum     = {
+    The paper presents {\sc CacheBar}, a software-only countermeasure against
+    LLC-based attacks: it basically implements security-aware page management.
+    To prevent {\sc Flush+Reload} attacks it implements a copy-on-{\em access}
+    policy to (just-in-time) disallow sharing of pages (which enable such an
+    attack strategy); there is an option to reshare (or deduplicate) pages if
+    access to them is temporally non-local (i.e., non-indicative of attack).
+    To prevent {\sc Prime+Probe} attacks it implements a mechanism to limit
+    the number of lines per set an attacker can access: this places a limit
+    on the ability to observe activity in the set.
+  }
+}
+
+@inproceedings{MASCAB:LGYMRHL:16,
+  keywords     = KEYWORDS,
+  author       = {F. Liu and Q. Ge and Y. Yarom and F. Mckeen and C. Rozas and G. Heiser and R.B. Lee},
+  title        = {{CATalyst}: Defeating last-level cache side channel attacks in cloud computing},
+  booktitle    = {High Performance Computer Architecture (HPCA)},
+  pages        = {406--418},
+  year         = {2016},
+  addendum     = {
+    This paper presents {\sc CATalyst}, a software system that harnesses the
+    so-called Cache Allocation Technology (CAT) as a countermeasure against
+    LLC-based attack.  Intel market CAT as a performance-oriented technology
+    that protects selected LLC content from eviction: some number of Classes 
+    of Service (COS) are identified and used to tagged content, which cannot 
+    then be evicted by a different COS.  In practice, this means any content 
+    in the LLC wrt. some performance-critical web-server, for example, could
+    be protected against eviction by other, non-critical processes.  
+    
+    CATalyst essentially re-purposes the CAT hardware mechanism, using it as 
+    a security-oriented technology.  Focusing on cross-VM attacks using the
+    LLC, it offers access to a set of secure pages that are ``pinned'' (or 
+    locked) in a managed cache partition (as supported by CAT).  Such pages
+    are is protected wrt. contention, meaning a security-critical COS can be
+    protected against access-driven cache attacks (e.g., {\sc Flush+Reload}) 
+    that interrogate the residency of content by timing (controlled) eviction.
+  }
+}
+
+@inproceedings{MASCAB:ZhaRei:13,
+  keywords     = KEYWORDS,
+  author       = {Y. Zhang and M. K. Reiter},
+  title        = {D\"{u}ppel: retrofitting commodity operating systems to mitigate cache side channels in the cloud},
+  booktitle    = {Computer and Communications Security (CCS)},
+  pages        = {827--838},
+  year         = {2013},
+  addendum     = {
+    This paper presents {\sc D\"{u}ppel}, which automatically flushes content
+    security-critical content from the cache; the mechanism focuses on L1 and 
+    L2 caches, vs. LLC for example, and realised within the kernel.  The idea
+    of cache flushing as a countermeasure against attack is not new: doing so
+    during a context switch means content relating to some target process is
+    always evicted before an attacker executes, and therefore no information 
+    can be leaked by the former to the latter via the cache.  
+
+    However, the overhead of flushing is significant; this suggests value in 
+    a more ``intelligent'' policy for doing so, which {\sc D\"{u}ppel} offers.  
+    More specifically, it
+    a) controls the frequency of flushes st. they can be avoided if there is
+       no chance of leakage anyway,
+    b) allows processes to be marked as security-critical (using an entry in
+       the file system to communicate between user- and kernel-space), which 
+       then acts as a hint as to whether a flush is required or not.
+  }
+}
+
+@article{MASCAB:Gueron:12,
+  keywords     = KEYWORDS,
+  author       = {S. Gueron},
+  title        = {Efficient software implementations of modular exponentiation},
+  journal      = {Journal of Cryptographic Engineering},
+  publisher    = {Springer-Verlag},
+  volume       = {2},
+  number       = {1},
+  pages        = {31--43},
+  year         = {2012},
+  addendum     = {
+    See Section $7$  re. scatter-gather technique for layout of pre-computed
+    values in modular exponentiation (cf. RSA).
+  }
+}
+
+@inproceedings{MASCAB:GGOFWD:09,
+  keywords     = KEYWORDS,
+  author       = {V. Gopal and J. Guilford and E. Ozturk and W. Feghali and G. Wolrich and M. Dixon},
+  title        = {Fast and constant-time implementation of modular exponentiation},
+  booktitle    = {Reliable Distributed Systems},
+  year         = {2009},
+  url          = {http://www.cse.buffalo.edu/srds2009/escs2009_submission_Gopal.pdf},
+  addendum     = {
+    See Section $IV$ re. scatter-gather technique for layout of pre-computed
+    values in modular exponentiation (cf. RSA).
+  }
+}
+
+@inproceedings{MASCAB:BanRiz:08,
+  keywords     = KEYWORDS,
+  author       = {J. Bani and S.S. Rizvi},
+  title        = {Minimizing Cache Timing Attack Using {D}ynamic {C}ache {F}lushing ({DCF}) Algorithm},
+  booktitle    = {Wireless Telecommunications Symposium (WTS)},
+  pages        = {399--404},
+  year         = {2008},
+  addendum     = {
+    As outlined in Figure $10$ the main proposal in the paper is the idea of
+    randomly flushing the cache, which a) introduces temporal jitter to some
+    extent, but also b) disrupts any attempt to correlate execution time or
+    cache state with key material (i.e., an attack).
+  }
+}
+
+@techreport{MASCAB:ErlAba:07,
+  keywords     = KEYWORDS,
+  author       = {\'{U}. Erlingsson and M. Abadi},
+  title        = {Operating system protection against side-channel attacks that exploit memory latency},
+  institution  = {Microsoft},
+  number       = {MSR-TR-2007-117},
+  year         = {2007},
+  url          = {http://www.microsoft.com/en-us/research/publication/operating-system-protection-against-side-channel-attacks-that-exploit-memory-latency},
+  addendum     = {
+    This paper considers countermeasures against cache-based attack, under the
+    general assumption that processes will explicitly request (via an API akin
+    to {\tt malloc}) and then use a protected ``stealth'' region of memory.  A
+    set of schemes to manage such regions, thereby (supposedly) preventing an
+    attack: these are
+    1) partition the region, st. {\em only} addresses from the stealth region
+       can be resident in a given cache line and/or set,
+    2) enforce a cache flush when context switching a process that has used
+       a stealth region (st. there may be security-critical content resident
+       in the cache),
+    3) pre-load (or ``warm'') the cache with content from the stealth region
+       when context switching.
+  }
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={side,cache,misc}}
+
+@techreport{MASCAB:CanLauSez:06,
+  keywords     = KEYWORDS,
+  author       = {A. Canteaut and C. Lauradoux and A. Seznec},
+  title        = {Understanding cache attacks},
+  institution  = {Institut National de Recherche en Informatique et en Automatique (INRIA)},
+  number       = {RR-5881},
+  year         = {2006}
+}
+
+@inproceedings{MASCAB:WanLee:06,
+  keywords     = KEYWORDS,
+  author       = {Z. Wang and R.B. Lee},
+  title        = {Covert and Side Channels Due to Processor Architecture},
+  booktitle    = {Annual Computer Security Applications Conference (ACSAC)},
+  pages        = {473--482},
+  year         = {2006},
+  addendum     = {
+    In a short space, this paper includes quite a few contributions: it
+    1) introduces a source of micro-architectural leakage, namely the fact
+       contention exists between hardware threads (executing on an SMT-based 
+       core) wrt. the limited number of shared functional units (e.g., the
+       integer multiplier, which would be used by an RSA implementation, for
+       example),
+    2) introduces a source of micro-architectural leakage, namely the fact
+       that certain forms of speculative execution (per IA-64, or Itanium)
+       can be used to probe the state of a cache, for example,
+    3) proposes the concept of selective partitioning (of shared resources;
+       the idea is to selectively make them not shared) as a countermeasure 
+       against associated attacks, 
+       and
+    4) proposes the RPCache design: the central idea is to specify (using a 
+       dedicated register) a per-set permutation, which is basically used to 
+       randomise the mapping between address and set; the privilege level one
+       requires to access the register, plus the randomising effect, both act 
+       to complicate attacks (e.g., due to additional noise, cf. ARM random 
+       replacement policy).
+  }
+}
+
+% =============================================================================
+@STRING{KEYWORDS={side,arith,destructive}}
+
+@inproceedings{MASCAB:AKMJLS:15,
+  keywords     = KEYWORDS,
+  author       = {M. Andrysco and D. Kohlbrenner and K. Mowery and R. Jhala and S. Lerner and H. Shacham},
+  title        = {On Subnormal Floating Point and Abnormal Timing},
+  booktitle    = {IEEE Symposium on Security \& Privicy (S\&P)},
+  pages        = {623--639},
+  year         = {2015},
+  addendum     = {
+    IEEE floating point uses a normalised representation; the mantissa will
+    be scaled st. a binary point appears after the most-significant $1$ bit,
+    then represented without said bit (which is then implicit).  A class of
+    subnormal (or denormal) representations relaxes this, however, avoiding 
+    normalisation st. the implicit bit is $0$.  The values represented can
+    be closer to zero as a result.  This paper targets said special-case,
+    1) noting that arithmetic using them subnormal representations results
+       in (much) longer latency,
+    2) harnessing the resulting data-dependent execution time to mount a
+       side-channel attack on Firefox (under the pixel stealing model: the
+       idea that an attacker web-page recovers information from a target
+       web-page that should be isolated),
+       and
+    3) outlining a (carefully designed) countermeasure, namely the library
+       libfixedtimefixedpoint, that ``patches'' floating point operations
+       with constant-time, fixed point analogues.
+  }
+}
+
+@inproceedings{MASCAB:GEPT:09,
+  keywords     = KEYWORDS,
+  author       = {J. Gro{\ss}sch\"{a}dl and E. Oswald and D. Page and M. Tunstall},
+  title        = {Side-Channel Analysis of Cryptographic Software via Early-Terminating Multiplications},
+  booktitle    = {Information, Security and Cryptology (ICISC)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 5984},
+  pages        = {176--192},
+  year         = {2009},
+  addendum     = {
+    \cite{MASCAB:SchWhi:98} explains that data-dependent execution time can 
+    stem from multiplier hardware that supports early-termination.  This is
+    an optimisation where using a multiplier (vs. multiplicand) operand of 
+    a certain form implies lower latency than in general (i.e., when using 
+    a random multiplier operand).  The ARM7TMI includes such hardware, st.
+    a multiplier operand with more contiguous MSBs equal to zero will imply
+    lower latency (ranging between $2$ and $5$ clock cycles overall).  This
+    paper looks at this concrete platform, and
+    1) presents evidence the early-termination behaviour can be observed in
+       a trace of power consumption (cf. Figure $1$),
+    2) mounts a range of attacks on cryptographic primitives based on this
+       fact (see Section $3$),
+       and
+    3) presents a countermeasure (see Section $4$) that ``patches'' each
+       multiplication instruction with a longer instruction sequence which
+       is constant-time irrespective of the multiplier operand.
+  }
+}
+
+@inproceedings{MASCAB:AciSei:07,
+  keywords     = KEYWORDS,
+  author       = {O. Ac\i{}i\c{c}mez and J.-P. Seifert},
+  title        = {Cheap Hardware Parallelism Implies Cheap Security},
+  booktitle    = {Fault Diagnosis and Tolerance in Cryptography (FDTC)},
+  pages        = {80--91},
+  year         = {2007},
+  addendum     = {
+    To manage the issue of scale, SMT-based processor cores multiplex some 
+    (smaller) number of functional (or execution) units between a (larger)
+    number of hardware-supported threads executed in quasi-parallel; when 
+    a complementary instruction mix results (e.g., from composition of one 
+    compute-bound and one memory-bound thread), there is little contention.
+    This paper notices the execution units are a shared micro-architectural,
+    albeit one that does not retain state (cf. a cache), and, based on this
+    fact, mounts an attack on RSA as implemented in OpenSSL: the basic idea
+    is that if an attack process saturates the multiplier, timing execution
+    of issued multiplication instructions, it will notice variation iff. a
+    target process attempts concurrent use of the multiplier.  Modulo some
+    issues such as synchronisation and noise inherent in similar strategies
+    for cache-based attack, this allows the attacker to recover bits of the
+    exponent by distinguishing between multi-precision square and multiply 
+    operations (which perform different limb-wise multiplications, and so
+    make differing use of the associated execution unit).  As an aside, the 
+    paper also gives some evidence that a longer exponent makes the attack
+    easier (see also~\cite{MASCAB:Walter:03}).
+  }
+}
+
+@inproceedings{MASCAB:WalSam:05,
+  keywords     = KEYWORDS,
+  author       = {C.D. Walter and D. Samyde},
+  title        = {Data dependent power use in multipliers},
+  booktitle    = {IEEE Symposium on Computer Arithmetic (ARITH)}, 
+  pages        = {4--12}, 
+  year         = {2005},
+  addendum     = {
+    Depending on the precise definition, this paper could be deemed  at the 
+    periphery of micro-architectural attacks: it focuses on the switching 
+    activity of multipliers, and so aligns more with general power analysis 
+    (e.g., DPA) attacks.  However, in doing so it formulates a model so as
+    to assess a variety of multiplier designs (which could be deemed part 
+    of a micro-architecture).
+  }
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={side,arith,constructive,hardware}}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={side,arith,constructive,software}}
+
+@unpublished{MASCAB:BenHamouda:11,
+  keywords     = KEYWORDS,
+  author       = {F. Ben Hamouda},
+  title        = {Exploration of efficiency and side-channel security of different implementations of {RSA}},
+  year         = {2011},
+  url          = {http://www.normalesup.org/~fbenhamo/files/stage2011/report.pdf},
+  addendum     = {
+    Figure $E.1$ gives a more efficient, constant-time instruction sequence 
+    for multiplication (vs.~\cite{MASCAB:GEPT:09}) on the ARM7TDMI (or some
+    equivalent with a similar early-terminating multiplier). 
+  }
+}
+
+% =============================================================================
+@STRING{KEYWORDS={side,misc,destructive}}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={side,misc,constructive,hardware}}
+
+@inproceedings{MASCAB:ZonYen:16,
+  keywords     = KEYWORDS,
+  author       = {A.D. Zonenberg and B. Yener},
+  title        = {{Antikernel}: A Decentralized Secure Hardware-Software Operating System Architecture},
+  booktitle    = {Cryptographic Hardware and Embedded Systems (CHES)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 9813}, 
+  pages        = {237-256}, 
+  year         = {2016},
+  addendum     = {
+    This paper presents a kernel design paradigm (the antikernel), wherein
+    traditional kernel responsibilities are distributed and hence isolated: 
+    all interaction between kernel sub-systems is via message passing.  To
+    support this, it introduces a hardware implementation (named SARATOGA)
+    with a MIPS-based core that allows hardware multi-threading; the cores
+    are connected via a NoC.  The paper is a good example of by-design 
+    security against micro-architectural attacks, in the sense
+    1) although implying a performance impact, the NoC is deterministic st.
+       ``no traffic sent by any other host can ever impact the ability of another to communicate and thus there are no timing/resource exhaustion side channels'',
+    2) the L1 cache is essentially partitioned on a thread basis: each of
+       the threads accesses a region of the cache whose separation is
+       enforced in hardware.
+  }
+}
+
+@techreport{MASCAB:LiuMcG:09,
+  keywords     = KEYWORDS,
+  author       = {I. Liu and D. McGrogan},
+  title        = {Elimination of Side Channel attacks on a Precision Timed Architecture},
+  institution  = {Electrical Engineering and Computer Sciences, U.C. Berkley},
+  number       = {EECS-2009-15},
+  year         = {2009},
+  addendum     = {
+    This paper analyses the PRecision Timed Architecture (PRET) as a means
+    of preventing side-channel attack; the PRET processor core is designed 
+    for real-time systems, and aims at {\em predictable} performance.  It
+    a) uses hardware-supported SMT, with per-thread scratch-pad memories
+       ensuring inter-thread isolation (e.g., wrt. cache behaviour),
+       and, perhaps more importantly,
+    b) includes a notion of programmer-specified deadlines: an instruction
+       can be annotated with a deadline (e.g., ``this must always take $x$ 
+       cycles''), which is enforced by the core during execution.
+    Although the latter implies a {\em stall} for some number of cycles to
+    meet the deadline (which may be observable via power analysis), it can
+    be harnessed as a way to produce constant-time execution; all details 
+    aside, one could view this as a form of transparency and predictability
+    wrt. execution time (stemming from the real-time use-case) not evident 
+    in many other cores and/or ISAs.
+  }
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={side,misc,constructive,software}}
+
+@article{MASCAB:BraJanBon:15,
+  keywords     = KEYWORDS,
+  author       = {B.A. Braun and S. Jana and D. Boneh},
+  title        = {Robust and Efficient Elimination of Cache and Timing Side Channels},
+  journal      = {CoRR},
+  volume       = {abs/1506.00189},
+  year         = {2015},
+  url          = {http://arxiv.org/abs/1506.00189},
+  addendum     = {
+    The use of constant-time implementation techniques is a generic approach
+    to mitigation of time-driven side-channel attacks (which include selected 
+    cache-based attacks as a subset); irrespective of security-critical used,
+    this hiding countermeasure forces the execution time of a target to be 
+    constant and thus prevents leakage of the former via observation of the
+    latter.  Realisation of this approach can be difficult; solutions can be 
+    platform-specific and fragile wrt. compilation and assembly steps, or 
+    minor variations in micro-architecture.
+
+    This paper takes a different approach, applying the countermeasure at a
+    higher level: at a fine-grained level, guided by programmer annotation
+    of source code, the {\em kernel} will automatically
+    1) intelligently pad the execution time of processes to prevent leakage; 
+       this needs some care, but essentially forces the worse-case execution 
+       time for each process,
+    2) enforce isolation wrt. shared micro-architectural resources, e.g.,
+       using cache flushing and a form of page colouring.
+  }
+}
+
+% =============================================================================
