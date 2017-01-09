@@ -627,6 +627,35 @@
   }
 } 
 
+@inproceedings{MASCAB:GulBanKre:11,
+  keywords     = KEYWORDS,
+  author       = {D. Gullasch and E. Bangerter and S. Krenn},
+  title        = {Cache Games -- Bringing Access-Based Cache Attacks on {AES} to Practice},
+  booktitle    = {IEEE Symposium on Security \& Privacy (S\&P)},
+  pages        = {490--505}, 
+  year         = {2011},
+  addendum     = {
+    This paper extends the state-of-the-art in access-driven cache attacks in
+    several ways.  In particular, it
+    a) introduces a new attack strategy, which is {\sc Flush+Reload}-esque in
+       the sense it uses a combination of {\tt clflush} and (timed) access to
+       memory, but targets the L1 cache,
+    b) makes use of a form of performance degradation, forcing the target to
+       execute for an abnormally short time quantum: by (ab)using the Linux
+       CFS, the attack process forces this behaviour so as to isolate as few
+       as a single memory access by the target and so obtain very ``clean''
+       samples.
+    The paper provides some additional contributions, among which are use of
+    a neural network in order to combat the effect of noise.  In combination,
+    the performance degradation and neural network approaches mean the attack
+    can succeed in a totally asynchronous setting: this improves over
+    {\sc Evict+Time}
+    {\em and} 
+    {\sc Prime+Probe}
+    per~\cite{MASCAB:TroOsvSha:10}.
+  }
+}
+
 @inproceedings{MASCAB:TroOsvSha:10,
   keywords     = KEYWORDS,
   author       = {E. Tromer and D.A. Osvik and A. Shamir},
@@ -1089,6 +1118,42 @@
 
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={side,cache,misc}}
+
+@article{MASCAB:GeYarHei:16,
+  keywords     = KEYWORDS,
+  author       = {Q. Ge and Y. Yarom and G. Heiser},
+  title        = {Do hardware cache flushing operations actually meet our expectations?},
+  journal      = {CoRR},
+  volume       = {abs/1612.04474},
+  year         = {2016},
+  url          = {http://arxiv.org/abs/1612.04474},
+  addendum     = {
+    Provided the execution of target and attack processes do not overlap, a
+    clean countermeasure is to flush all micro-architectural state during a
+    context switch: if the (new) dispatched process begins execution using
+    no state associated with the (old) descheduled process, there can be no
+    leakage between the two.  This paper examines such an approach, thereby
+    offering an analysis of how effective if can be given support available
+    in an underlying platform (ARM and x86 specifically); although the title 
+    does not suggest it, the paper examines data and instruction caches plus
+    other cache-like structures such as the branch target buffer.  
+
+    The results are fairly pessimistic, in the sense
+    a) micro-architectural resources exist that cannot be directly flushed
+       (e.g., ARM and x86 prefetchers) because there is no support in the
+       ISA to do so,
+    b) where said resources {\em can} be directly flushed, doing so can be
+       complicated by the form of support in the ISA,
+       and
+    c) even when the resources {\em are} flushed, bandwidth-based channel
+       evaluation {\em still} suggests strong leakage: this implies there
+       is some deficiency in the flushing mechanism, and/or {\em another}
+       mechanism that still leaks similar information.
+    One central conclusion is that platform vendors {\em at least} need to
+    provide more transparency for, and, ideally, better mechanisms in order
+    to support robust countermeasures.
+  }
+}
 
 @techreport{MASCAB:CanLauSez:06,
   keywords     = KEYWORDS,
