@@ -99,7 +99,8 @@ to navigate the sub-field, it seems likely to be of use to others as well.
   |     +- survey
   |     +- book
   |     +- thesis
-  |     +- software
+  |     +- implementation
+  |     +- reverse
   |
   +- 2. covert channels
   |     |

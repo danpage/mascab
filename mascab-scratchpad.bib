@@ -94,6 +94,53 @@
 }
 
 % =============================================================================
+@STRING{KEYWORDS={misc,reverse}}
+
+@inproceedings{MASCAB:PGMSM:16,
+  author       = {P. Pessl and D. Gruss and C. Maurice and M. Schwarz and S. Mangard},
+  title        = {{DRAMA}: Exploiting {DRAM} Addressing for Cross-{CPU} Attacks},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {565--581},
+  year         = {2016}
+}
+
+@unpublished{MASCAB:YGLLH:15,
+  author       = {Y. Yarom and Q. Ge and F. Liu and R.B. Lee and G. Heiser},
+  title        = {Mapping the Intel Last-Level Cache},
+  howpublished = {Cryptology ePrint Archive, Report 2015/905},
+  year         = {2015},
+  url          = {http://eprint.iacr.org/2015/905}
+}
+
+@inproceedings{MASCAB:MSNHF:15,
+  author       = {C. Maurice and N. Le Scouarnec and C. Neumann and O. Heen and A. Francillon},
+  title        = {Reverse Engineering {Intel} Last-Level Cache Complex Addressing Using Performance Counters},
+  booktitle    = {Recent Advances in Intrusion Detection (RAID)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 9404},
+  pages        = {48--65},
+  year         = {2015}
+}
+
+@inproceedings{MASCAB:UzeMil:09,
+  author       = {V. Uzelac and A. Milenkovic},
+  title        = {Experiment flows and microbenchmarks for reverse engineering of branch predictor structures},
+  booktitle    = {IEEE International Symposium on Performance Analysis of Systems and Software (ISPASS)},
+  pages        = {207--217},
+  year         = {2009}
+}
+
+@article{MASCAB:MilMilKul:04,
+  author       = {M. Milenkovic and A. Milenkovic and J. Kulick},
+  title        = {Microbenchmarks for Determining Branch Predictor Organization},
+  journal      = {Software -- Practice \& Experience},
+  volume       = {34},
+  number       = {5},
+  pages        = {465--487},
+  year         = {2004}
+} 
+
+% =============================================================================
 @STRING{KEYWORDS={covert,destructive}}
 
 @unpublished{MASCAB:IGES:16,
@@ -102,6 +149,14 @@
   howpublished = {Cryptology ePrint Archive, Report 2016/284},
   year         = {2016},
   url          = {http://eprint.iacr.org/2016/284}
+}
+
+@inproceedings{MASCAB:EvtPon:16,
+  author       = {D. Evtyushkin and D. Ponomarev},
+  title        = {Covert Channels Through Random Number Generator: Mechanisms, Capacity Estimation and Mitigations},
+  booktitle    = {ACM Conference on Computer and Communications Security (CCS)},
+  pages        = {843--857},
+  year         = {2016}
 }
 
 @inproceedings{MASCAB:EvtPonAbu:15,
@@ -145,6 +200,14 @@
   pages        = {313--328},
   year         = {2011}
 }
+
+@inproceedings{MASCAB:LGASSK:09,
+  author       = {Y. Liu and D. Ghosal and F. Armknecht and A.-R. Sadeghi and S. Schulz and S. Katzenbeisser},
+  title        = {Hide and Seek in Time: Robust Covert Timing Channels},
+  booktitle    = {European Conference on Research in Computer Security (ESORICS)},
+  pages        = {120--135},
+  year         = {2009}
+} 
 
 % =============================================================================
 @STRING{KEYWORDS={covert,constructive}}
@@ -261,6 +324,14 @@
 % =============================================================================
 @STRING{KEYWORDS={side,branch,destructive}}
 
+@inproceedings{MASCAB:EvtPonAbu:16,
+  author       = {D. Evtyushkin and D.V. Ponomarev and N.B. Abu-Ghazaleh},
+  title        = {Jump over {ASLR}: Attacking branch predictors to bypass {ASLR}},
+  booktitle    = {IEEE/ACM International Symposium on Microarchitecture (MICRO)},
+  pages        = {1--13},
+  year         = {2016}
+} 
+
 @unpublished{MASCAB:AciKocSei:07,
   author       = {O. Ac\i{}i\c{c}mez and \c{C}.K. Ko\c{c} and J.-P. Seifert},
   title        = {On the Power of Simple Branch Prediction Analysis},
@@ -351,16 +422,6 @@
   booktitle    = {IEEE Symposium on Security \& Privacy (S\&P)},
   pages        = {38--55}, 
   year         = {2016}
-}
-
-@inproceedings{MASCAB:MSNHF:14,
-  author       = {C. Maurice and N. Le Scouarnec and C. Neumann and O. Heen and A. Francillon},
-  title        = {Reverse Engineering {Intel} Last-Level Cache Complex Addressing Using Performance Counters},
-  booktitle    = {Recent Advances in Intrusion Detection (RAID)},
-  publisher    = {Springer-Verlag},
-  series       = {LNCS 9404},
-  pages        = {48--65},
-  year         = {2015}
 }
 
 @inproceedings{MASCAB:LYGHL:15,
@@ -611,6 +672,14 @@
   year         = {2010}
 }
 
+@unpublished{MASCAB:ZhaWan:10,
+  author       = {X.-J. Zhao and T. Wang},
+  title        = {Improved Cache Trace Attack on {AES} and {CLEFIA} by Considering Cache Miss and {S-box} Misalignment},
+  howpublished = {Cryptology ePrint Archive, Report 2010/056},
+  year         = {2010},
+  url          = {http://eprint.iacr.org/2010/056},
+}
+
 @inproceedings{MASCAB:BruHak:09,
   author       = {B.B. Brumley and R. Hakala},
   title        = {Cache-Timing Template Attacks},
@@ -727,14 +796,6 @@
   howpublished = {Cryptology ePrint Archive, Report 2016/002},
   year         = {2016},
   url          = {http://eprint.iacr.org/2016/002}
-}
-
-@unpublished{MASCAB:YGLLH:15,
-  author       = {Y. Yarom and Q. Ge and F. Liu and R.B. Lee and G. Heiser},
-  title        = {Mapping the Intel Last-Level Cache},
-  howpublished = {Cryptology ePrint Archive, Report 2015/905},
-  year         = {2015},
-  url          = {http://eprint.iacr.org/2015/905}
 }
 
 @unpublished{MASCAB:IGIES:15,
@@ -861,7 +922,7 @@
 @inproceedings{MASCAB:WanLee:08,
   author       = {Z. Wang and R.B. Lee},
   title        = {A Novel Cache Architecture with Enhanced Performance and Security},
-  booktitle    = {ACM/IEEE International Symposium on In Microarchitecture (MICRO)}, 
+  booktitle    = {ACM/IEEE International Symposium on Microarchitecture (MICRO)}, 
   pages        = {83--93}, 
   year         = {2008}
 }
@@ -914,7 +975,7 @@
 @inproceedings {MASCAB:DFKMR:13,
   author       = {G. Doychev and D. Feld and B. Kopf and L. Mauborgne and J. Reineke},
   title        = {{CacheAudit}: A Tool for the Static Analysis of Cache Side Channels},
-  booktitle    = {Presented as part of the 22nd USENIX Security Symposium (USENIX Security 13)},
+  booktitle    = {USENIX Security Symposium},
   pages        = {431--446},
   year         = {2013}
 }
