@@ -1,5 +1,5 @@
 % =============================================================================
-@STRING{KEYWORDS={misc,history}}
+@STRING{KEYWORDS={misc/history}}
 
 @inproceedings{MASCAB:BerLanSch:12,
   keywords     = KEYWORDS,
@@ -116,7 +116,7 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={misc,patent}}
+@STRING{KEYWORDS={misc/patent}}
 
 @unpublished{MASCAB:MulReb:13,
   keywords     = KEYWORDS,
@@ -199,7 +199,7 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={misc,survey}}
+@STRING{KEYWORDS={misc/survey}}
 
 @misc{MASCAB:Szefer:16,
   keywords     = KEYWORDS,
@@ -239,7 +239,7 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={misc,book}}
+@STRING{KEYWORDS={misc/book}}
 
 @book{MASCAB:RebMukBha:15,
   keywords     = KEYWORDS,
@@ -262,7 +262,7 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={misc,thesis}}
+@STRING{KEYWORDS={misc/thesis}}
 
 @phdthesis{MASCAB:Maurice:15,
   keywords     = KEYWORDS,  
@@ -333,7 +333,7 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={misc,implementation}}
+@STRING{KEYWORDS={misc/software}}
 
 @unpublished{MASCAB:Yarom:XX,
   keywords     = KEYWORDS,
@@ -350,7 +350,7 @@
 }
 
 % =============================================================================
-@STRING{KEYWORDS={side,cache,destructive,data,access}}
+@STRING{KEYWORDS={side/cache/destructive/data/access}}
 
 @inproceedings{MASCAB:YarGenHen:16,
   keywords     = KEYWORDS,
@@ -735,7 +735,7 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side,cache,destructive,data,trace}}
+@STRING{KEYWORDS={side/cache/destructive/data/trace}}
 
 @inproceedings{MASCAB:BHNS:10,
   keywords     = KEYWORDS,
@@ -850,7 +850,7 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side,cache,destructive,data,power}}
+@STRING{KEYWORDS={side/cache/destructive/data/power}}
 
 @inproceedings{MASCAB:MorHin:15,
   keywords     = KEYWORDS,
@@ -918,7 +918,7 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side,cache,destructive,instruction}}
+@STRING{KEYWORDS={side/cache/destructive/instruction}}
 
 @inproceedings{MASCAB:AciBruGra:10,
   keywords     = KEYWORDS,
@@ -952,7 +952,7 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side,cache,constructive,hardware}}
+@STRING{KEYWORDS={side/cache/constructive/hardware}}
 
 @article{MASCAB:KASK:08,
   keywords     = KEYWORDS,
@@ -980,7 +980,7 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side,cache,constructive,software}}
+@STRING{KEYWORDS={side/cache/constructive/software}}
 
 @inproceedings{MASCAB:ZouReiZan:16,
   keywords     = KEYWORDS,
@@ -1125,7 +1125,7 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side,cache,misc}}
+@STRING{KEYWORDS={side/cache/misc}}
 
 @article{MASCAB:GeYarHei:16,
   keywords     = KEYWORDS,
@@ -1203,7 +1203,7 @@
 }
 
 % =============================================================================
-@STRING{KEYWORDS={side,arith,destructive}}
+@STRING{KEYWORDS={side/arith/destructive}}
 
 @inproceedings{MASCAB:AKMJLS:15,
   keywords     = KEYWORDS,
@@ -1308,10 +1308,10 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side,arith,constructive,hardware}}
+@STRING{KEYWORDS={side/arith/constructive/hardware}}
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side,arith,constructive,software}}
+@STRING{KEYWORDS={side/arith/constructive/software}}
 
 @unpublished{MASCAB:BenHamouda:11,
   keywords     = KEYWORDS,
@@ -1327,10 +1327,10 @@
 }
 
 % =============================================================================
-@STRING{KEYWORDS={side,misc,destructive}}
+@STRING{KEYWORDS={side/misc/destructive}}
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side,misc,constructive,hardware}}
+@STRING{KEYWORDS={side/misc/constructive/hardware}}
 
 @inproceedings{MASCAB:ZonYen:16,
   keywords     = KEYWORDS,
@@ -1384,7 +1384,7 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side,misc,constructive,software}}
+@STRING{KEYWORDS={side/misc/constructive/software}}
 
 @article{MASCAB:BraJanBon:15,
   keywords     = KEYWORDS,
@@ -1412,6 +1412,40 @@
        time for each process,
     2) enforce isolation wrt. shared micro-architectural resources, e.g.,
        using cache flushing and a form of page colouring.
+  }
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={side/misc/constructive/analysis}}
+
+@unpublished{MASCAB:IraEisSun:16,
+  keywords     = KEYWORDS,
+  author       = {G. Irazoqui and T. Eisenbarth and B. Sunar},
+  title        = {{MASScan}: Stopping Microarchitectural Attacks Before Execution},
+  howpublished = {Cryptology ePrint Archive, Report 2016/1196},
+  year         = {2016},
+  url          = {http://eprint.iacr.org/2016/1196},
+  addendum     = {
+    As outlined in Section $1$, countermeasures against micro-architectural
+    attack tend to be either 
+    preventive (i.e., prevent an attack by-design)
+    or
+    reactive   (i.e., monitor execution, then react to prevent an attack).
+    This paper takes a slightly different approach by presenting a program
+    analysis tool called {\sc MASScan}: it applies static analysis to each
+    program provided as input, attempting to classify it as malicious iff.
+    it satisfies metrics associated with such attacks (e.g., matches what
+    is known wrt. attack programs).  The metrics are instruction-focused
+    on the whole; for example known x86 cache attack programs (e.g., per
+    those in~\cite{MASCAB:Yarom:XX}) use {\tt rdtsc} for high-resolution
+    timing, so this otherwise abnormal instruction can be used as evidence
+    that a given program is malicious.
+
+    The paper pitches {\sc MASScan} as a means of vetting programs within
+    an app store setting.  Using a baseline corpus of $24$ attack programs,
+    the false-positive and -negative rates demonstrate the approach is
+    effective up to a point: it miss-classifies $6\%$ of benign programs 
+    (e.g., ffmpeg), with the reasons explained in Table $3$.
   }
 }
 

@@ -86,58 +86,17 @@ to navigate the sub-field, it seems likely to be of use to others as well.
     periphery of what *should* be included in `masca.bib` but are worth
     hanging on to either way.
 
-- Entries in each database are roughly grouped (and assigned associated
-  keywords to allow filtering) into the following taxonomy
+- The `Makefile` included has two main targets:
 
-  ```
-  MASCA
-  |
-  +- 1. misc
-  |     |
-  |     +- history
-  |     +- patent
-  |     +- survey
-  |     +- book
-  |     +- thesis
-  |     +- implementation
-  |     +- reverse
-  |
-  +- 2. covert channels
-  |     |
-  |     +-  destructive
-  |     +- constructive
-  |
-  +- 3. side-channels      
-        |
-        +- cache
-        |  |
-        |  +-  destructive
-        |  |  +- data        cache     access-driven
-        |  |  +- data        cache time/trace-driven
-        |  |  +- data        cache      power-related
-        |  |  +- instruction cache
-        |  |
-        |  +- constructive
-        |  |  +- hardware
-        |  |  +- software
-        |  |
-        |  +- misc
-        |
-        +- arithmetic
-        |  |
-        |  +-  destructive
-        |  +- constructive
-        |  +- misc
-        |
-        +- misc
-           |
-           +-  destructive
-           +- constructive
-  ```
+  - `mascab.pdf`
+    is a PDF generated from `mascab.tex`,
+  - `mascab.tax`
+    is the keyword taxonomy, scraped output from the BiBTeX databases:
+    each entry is roughly grouped and assigned associated keywords so 
+    as to allow filtering, although this is imperfect to say the least.
 
-  but this is imperfect to say the least; up to a point, this is really
-  just a mechanism to manage the content and I'd expect it to evolve as
-  more entries are added.
+  Note that up to a point, keywords associated with the latter are just 
+  an (evolving) mechanism to manage content, vs. a robust taxonomy.
 
 - Modelled on 
   [CryptoBib](http://cryptobib.di.ens.fr),
