@@ -199,6 +199,28 @@
 }
 
 % -----------------------------------------------------------------------------
+@STRING{KEYWORDS={misc/standard}}
+
+@inproceedings{MASCAB:DOD:85,
+  keywords     = KEYWORDS,
+  title        = {Trusted Computer System Evaluation Criteria},
+  institute    = {Department Of Defence},
+  number       = {5200.28-STD},
+  year         = {1985},
+  url          = {http://csrc.nist.gov/publications/history/dod85.pdf},
+  addendum     = {
+    Section $8.0$ of the so-called {\sc Orange Book} includes some specific 
+    attention to covert channels: it demands a Trusted Computing Base (TCB), 
+    which is essentially a security kernel responsible for enforcing policy 
+    and supporting isolation, should allow
+    ``{\em the capability to audit the use of covert channel mechanisms with bandwidths that may exceed a rate of one ($1$) bit in ten ($10$) seconds}''.
+    This definition of what it terms a ``high'' bandwidth covert channel is
+    motivated by comparison with the bandwidth of a normal terminal: it says
+    ``{\em [i]t does not seem appropriate to call a computer system ``secure'' if information can be compromised at a rate equal to the normal output rate of some commonly used device}''.
+  }
+}
+
+% -----------------------------------------------------------------------------
 @STRING{KEYWORDS={misc/survey}}
 
 @misc{MASCAB:Szefer:16,
@@ -237,6 +259,19 @@
   pages        = {62--64},
   year         = {2007}
 }
+
+@inproceedings{MASCAB:Tiri:07,
+  author       = {K. Tiri},
+  title        = {Side-channel Attack Pitfalls},
+  booktitle    = {Design Automation Conference (DAC)},
+  pages        = {15--20},
+  year         = {2007},
+  addendum     = {
+    This paper sort of surveys the threat of side-channels generally, e.g.,
+    to capture and disseminate challenges to the hardware design community.
+    However, it has a focus on micro-architectural attacks in Section $2$.
+  }
+} 
 
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={misc/book}}
@@ -349,6 +384,263 @@
   url          = {http://www.daemonology.net/tricl}
 }
 
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={misc/destructive/perfcounter}}
+
+@inproceedings{MASCAB:BhaMuk:15,
+  keywords     = KEYWORDS,
+  author       = {S. Bhattacharya and D. Mukhopadhyay},
+  title        = {Who Watches the Watchmen?: Utilizing Performance Monitors for Compromising Keys of {RSA} on {Intel} Platforms},
+  booktitle    = {Cryptographic Hardware and Embedded Systems (CHES)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 9293},
+  pages        = {248--266},
+  year         = {2015},
+  addendum     = {
+    At a high level, this paper is arguably best described by relating it
+    to two other papers:
+    1) it is similar to~\cite{MASCAB:UhsGeoVer:08}
+       in that it uses a similar underlying form of leakage: the attacker
+       is assumed to have access to the hardware performance counters, and
+       uses this ability to monitor the branch predictor unit (and thereby
+       branch behaviour of the target process),
+    2) it is similar to~\cite{MASCAB:DKLMQW:98}
+       in that the attack strategy (i.e., Algorithm $4$) is more or less
+       the same as a standard RSA timing attack, and targets conditional
+       subtraction (and hence conditional branch) executed by Montgomery 
+       multiplication: the clear difference is that it uses a simulated 
+       branch predictor to model behaviour, and concrete branch predictor
+       behaviour (collected via performance counters) as a distinguisher.
+    The attack is applied to vanilla RSA, and the PKCS\#1-based RSA-OAEP
+    design.
+  }
+}
+
+@inproceedings{MASCAB:BhaRebMuk:13,
+  keywords     = KEYWORDS,
+  author       = {S. Bhattacharya and C. Rebeiro and D. Mukhopadhyay},
+  title        = {Unraveling {Timewarp}: What All the Fuzz is About?},
+  booktitle    = {Hardware and Architectural Support for Security and Privacy (HASP)},
+  pages        = {8:1--8:8},
+  year         = {2013},
+  addendum     = {
+    This paper demonstrates that {\sc TimeWarp}~\cite{MASCAB:MarDemSet:12}
+    does not prevent attacks succeeding; specifically, if the epoch time
+    $e$ is less than the time $t$ associated with some operation or event 
+    of interest (e.g., a cache-miss for a particular memory access), then
+    it is possible to eliminate the impact of {\sc TimeWarp} by repeating
+    the operation.  Section $5$ evaluates this approach in two settings
+    (namely an artificial, access-driven setting, and a real, time-driven
+    attack on CLEFIA), concluding {\sc TimeWarp} reduces the probability
+    of success (resp. increases the measurements required), but does not
+    {\em prevent} success.
+  }
+} 
+
+@inproceedings{MASCAB:UhsGeoVer:08,
+  keywords     = KEYWORDS,
+  author       = {L. Uhsadel and A. Georges and I. Verbauwhede},
+  title        = {Exploiting Hardware Performance Counters},
+  booktitle    = {Fault Diagnosis and Tolerance in Cryptography (FTDC)},
+  pages        = {59--67},
+  year         = {2008},
+  addendum     = {
+    This paper offers more concrete results that stem from a comment by
+    Tiri~\cite[Section 2.3]{MASCAB:Tiri:07}, namely that
+    ``{\em  performance counters paint a more accurate picture and -- if for a moment we ignore the fact that they can only be accessed using privileged ring-0 instructions--, they could enable better and faster attacks than the timestamp counter}''.
+    That is, it explores the idea of using performance counters in order
+    to facilitate micro-architectural attack; intuitively, this approach 
+    should enable an {\em extremely} strong attacker due to the range and
+    fidelity of accessible information.
+
+    The approach is validated using an attack~\cite{MASCAB:BonMir:06} on
+    AES as implemented in OpenSSL.  While effective, there are a range of
+    caveats in practice:
+    In practice, however, there are a number of caveats:
+    a) access to performance counters is often privileged, meaning that a
+       user mode attacker cannot do so without assistance from the kernel
+       (e.g., via a driver),
+    b) the attacker needs to select a performance counting mode that, as
+       much as possible, associates events specifically with the target 
+       process; the normal mode has a process count events wrt. itself,
+       and any modes that count events for {\em all} processes and the
+       kernel, for example, naturally introduce a lot of noise wrt. the
+       event(s) of interest,
+       and
+    c) performance counters are not typically designed to support precise
+       counting; there is some noise inherent in the results they yield,
+       st. precisely distinguishing fine-grained events (e.g., say $n$ vs.
+       $n+1$ cache misses) is harder than might be expected.
+    In addition, the attack replaces the access-based L2 cache eviction 
+    with use of the (privileged) {\tt wbinvd} instruction: this requires
+    support from an additional kernel driver, so could be deemed invasive
+    vs. alternatives.
+  }
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={misc/constructive/perfcounter}}
+
+@article{MASCAB:ChiSavYil:16,
+  keywords     = KEYWORDS,
+  author       = {M. Chiappetta and E. Savas and C. Yilmaz},
+  title        = {Real time detection of cache-based side-channel attacks using hardware performance counters},
+  journal      = {Applied Soft Computing},
+  volume       = {49},
+  pages        = {1162--1174},
+  year         = {2016},
+  addendum     = {
+    This paper presents a countermeasure against micro-architectural attacks:
+    the idea is for the kernel to dynamically monitor a process (e.g., using
+    hardware performance counters), and decide whether or not the behaviour 
+    it exhibits suggests it is an attack process.  Put another way, the idea
+    is similar to an IDS in the sense the kernel detects and then deals with
+    (e.g., terminates) an attack process at run-time; ideally the detection
+    can be efficient enough to prevent an attack succeeding.
+
+    Three different techniques for classifying processes as an attacker (or
+    not), namely
+    1) statistical correlation,
+    2) anomaly detection,
+    3) supervised learning (using a neural network),
+    with the latter two best described as instances of machine learning.  An
+    evaluation based on a {\sc Flush+Reload}-based attack process highlights
+    a trade-off between detection accuracy and latency, but also negligible
+    overhead of applying each technique; either way, it is clear this attack  
+    (or at least this attack process) can be detected soon enough to prevent
+    it succeeding.
+  }
+}
+
+@inproceedings{MASCAB:MarDemSet:12,
+  keywords     = KEYWORDS,
+  author       = {R. Martin and J. Demme and S. Sethumadhavan},
+  title        = {{TimeWarp}: Rethinking Timekeeping and Performance Monitoring Mechanisms to Mitigate Side-channel Attacks},
+  booktitle    = {International Symposium on Computer Architecture (ISCA)},
+  pages        = {118--129},
+  year         = {2012},
+  addendum     = {
+    This paper introduces {\sc TimeWarp}, a mechanism for controlling access
+    to the high-precision timer required by most micro-architectural attacks.
+    Although it does not cite~\cite{MASCAB:Hu:91}, much of the analysis and
+    design is similar: it first identifies three classes of timer, namely
+    1) hardware-based internal sources (e.g., {\tt rdtsc}),
+    2) hardware-based external sources (e.g., interrupts stemming from network activity),
+       and
+    3) software-only examples that allow synthesis of a timer,
+    and then,
+    a) provide an patch to (e.g., in the microcode for) {\tt rdtsc} so it
+       yields randomised behaviour when in a secure mode,
+    b) reason that external sources cannot be delivered fast enough to offer
+       a high enough resolution timer,
+       and
+    c) demonstrate that synthesised timers that use multiply threads (e.g.,
+       one to produce periodic events, one to consume them) can be detected
+       by using the existing concept of a hardware race detector.
+
+    The idea in point a) is to divide time into epochs, whose length varies 
+    randomly between $2^{e-1}$ and $2^e-1$ cycles (for a configurable $e$, 
+    supplied by the {\tt twrdtsc} instruction); execution of {\tt rdtsc} is 
+    deferred until the next epoch boundary then subject to a second random
+    delay of between $0$ and $E-1$ cycles.  The timer value then has a third
+    randomisation factor of between $0$ and $E-1$ cycles added to it.  There
+    is an emphasis throughout(e.g., Section $4$) on the issue of (backward) 
+    compatibility: the patched timer must allow as many existing applications 
+    to work as possible, while still affording an improvement in security.
+  }
+}
+
+@inproceedings{MASCAB:VatDasSha:11,
+  keywords     = KEYWORDS,
+  author       = {B.C. Vattikonda and S. Das and H. Shacham},
+  title        = {Eliminating Fine Grained Timers in {Xen}},
+  booktitle    = {ACM Cloud Computing Security Workshop (CCSW)},
+  pages        = {41--46},
+  year         = {2011},
+  addendum     = {
+    The fuzzy time concept was conceived and realised in~\cite{MASCAB:Hu:91}.
+    However, this paper notes that it remains unclear how the concept applies
+    in a modern context; in particular, the x86 {\tt rdtsc} instruction means
+    an attack process can access a high-precision, cycle accurate timer from
+    user space alone (i.e., without doing so via the kernel).  Focusing on 
+    kernels executing under the Xen hypervisor, the paper describes and then
+    analyses the impact of 
+    a) virtualising the {\tt rdtsc} instruction using a Xen trap-and-emulate
+       mechanism already present,
+       then
+    b) adjusting the timer value before return to the virtual machine, hence
+       implementing a version of fuzzy time.
+    The bulk of the paper considers masking the timer value LSBs, applying a
+    step function and thereby reducing the resolution.  The impact of doing 
+    so is limited wrt. performance, but there are limits wrt. correctness: it
+    seems too little resolution impacts, for example, the network sub-system
+    (e.g., the TCP stack uses {\tt rdtsc} to measure RTT).  Section $5.1$ has
+    a second option, which adds a random perturbation to the timer value while
+    maintaining the monotonically increasing property.
+  }
+} 
+
+@inproceedings{MASCAB:Hu:91,
+  keywords     = KEYWORDS,
+  author       = {W.M. Hu},
+  title        = {Reducing timing channels with fuzzy time},
+  booktitle    = {IEEE Symposium on Security \& Privacy (S\&P)}, 
+  pages        = {8--20}, 
+  year         = {1991},
+  addendum     = {
+    This paper discusses a concept it terms {\em fuzzy} time, which could be
+    read as {\em randomised} time.  Implemented as part of the VAX security 
+    kernel, fuzzy time aims to prevent covert timing channels by disallowing 
+    access to a precise timer; randomising the timer essentially adds noise,
+    and so degrades the quality of measurements and hence channel bandwidth.
+    The paper first surveys the timers available to an attacker: these could
+    be classified as
+    1) real        (Section $4.1$ outlines a VAX system-supplied clock, that
+       drives a timer interrupt and is accessible at a memory mapped address),
+       or
+    2) synthesised (Section $4.2.2$, for example, discusses how a timer could
+       be derived from I/O activity).
+    It then outlines how both classes can be randomised in Sections $5.1$ and
+    $5.2$: the idea is to 
+    a) randomise the timer interrupt (initialising the interrupt controller 
+       with a random starting point) and reduce the resolution (to $1/10$ of
+       a second),
+       and
+    b) embellish the I/O sub-system with features that introduce a random 
+       delay between request and acknowledge (or notification) events.
+    Evaluation of the implementation shows only minor degradation wrt. the
+    system performance, while reducing covert timing channel bandwidth by
+    up to two orders of magnitude (to below $10$ bits per second).
+  }
+}
+
+@inproceedings{MASCAB:PopKli:74,
+  keywords     = KEYWORDS,
+  author    = {G.J. Popek and C.S. Kline},
+  title     = {Verifiable Secure Operating System Software},
+  booktitle = {National Computer Conference and Exposition},
+  pages     = {145--151},
+  year      = {1974},
+  addendum  = {
+    This paper makes a case for delivering robust, verifiable guarantees of
+    security (especially protection) in operating system kernels; it offers
+    an overview of how a particular kernel at UCLA is designed specifically
+    to do so.  In a sense, it is amazing that such arguments were made and
+    yet (bar notable exceptions such as seL4~\cite{MASCAB:KEHACDEEKNSTW:09})
+    the same challenges still exist now.
+
+    Among the discussion of motivation and design rationale, the confinement
+    problem~\cite{MASCAB:Lampson:73} is cited as a challenge.  It suggests a
+    countermeasure to prevent (or block) such communication channels (e.g., 
+    covert channels): the idea is to disallow access to ``real time'' via a
+    (high enough resolution) timer, only allowing access to a {\em virtual}
+    timer from each virtual machine (a concept synonymous with process in 
+    the kernel discussed).  Of course this only addresses timing channels,
+    but, put another way, it means an attack process can only time activity
+    relating to {\em itself} rather than some other, target process.
+  }
+} 
+
 % =============================================================================
 @STRING{KEYWORDS={side/cache/destructive/data/access}}
 
@@ -362,7 +654,7 @@
   pages        = {346--367}, 
   year         = {2016},
   addendum     = {
-    To address~\cite{MASCAB:Percival:05}, Intel contributed an implementation
+    To address~\cite{MASCAB:Percival:05b}, Intel contributed an implementation
     of the scatter-gather countermeasure to OpenSSL; it basically patched the
     sliding window based modular exponentiation function as used by RSA.  The
     original attack was able to distinguish between pre-computed values (thus
@@ -630,7 +922,7 @@
     memory accesses (and the caveat wrt. using {\tt cpuid} instead, which
     may in fact be virtualised).  Section $4$ applies the strategy to the
     GnuPG implementation of RSA, probing addresses in modular squaring
-    and multiplication functions to destinguish the two and hence recover
+    and multiplication functions to distinguish the two and hence recover
     bits of a $2048$-bit exponent based on which they are invoked.
   }
 } 
@@ -664,6 +956,20 @@
   }
 }
 
+@unpublished{MASCAB:BanGulKre:10,
+  keywords     = KEYWORDS,
+  author       = {E. Bangerter and D. Gullasch and S. Krenn},
+  title        = {Cache Games -- Bringing Access Based Cache Attacks on {AES} to Practice},
+  howpublished = {Cryptology ePrint Archive, Report 2010/594},
+  year         = {2010},
+  url          = {\url{http://eprint.iacr.org/2010/594}},
+  addendum     = {
+    This is an older version of~\cite{MASCAB:GulBanKre:11};
+    although the newer version is most relevant, this older version remains
+    important in specific cases due to (minor) differences in content.
+  }
+}
+
 @inproceedings{MASCAB:TroOsvSha:10,
   keywords     = KEYWORDS,
   author       = {E. Tromer and D.A. Osvik and A. Shamir},
@@ -675,8 +981,7 @@
   pages        = {37--71},
   year         = {2010},
   addendum     = {
-    This full version of~\cite{MASCAB:OsvShaTro:06}, so appearing quite some
-    time afterwards, offers numerous seminal contributions.  For example, it
+    This paper offers a number of seminal contributions.  For example, it
     1) formalises terminology wrt. synchronous vs. asynchronous attacks,
     2) introduces both the 
        {\sc Evict+Time}  (Section $3.4$)
@@ -703,15 +1008,20 @@
   publisher    = {Springer-Verlag},
   series       = {LNCS 3860},
   pages        = {1--20},
-  year         = {2005}
+  year         = {2005},
+  addendum     = {
+    This is an older version of~\cite{MASCAB:TroOsvSha:10};
+    although the newer version is most relevant, this older version remains
+    important in specific cases due to (minor) differences in content.
+  }
 }
 
-@unpublished{MASCAB:Percival:05,
+@unpublished{MASCAB:Percival:05b,
   keywords     = KEYWORDS,
   author       = {C. Percival},
   title        = {Cache Missing For Fun And Profit},
   year         = {2005},
-  url          = {http://www.daemonology.net/papers/htt.pdf},
+  url          = {http://www.daemonology.net/papers/cachemissing.pdf},
   addendum     = {
     This is a seminal paper, which 
     1) introduces the {\sc Prime+Probe} attack strategy, targeting either 
@@ -731,6 +1041,19 @@
     a) copes with influence of the prefetch system,
     b) copes with latency of {\tt rdtsc} by artificially elongating the
        critical path using extra, dependent instructions.
+  }
+}
+
+@unpublished{MASCAB:Percival:05a,
+  keywords     = KEYWORDS,
+  author       = {C. Percival},
+  title        = {Cache Missing For Fun And Profit},
+  year         = {2005},
+  url          = {http://www.daemonology.net/papers/htt.pdf},
+  addendum     = {
+    This is an older version of~\cite{MASCAB:Percival:05b};
+    although the newer version is most relevant, this older version remains
+    important in specific cases due to (minor) differences in content.
   }
 }
 
@@ -1204,6 +1527,44 @@
 
 % =============================================================================
 @STRING{KEYWORDS={side/arith/destructive}}
+
+@inproceedings{MASCAB:KPVV:16,
+  keywords     = KEYWORDS,
+  author       = {T. Kaufmann and H. Pelletier and S. Vaudenay and K. Villegas},
+  title        = {When Constant-Time Source Yields Variable-Time Binary: Exploiting {Curve25519-donna} Built with {MSVC}}, 
+  booktitle    = {Cryptology and Network Security (CANS)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 10052},
+  pages        = {573--582},
+  year         = {2016},
+  addendum     = {
+    The paper does not {\em use} a micro-architectural resource per se,
+    but {\em relates} to (micro-)architecture in a general sense.  It 
+    describes an attack on an implementation\footnote{
+      \url{http://github.com/agl/curve25519-donna}
+    } of the X25519 standard for Curve25519 (as used for ECDH) which
+    follows RFC 7748.  The implementation should be constant-time, but
+    in a specific setting is not: on $64$-bit platforms, the $32$-bit 
+    MSVC compiler uses a run-time library ({\tt llmul.asm}) to perform
+    $64 \times 64$-bit multiplications and this library is {\em not}
+    constant-time (it include a short-cut branch to deal efficiently
+    with ``short'' inputs whose $32$ MSBs are zero).  This fact is 
+    exploited to recover the (secret) scalar multiplier by observing
+    the execution time of (quite a lot of) scalar multiplications.
+
+    Some of the statements, or at least terminology used in the paper 
+    have been a matter of debate; one way to interpret the discussion
+    is as a question wrt. where the cause stems from, e.g., from the 
+    RFC, the implementation, the compiler, the (micro-)architecture.
+    Specifically, the paper states that the implementation 
+    ``follows RFC 7748 requirements''; 
+    this was critiqued by Bernstein\footnote{
+      \url{http://twitter.com/hashbreaker/status/821067916330303488}
+    } who quoted the RFC as noting it remains
+    ``important that the arithmetic used not leak information about the integers''
+    and thus suggesting the implementation is actually non-compliant.
+  }
+}
 
 @inproceedings{MASCAB:AKMJLS:15,
   keywords     = KEYWORDS,

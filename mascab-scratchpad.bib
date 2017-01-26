@@ -44,14 +44,6 @@
   year         = {1991}
 }
 
-@inproceedings{MASCAB:Hu:91,
-  author       = {W.M. Hu},
-  title        = {Reducing timing channels with fuzzy time},
-  booktitle    = {IEEE Symposium on Security \& Privacy (S\&P)}, 
-  pages        = {8--20}, 
-  year         = {1991}
-}
-
 @inproceedings{MASCAB:KarWra:91,
   author       = {P.A. Karger and J.C. Wray},
   title        = {Storage channels in disk arm optimization},
@@ -253,6 +245,15 @@
   pages        = {307--316},
   year         = {2007}
 } 
+
+@techreport{MASCAB:Gray:94,
+  author       = {J.W. Gray},
+  title        = {Countermeasures and tradeoffs for a class of covert timing channels},
+  intitute     = {Hong Kong University of Science and Technology},
+  number       = {1783.1-25},
+  date         = {1994},
+  url          = {http://hdl.handle.net/1783.1/25}
+}
 
 % =============================================================================
 @STRING{KEYWORDS={side/noc/destructive}}
@@ -598,6 +599,14 @@
   year         = {2012}
 }
 
+@inproceedings{MASCAB:BhaRebMuk:12,
+  author       = {S. Bhattacharya and C. Rebeiro and D. Mukhopadhyay},
+  title        = {Hardware Prefetchers Leak: A Revisit of {SVF} for Cache-Timing Attacks},
+  booktitle    = {IEEE/ACM International Symposium on Microarchitecture Workshops (MICROW)},
+  pages        = {17--23},
+  year         = {2012}
+}
+
 @inproceedings{MASCAB:RPDM:11,
   author       = {C.D. Rebeiro and R. Poddar and A. Datta and D. Mukhopadhyay},
   title        = {An Enhanced Differential Cache Attack on {CLEFIA} for Large Cache Lines},
@@ -636,12 +645,12 @@
   year         = {2011}
 }
 
-@inproceedings{MASCAB:BhaRebMuk:12,
-  author       = {S. Bhattacharya and C. Rebeiro and D. Mukhopadhyay},
-  title        = {Hardware Prefetchers Leak: A Revisit of {SVF} for Cache-Timing Attacks},
-  booktitle    = {IEEE/ACM International Symposium on Microarchitecture Workshops (MICROW)},
-  pages        = {17--23},
-  year         = {2012}
+@inproceedings{MASCAB:JFHR:10,
+  author       = {D. Jayasinghe and J. Fernando and R. Herath and R. Ragel},
+  title        = {Remote Cache Timing Attack on Advanced Encryption Standard and countermeasures},
+  booktitle    = {Information and Automation for Sustainability (ICIAFs)},
+  pages        = {177--182},
+  year         = {2010}
 }
 
 @inproceedings{MASCAB:BEPW:10,
@@ -946,23 +955,6 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={side/cache/constructive/software}}
 
-@inproceedings{MASCAB:GodZul:13,
-  author       = {M. Godfrey and M. Zulkernine},
-  title        = {A Server-Side Solution to Cache-Based Side-Channel Attacks in the Cloud},
-  booktitle    = {Proceedings of the 2013 IEEE Sixth International Conference on Cloud Computing (CLOUD)},
-  pages        = {163--170},
-  year         = {2013}
-} 
-
-@article{MASCAB:ChiSavYil:16,
-  author       = {M. Chiappetta and E. Savas and C. Yilmaz},
-  title        = {Real time detection of cache-based side-channel attacks using hardware performance counters},
-  journal      = {Applied Soft Computing},
-  volume       = {49},
-  pages        = {1162--1174},
-  year         = {2016}
-}
-
 @article{MASCAB:SadJam:16,
   author       = {M. Sadiquea and D. Jamesa},
   title        = {A Novel Approach to Prevent Cache-based Side-Channel Attack in the Cloud},
@@ -988,6 +980,30 @@
   series       = {LNCS 8134},
   pages        = {718--735},
   year         = {2013}
+}
+
+@inproceedings{MASCAB:GodZul:13,
+  author       = {M. Godfrey and M. Zulkernine},
+  title        = {A Server-Side Solution to Cache-Based Side-Channel Attacks in the Cloud},
+  booktitle    = {Proceedings of the 2013 IEEE Sixth International Conference on Cloud Computing (CLOUD)},
+  pages        = {163--170},
+  year         = {2013}
+} 
+
+@inproceedings{MASCAB:KimPeiMai:12,
+  author       = {T. Kim and M. Peinado and G. Mainar-Ruiz},
+  title        = {{StealthMem}: System-level Protection Against Cache-based Side Channel Attacks in the Cloud},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {11:1--11:16},
+  year         = {2012}
+} 
+
+@inproceedings{MASCAB:AlaJayRag:11,
+  author       = {J. Alawatugoda and D. Jayasinghe and R. Ragel},
+  title        = {Countermeasures against {Bernstein's} remote cache timing attack},
+  booktitle    = {IEEE International Conference on Industrial and Information Systems (ICIIS)},
+  pages        = {},
+  year         = {2011}
 }
 
 @inproceedings{MASCAB:BruTuv:11,
@@ -1100,23 +1116,29 @@
 % =============================================================================
 @STRING{KEYWORDS={side/misc/destructive}}
 
-@inproceedings{MASCAB:BhaMuk:15,
-  author       = {S. Bhattacharya and D. Mukhopadhyay},
-  title        = {Who Watches the Watchmen?: Utilizing Performance Monitors for Compromising Keys of {RSA} on {Intel} Platforms},
-  booktitle    = {Cryptographic Hardware and Embedded Systems (CHES)},
-  publisher    = {Springer-Verlag},
-  series       = {LNCS 9293},
-  pages        = {248--266},
+@article{MASCAB:ZhaZhaLee:16,
+  author       = {T. Zhang and Y. Zhang and R.B. Lee},
+  title        = {Memory {Do}S Attacks in Multi-tenant Clouds: Severity and Mitigation},
+  journal      = {CoRR},
+  volume       = {abs/1603.03404},
+  year         = {2016},
+}
+
+@inproceedings{MASCAB:VZRS:15,
+  author       = {V. Varadarajan and Y. Zhang and T. Ristenpart and M. Swift},
+  title        = {A Placement Vulnerability Study in Multi-tenant Public Clouds},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {913--928},
   year         = {2015}
 }
 
-@inproceedings{MASCAB:UhsGeoVer:08,
-  author       = {L. Uhsadel and A. Georges and I. Verbauwhede},
-  title        = {Exploiting Hardware Performance Counters},
-  booktitle    = {Fault Diagnosis and Tolerance in Cryptography (FTDC)},
-  pages        = {59--67},
-  year         = {2008}
-}
+@inproceedings{MASCAB:XuWanZhe:15,
+  author       = {Z. Xu and H. Wang and Z. Wu},
+  title        = {A Measurement Study on Co-residence Threat Inside the Cloud},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {929--944},
+  year         = {2015}
+} 
 
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={side/misc/constructive/hardware}}
@@ -1144,22 +1166,6 @@
   booktitle    = {Dependable Systems and Networks Workshop (DSNW)},
   pages        = {1--12},
   year         = {2013}
-} 
-
-@inproceedings{MASCAB:MarDemSet:12,
- author        = {R. Martin and J. Demme and S. Sethumadhavan},
- title         = {{TimeWarp}: Rethinking Timekeeping and Performance Monitoring Mechanisms to Mitigate Side-channel Attacks},
- booktitle     = {International Symposium on Computer Architecture (ISCA)},
- pages         = {118--129},
- year          = {2012}
-} 
-
-@inproceedings{MASCAB:VatDasSha:11,
-  author       = {B.C. Vattikonda and S. Das and H. Shacham},
-  title        = {Eliminating Fine Grained Timers in {Xen}},
-  booktitle    = {ACM Cloud Computing Security Workshop (CCSW)},
-  pages        = {41--46},
-  year         = {2011}
 } 
 
 @inproceedings{MASCAB:TLWCS:09,

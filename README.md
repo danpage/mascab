@@ -84,19 +84,29 @@ to navigate the sub-field, it seems likely to be of use to others as well.
   - `mascab-peripheral.bib`
     is a        BiBTeX bibliography database of entries that are at the
     periphery of what *should* be included in `masca.bib` but are worth
-    hanging on to either way.
+    hanging on to either way (e.g., because they *could* be included in
+    the future, or just add context).
 
 - The `Makefile` included has two main targets:
 
   - `mascab.pdf`
     is a PDF generated from `mascab.tex`,
   - `mascab.tax`
-    is the keyword taxonomy, scraped output from the BiBTeX databases:
-    each entry is roughly grouped and assigned associated keywords so 
-    as to allow filtering, although this is imperfect to say the least.
+    is a keyword taxonomy scraped from the BiBTeX databases: each entry 
+    is roughly grouped and assigned associated keywords so as to allow 
+    filtering, although this is imperfect to say the least.
 
   Note that up to a point, keywords associated with the latter are just 
-  an (evolving) mechanism to manage content, vs. a robust taxonomy.
+  an (evolving) mechanism to manage content, vs. a robust taxonomy.  As
+  example, cases such as
+
+  - where a paper makes multiple contributions (e.g., includes both an
+    attack, *and* a countermeasure),
+    or
+  - where a paper could be applied within the context of either covert 
+    *or* side-channels
+
+  aren't that well served.
 
 - Modelled on 
   [CryptoBib](http://cryptobib.di.ens.fr),
