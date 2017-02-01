@@ -1448,6 +1448,37 @@
 }
 
 % -----------------------------------------------------------------------------
+@STRING{KEYWORDS={side/cache/constructive/analysis}}
+
+@inproceedings {MASCAB:DFKMR:13,
+  keywords     = KEYWORDS,
+  author       = {G. Doychev and D. Feld and B. Kopf and L. Mauborgne and J. Reineke},
+  title        = {{CacheAudit}: A Tool for the Static Analysis of Cache Side Channels},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {431--446},
+  year         = {2013},
+  addendum     = {
+    This paper presents a (theoretical) model that allows analysis of the
+    cache-related behaviour of target and attack processes, and then also
+    implements and evaluates a (concrete) tool based on this; the tool is
+    able to accept x86 binaries as input, and provide guarantees wrt. the
+    leakage possible and hence viability of an attack.  Evaluation with
+    AES (per PolarSSL) and Salsa20 allows several general conclusions in
+    certain settings (e.g., that pre-loading can reduce leakage, or that 
+    a larger line size can reduce leakage); perhaps the strongest claim
+    is that (the implementation of) Salsa20 provably avoids all attacks 
+    (wrt. the model at least).
+
+    Interestingly, Section $3.4$ seems to model an access-driven attacker 
+    that is able to interrogate the cache state {\em on termination} of
+    the target process: it is only able to observe the {\em final} cache
+    state.  This model does not seem to match state-of-the-art strategies
+    for attack, such as {\sc Flush+Reload}, which are more continuous in
+    nature (i.e., could recover each $c_i$, not just $c_n$).
+  }
+}
+
+% -----------------------------------------------------------------------------
 @STRING{KEYWORDS={side/cache/misc}}
 
 @article{MASCAB:GeYarHei:16,
