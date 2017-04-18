@@ -125,9 +125,9 @@ to navigate the sub-field, it seems likely to be of use to others as well.
 
   - the format of author keys depends on the number of authors, namely
 
-    -       1-author         =>                       full (ASCII'ised) last name, e.g., "W.M. Hu"                                                            => Hu
-    - 2- or 3-author         => first 3 characters of each (ASCII'ised) last name, e.g., "O. Ac\i{}i\c{c}mez and \c{C}.K. Ko\c{c}"                            => AciKoc
-    -       4-author or more => first 1 character  of each (ASCII'ised) last name, e.g., "Y. Wang and A. Ferraiuolo and D. Zhang and A.C. Myers and E.G. Suh" => WFZMS
+    - 1-author         =>                       full (ASCII'ised) last name, e.g., "W.M. Hu"                                                            => Hu
+    - 2- or 3-author   => first 3 characters of each (ASCII'ised) last name, e.g., "O. Ac\i{}i\c{c}mez and \c{C}.K. Ko\c{c}"                            => AciKoc
+    - 4-author or more => first 1 character  of each (ASCII'ised) last name, e.g., "Y. Wang and A. Ferraiuolo and D. Zhang and A.C. Myers and E.G. Suh" => WFZMS
 
     although one caveat relates to named resource (e.g., software) where
     it makes more sense to use the resource name than the author name.
