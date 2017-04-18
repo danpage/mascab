@@ -87,21 +87,15 @@ to navigate the sub-field, it seems likely to be of use to others as well.
     hanging on to either way (e.g., because they *could* be included in
     the future, or just add context).
 
-- The `Makefile` included has two main targets:
-
-  - `mascab.pdf`
-    is a PDF generated from `mascab.tex`,
-  - `mascab.tax`
-    is a keyword taxonomy scraped from the BiBTeX databases: each entry 
-    is roughly grouped and assigned associated keywords so as to allow 
-    filtering, although this is imperfect to say the least.
-
-  Note that up to a point, keywords associated with the latter are just 
-  an (evolving) mechanism to manage content, vs. a robust taxonomy.  As
-  example, cases such as
+- The `Makefile` included has one target:
+    `mascab.pdf`
+    is a PDF generated from `mascab.tex`.
+  Note that up to a point, keywords and taxonomy are just an (evolving)
+  mechanism to manage content.  As example, cases such as
 
   - where a paper makes multiple contributions (e.g., includes both an
-    attack, *and* a countermeasure),
+    attack strategy *and* a countermeasure, or an attack strategy *and* 
+    a concrete application of it to something),
     or
   - where a paper could be applied within the context of either covert 
     *or* side-channels
@@ -125,9 +119,11 @@ to navigate the sub-field, it seems likely to be of use to others as well.
 
   - the format of author keys depends on the number of authors, namely
 
-    - 1-author         =>                       full (ASCII'ised) last name, e.g., "W.M. Hu"                                                            => Hu
-    - 2- or 3-author   => first 3 characters of each (ASCII'ised) last name, e.g., "O. Ac\i{}i\c{c}mez and \c{C}.K. Ko\c{c}"                            => AciKoc
-    - 4-author or more => first 1 character  of each (ASCII'ised) last name, e.g., "Y. Wang and A. Ferraiuolo and D. Zhang and A.C. Myers and E.G. Suh" => WFZMS
+    Authors     | Format                                             | Example                                                                          |
+    :---------: | :------------------------------------------------: | :------------------------------------------------------------------------------: |
+    1           | full                       (ASCII'ised) last name, | "W.M. Hu"                                                            => `Hu`     |
+    2 or 3      | first 3 characters of each (ASCII'ised) last name, | "O. Ac\i{}i\c{c}mez and \c{C}.K. Ko\c{c}"                            => `AciKoc` |
+    4 or more   | first 1 character  of each (ASCII'ised) last name, | "Y. Wang and A. Ferraiuolo and D. Zhang and A.C. Myers and E.G. Suh" => `WFZMS`  |
 
     although one caveat relates to named resource (e.g., software) where
     it makes more sense to use the resource name than the author name.
