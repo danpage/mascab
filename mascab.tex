@@ -32,87 +32,170 @@
 
 \section{Miscellaneous}
 
-\printbibliography[heading={subbibnumbered},   title={History},  keyword={misc/history} ]
-\printbibliography[heading={subbibnumbered},   title={Patents},  keyword={misc/patent}  ]
-\printbibliography[heading={subbibnumbered},   title={Standards},keyword={misc/standard}]
-\printbibliography[heading={subbibnumbered},   title={Surveys},  keyword={misc/survey}  ]
-\printbibliography[heading={subbibnumbered},   title={Books},    keyword={misc/book}    ]
-\printbibliography[heading={subbibnumbered},   title={Theses},   keyword={misc/thesis}  ]
-\printbibliography[heading={subbibnumbered},   title={Software}, keyword={misc/software}]
-
-\printbibliography[heading={subbibnumbered},   title={ Destructive cases (e.g.,         attacks): performance counters},keyword={misc/destructive/perfcounter}]
-\printbibliography[heading={subbibnumbered},   title={Constructive cases (e.g., countermeasures): performance counters},keyword={misc/constructive/perfcounter}]
+\printbibliography[ heading={subbibnumbered},                keyword={class=misc/history},      title={History                                                                                } ]
+\printbibliography[ heading={subbibnumbered},                keyword={class=misc/datasheet},    title={Datasheet                                                                              } ]
+\printbibliography[ heading={subbibnumbered},                keyword={class=misc/patent},       title={Patent                                                                                 } ]
+\printbibliography[ heading={subbibnumbered},                keyword={class=misc/standard},     title={Standard                                                                               } ]
+\printbibliography[ heading={subbibnumbered},                keyword={class=misc/survey},       title={Survey                                                                                 } ]
+\printbibliography[ heading={subbibnumbered},                keyword={class=misc/book},         title={Book                                                                                   } ]
+\printbibliography[ heading={subbibnumbered},                keyword={class=misc/thesis},       title={Thesis                                                                                 } ]
+\printbibliography[ heading={subbibnumbered},                keyword={class=misc/software},     title={Software                                                                               } ]
 
 % =============================================================================
 
 \section{Covert channels}
 
-\printbibliography[heading={subbibnumbered},   title={Constructive cases (e.g., countermeasures): hardware-based},                                 keyword={covert/constructive/hardware}]
-\printbibliography[heading={subbibnumbered},   title={Constructive cases (e.g., countermeasures): software-based},                                 keyword={covert/constructive/software}]
+\defbibfilter{f}{keyword={class=channel/covert}}
+
+\printbibliography[ heading={subbibnumbered},    filter={f}, keyword={topic=pos/hardware},      title={Positive    use-cases: hardware-based countermeasures                                  } ]
+\printbibliography[ heading={subbibnumbered},    filter={f}, keyword={topic=pos/software},      title={Positive    use-cases: software-based countermeasures                                  } ]
+\printbibliography[ heading={subbibnumbered},    filter={f}, keyword={topic=alt}                title={Alternative use-cases                                                                  } ]
 
 % =============================================================================
 
 \section{Side-channels}
 
+% -----------------------------------------------------------------------------
+
 \subsection{Caches (data {\em and} instruction)}
 
-\printbibliography[heading={subsubbibnumbered},title={ Destructive cases (e.g.,         attacks):     access-driven attacks on        data caches},keyword={side/cache/destructive/data/access}]
-\printbibliography[heading={subsubbibnumbered},title={ Destructive cases (e.g.,         attacks): time/trace-driven attacks on        data caches},keyword={side/cache/destructive/data/trace} ]
-\printbibliography[heading={subsubbibnumbered},title={ Destructive cases (e.g.,         attacks):     power-related attacks on        data caches},keyword={side/cache/destructive/data/power} ]
-\printbibliography[heading={subsubbibnumbered},title={ Destructive cases (e.g.,         attacks):                   attacks on instruction caches},keyword={side/cache/destructive/instruction}]
-\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): hardware-based},                                 keyword={side/cache/constructive/hardware}  ]
-\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): software-based},                                 keyword={side/cache/constructive/software}  ]
-\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): program analysis},                               keyword={side/cache/constructive/analysis}  ]
-\printbibliography[heading={subsubbibnumbered},title={Miscellaneous},                                                                              keyword={side/cache/misc}                   ]
+\defbibfilter{f}{keyword={class=channel/side/cache} and keyword={style=dcache/access}}
 
-\subsection{Branch prediction (e.g., target buffer)}
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg/method},        title={Negative    use-cases: attacks using        data-cache (access-based,      methodology)} ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg/attack/crypto}, title={Negative    use-cases: attacks using        data-cache (access-based, vs. cryptography)} ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg/attack/ui},     title={Negative    use-cases: attacks using        data-cache (access-based, vs.           UI)} ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg/attack/iee},    title={Negative    use-cases: attacks using        data-cache (access-based, vs.          IEE)} ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg/attack/aslr},   title={Negative    use-cases: attacks using        data-cache (access-based, vs.         ASLR)} ]
 
-\printbibliography[heading={subsubbibnumbered},title={ Destructive cases (e.g.,         attacks)},                                                 keyword={side/branch/destructive}          ]
-\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): hardware-based},                                 keyword={side/branch/constructive/hardware}]
-\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): software-based},                                 keyword={side/branch/constructive/software}]
-\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): program analysis},                               keyword={side/branch/constructive/analysis}]
-\printbibliography[heading={subsubbibnumbered},title={Miscellaneous},                                                                              keyword={side/branch/misc}                 ]
+\defbibfilter{f}{keyword={class=channel/side/cache} and keyword={topic=neg}}
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={style=dcache/time},       title={Negative    use-cases: attacks using        data-cache,  (time-based)                  } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={style=dcache/trace},      title={Negative    use-cases: attacks using        data-cache, (trace-based)                  } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={style=dcache/power},      title={Negative    use-cases: attacks using        data-cache, (power-based)                  } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={style=icache},            title={Negative    use-cases: attacks using instruction-cache                                 } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={style=icache},            title={Negative    use-cases: attacks using             cache pre-fetch                       } ]
+
+\defbibfilter{f}{keyword={class=channel/side/cache}}
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/hardware},      title={Positive    use-cases: hardware-based countermeasures                                  } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/software},      title={Positive    use-cases: software-based countermeasures                                  } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/analysis},      title={Positive    use-cases: analysis-based countermeasures (e.g., of source code)           } ]
+
+\defbibfilter{f}{keyword={class=channel/side/cache} and keyword={topic=alt}}
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f},                                    title={Alternative use-cases                                                                  } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=analysis/attack},   title={Analysis (of attacks)                                                                  } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=analysis/hw},       title={Analysis (of hardware)                                                                 } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=misc},              title={Miscellaneous                                                                          } ]
+
+% -----------------------------------------------------------------------------
+
+\subsection{Branch prediction}
+
+\defbibfilter{f}{keyword={class=channel/side/branch}}
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg},               title={Negative use-cases: attacks                                                            } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/hardware},      title={Positive use-cases: hardware-based countermeasures                                     } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/software},      title={Positive use-cases: software-based countermeasures                                     } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/analysis},      title={Positive use-cases: analysis-based countermeasures (e.g., of source code)              } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=alt}                title={Alternative use-cases                                                                  } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=analysis/attack},   title={Analysis (of attacks)                                                                  } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=analysis/hw},       title={Analysis (of hardware)                                                                 } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=misc},              title={Miscellaneous                                                                          } ]
+
+% -----------------------------------------------------------------------------
 
 \subsection{Arithmetic}
 
-\printbibliography[heading={subsubbibnumbered},title={ Destructive cases (e.g.,         attacks)},                                                 keyword={side/arith/destructive}          ]
-\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): hardware-based},                                 keyword={side/arith/constructive/hardware}]
-\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): software-based},                                 keyword={side/arith/constructive/software}]
-\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): program analysis},                               keyword={side/arith/constructive/analysis}]
-\printbibliography[heading={subsubbibnumbered},title={Miscellaneous},                                                                              keyword={side/arith/misc}                 ]
+\defbibfilter{f}{keyword={class=channel/side/arith}}
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg},               title={Negative use-cases: attacks                                                            } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/hardware},      title={Positive use-cases: hardware-based countermeasures                                     } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/software},      title={Positive use-cases: software-based countermeasures                                     } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/analysis},      title={Positive use-cases: analysis-based countermeasures (e.g., of source code)              } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=alt}                title={Alternative use-cases                                                                  } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=misc},              title={Miscellaneous                                                                          } ]
+
+% -----------------------------------------------------------------------------
 
 \subsection{Network-on-Chip (NoC)}
 
-\printbibliography[heading={subsubbibnumbered},title={ Destructive cases (e.g.,         attacks)},                                                 keyword={side/noc/destructive}            ]
-\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): hardware-based},                                 keyword={side/noc/constructive/hardware}  ]
-\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): software-based},                                 keyword={side/noc/constructive/software}  ]
-\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): program analysis},                               keyword={side/noc/constructive/analysis}  ]
-\printbibliography[heading={subsubbibnumbered},title={Miscellaneous},                                                                              keyword={side/noc/misc}                   ]
+\defbibfilter{f}{keyword={class=channel/side/noc}}
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg},               title={Negative use-cases: attacks                                                            } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/hardware},      title={Positive use-cases: hardware-based countermeasures                                     } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/software},      title={Positive use-cases: software-based countermeasures                                     } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/analysis},      title={Positive use-cases: analysis-based countermeasures (e.g., of source code)              } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=alt}                title={Alternative use-cases                                                                  } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=misc},              title={Miscellaneous                                                                          } ]
+
+% -----------------------------------------------------------------------------
 
 \subsection{Miscellaneous}
 
-\printbibliography[heading={subsubbibnumbered},title={ Destructive cases (e.g.,         attacks)},                                                 keyword={side/misc/destructive}          ]
-\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): hardware-based},                                 keyword={side/misc/constructive/hardware}]
-\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): software-based},                                 keyword={side/misc/constructive/software}]
-\printbibliography[heading={subsubbibnumbered},title={Constructive cases (e.g., countermeasures): program analysis},                               keyword={side/misc/constructive/analysis}]
-\printbibliography[heading={subsubbibnumbered},title={Miscellaneous},                                                                              keyword={side/misc/misc}                 ]
+\defbibfilter{f}{keyword={class=channel/side/misc}}
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg},               title={Negative use-cases: attacks                                                            } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/hardware},      title={Positive use-cases: hardware-based countermeasures                                     } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/software},      title={Positive use-cases: software-based countermeasures                                     } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/analysis},      title={Positive use-cases: analysis-based countermeasures (e.g., of source code)              } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=alt}                title={Alternative use-cases                                                                  } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=misc},              title={Miscellaneous                                                                          } ]
+
+% =============================================================================
+
+\section{Cross-cutting topics}
+
+\subsection{Performance counters}
+
+\defbibfilter{f}{keyword={class=crosscut/perfctr}}
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg},               title={Negative use-cases: attacks                                                            } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos},               title={Positive use-cases: countermeasures                                                    } ]
+
+\subsection{IDS-like monitoring and detection}
+
+\defbibfilter{f}{keyword={class=crossbut/ids}}
+
+\printbibliography[ heading={none},              filter={f}                                                                                                                                     ]
 
 % =============================================================================
 
 \section{Peripheral topics}
 
-\printbibliography[heading={subbibnumbered},   title={Cache design},           keyword={peripheral/cache}    ]
-\printbibliography[heading={subbibnumbered},   title={Rowhammer etc.},         keyword={peripheral/rowhammer}]
-\printbibliography[heading={subbibnumbered},   title={Performance degradation},keyword={peripheral/degrade}  ]
-\printbibliography[heading={subbibnumbered},   title={(Formal) verification},  keyword={peripheral/verify}   ]
-\printbibliography[heading={subbibnumbered},   title={Key recovery},           keyword={peripheral/recover}  ]
-\printbibliography[heading={subbibnumbered},   title={Attack paradigms},       keyword={peripheral/attack}   ]
-\printbibliography[heading={subbibnumbered},   title={Miscellaneous},          keyword={peripheral/misc}     ]
+\defbibfilter{f}{keyword={class=peripheral}}
+
+\printbibliography[ heading={subbibnumbered},    filter={f}, keyword={topic=cache/security},    title={Caches: designs with general security properties                                       } ]
+\printbibliography[ heading={subbibnumbered},    filter={f}, keyword={topic=cache/power},       title={Caches: designs for low-power                                                          } ]
+\printbibliography[ heading={subbibnumbered},    filter={f}, keyword={topic=cache/partition},   title={Caches: designs that harness partitioning                                              } ]
+
+\printbibliography[ heading={subbibnumbered},    filter={f}, keyword={topic=attack/rowhammer},  title={Attacks: rowhammer-style techniques                                                    } ]
+\printbibliography[ heading={subbibnumbered},    filter={f}, keyword={topic=attack/degrade},    title={Attacks: use of performance degradation                                                } ]
+\printbibliography[ heading={subbibnumbered},    filter={f}, keyword={topic=attack/recover},    title={Attacks: techniques for key recovery                                                   } ]
+\printbibliography[ heading={subbibnumbered},    filter={f}, keyword={topic=attack/paradigm},   title={Attacks: alterative paradigms                                                          } ]
+
+\printbibliography[ heading={subbibnumbered},    filter={f}, keyword={topic=verify},            title={Verification                                                                           } ]
+\printbibliography[ heading={subbibnumbered},    filter={f}, keyword={topic=misc},              title={Miscellaneous                                                                          } ]
 
 % =============================================================================
 
-\printbibliography[heading={bibnumbered},      title={Residual unclassified entries},keyword={unclassified}]
+\printbibliography[heading={bibnumbered},                    keyword={unclassified},            title={Residual unclassified entries                                                          } ]
 
-% =============================================================================
+%% =============================================================================
 
 \end{document}

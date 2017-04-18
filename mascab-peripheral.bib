@@ -1,5 +1,25 @@
 % =============================================================================
-@STRING{KEYWORDS={peripheral/cache}}
+@STRING{KEYWORDS={class=peripheral,topic=cache/security}}
+
+@inproceedings{MASCAB:Inoue:06,
+  keywords     = KEYWORDS,
+  author       = {K. Inoue},
+  title        = {Lock and Unlock: A Data Management Algorithm for A Security-Aware Cache},
+  booktitle    = {IEEE International Conference on Electronics, Circuits and Systems (ICECS)}, 
+  pages        = {1093--1096}, 
+  year         = {2006},
+  addendum     = {
+    This paper is peripheral at best, in the sense it details a cache design
+    intended to prevent buffer overflow attacks; the idea is quite involved,
+    but basically uses the cache as a redundant, hardware-backed stack which
+    can detect manipulation of return addresses.  The peripheral connection 
+    to cache-based attacks stems from the inclusion of a mechanism for cache
+    line locking: each line can be controlled st. eviction is prevented.
+  }
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=peripheral,topic=cache/power}}
 
 @article{MASCAB:SubJonTop:13,
   keywords     = KEYWORDS,
@@ -49,24 +69,7 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={peripheral/cache}}
-
-@inproceedings{MASCAB:Inoue:06,
-  keywords     = KEYWORDS,
-  author       = {K. Inoue},
-  title        = {Lock and Unlock: A Data Management Algorithm for A Security-Aware Cache},
-  booktitle    = {IEEE International Conference on Electronics, Circuits and Systems (ICECS)}, 
-  pages        = {1093--1096}, 
-  year         = {2006},
-  addendum     = {
-    This paper is peripheral at best, in the sense it details a cache design
-    intended to prevent buffer overflow attacks; the idea is quite involved,
-    but basically uses the cache as a redundant, hardware-backed stack which
-    can detect manipulation of return addresses.  The peripheral connection 
-    to cache-based attacks stems from the inclusion of a mechanism for cache
-    line locking: each line can be controlled st. eviction is prevented.
-  }
-}
+@STRING{KEYWORDS={class=peripheral,topic=cache/partition}}
 
 @inproceedings{MASCAB:RacPat:03,
   keywords     = KEYWORDS,
@@ -122,7 +125,7 @@
 }
 
 % =============================================================================
-@STRING{KEYWORDS={peripheral/rowhammer}}
+@STRING{KEYWORDS={class=peripheral,topic=attack/rowhammer}}
 
 @inproceedings{MASCAB:VFLGMVBRG:16,
   keywords     = KEYWORDS,
@@ -179,55 +182,20 @@
   year         = {2014}
 }
 
-% =============================================================================
-@STRING{KEYWORDS={peripheral/degrade}}
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=peripheral,topic=attack/degrade}}
 
 @inproceedings{MASCAB:TsaEtsFei:07,
   keywords     = KEYWORDS,
- author        = {D. Tsafrir and Y. Etsion and D.G. Feitelson},
- title         = {Secretly Monopolizing the {CPU} Without Superuser Privileges},
- booktitle     = {USENIX Security Symposium},
- pages         = {17:1--17:18},
- year          = {2007}
-} 
-
-% =============================================================================
-@STRING{KEYWORDS={peripheral/verify}}
-
-@inproceedings{MASCAB:ABBDE:16,
-  author       = {J.B. Almeida and M. Barbosa and G. Barthe and F. Dupressoir and M. Emmi},
-  title        = {Verifying Constant-Time Implementations},
+  author       = {D. Tsafrir and Y. Etsion and D.G. Feitelson},
+  title        = {Secretly Monopolizing the {CPU} Without Superuser Privileges},
   booktitle    = {USENIX Security Symposium},
-  pages        = {53--70},
-  year         = {2016}
-}
-
-@inproceedings{MASCAB:CGMH:14,
-  author       = {D. Cock and Q. Ge and T. Murray and G. Heiser},
-  title        = {The last mile: An empirical study of some timing channels on {seL4}},
-  booktitle    = {Computer and Communications Security (CCS)}, 
-  pages        = {570--581},
-  year         = {2014}
-}
-
-@inproceedings{MASCAB:MMBGBSLGK:13,
-  author       = {T. Murray and D. Matichuk and M. Brassil and P. Gammie and T. Bourke and S. Seefried and C. Lewis and X. Gao and G. Klein},
-  title        = {{seL4}: from general purpose to a proof of information flow enforcement},
-  booktitle    = {IEEE Symposium on Security \& Privicy (S\&P)},
-  pages        = {415--429},
-  year         = {2013}
-}
-
-@inproceedings{MASCAB:KEHACDEEKNSTW:09,
-  author       = {G. Klein and K. Elphinstone and G. Heiser and J. Andronick and D. Cock and P. Derrin and D. Elkaduwe and K. Engelhardt and R. Kolanski and M. Norrish and T. Sewell and H. Tuch and S. Winwood},
-  title        = {{seL4}: Formal Verification of an {OS} Kernel},
-  booktitle    = {ACM Symposium on Operating Systems Principles (SOSP)},
-  pages        = {207--220},
-  year         = {2009}
+  pages        = {17:1--17:18},
+  year         = {2007}
 } 
 
-% =============================================================================
-@STRING{KEYWORDS={peripheral/recover}}
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=peripheral,topic=attack/recover}}
 
 @inproceedings{MASCAB:PoeSib:15,
   keywords     = KEYWORDS,
@@ -273,8 +241,8 @@
   year        = {2003}
 }
 
-% =============================================================================
-@STRING{KEYWORDS={peripheral/attack}}
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=peripheral,topic=attack/paradigm}}
 
 @inproceedings{MASCAB:GBHP:16,
   keywords     = KEYWORDS,
@@ -306,7 +274,42 @@
 } 
 
 % =============================================================================
-@STRING{KEYWORDS={peripheral/misc}}
+@STRING{KEYWORDS={class=peripheral,topic=verify}}
+
+@inproceedings{MASCAB:ABBDE:16,
+  author       = {J.B. Almeida and M. Barbosa and G. Barthe and F. Dupressoir and M. Emmi},
+  title        = {Verifying Constant-Time Implementations},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {53--70},
+  year         = {2016}
+}
+
+@inproceedings{MASCAB:CGMH:14,
+  author       = {D. Cock and Q. Ge and T. Murray and G. Heiser},
+  title        = {The last mile: An empirical study of some timing channels on {seL4}},
+  booktitle    = {Computer and Communications Security (CCS)}, 
+  pages        = {570--581},
+  year         = {2014}
+}
+
+@inproceedings{MASCAB:MMBGBSLGK:13,
+  author       = {T. Murray and D. Matichuk and M. Brassil and P. Gammie and T. Bourke and S. Seefried and C. Lewis and X. Gao and G. Klein},
+  title        = {{seL4}: from general purpose to a proof of information flow enforcement},
+  booktitle    = {IEEE Symposium on Security \& Privicy (S\&P)},
+  pages        = {415--429},
+  year         = {2013}
+}
+
+@inproceedings{MASCAB:KEHACDEEKNSTW:09,
+  author       = {G. Klein and K. Elphinstone and G. Heiser and J. Andronick and D. Cock and P. Derrin and D. Elkaduwe and K. Engelhardt and R. Kolanski and M. Norrish and T. Sewell and H. Tuch and S. Winwood},
+  title        = {{seL4}: Formal Verification of an {OS} Kernel},
+  booktitle    = {ACM Symposium on Operating Systems Principles (SOSP)},
+  pages        = {207--220},
+  year         = {2009}
+} 
+
+% =============================================================================
+@STRING{KEYWORDS={class=peripheral,topic=misc}}
 
 @inproceedings{MASCAB:DKLMQW:98,
   keywords     = KEYWORDS,
@@ -317,6 +320,15 @@
   series       = {LNCS 1820},
   pages        = {167--182},
   year         = {1998}
+}
+
+@unpublished{MASCAB:CosDev:16,
+  keywords     = KEYWORDS,
+  author       = {V. Costan and S. Devadas},
+  title        = {Intel {SGX} Explained},
+  howpublished = {Cryptology ePrint Archive, Report 2016/086},
+  year         = {2016},
+  url          = {http://eprint.iacr.org/2016/086}
 }
 
 % =============================================================================

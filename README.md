@@ -114,15 +114,20 @@ to navigate the sub-field, it seems likely to be of use to others as well.
 
   - the format of entry keys is
 
-    `MASCAB:<author key>:<publication year>[a-z]`
+    `MASCAB:<author key>[:<publication year>][:a-z]`
 
-    i.e., a domain separator, followed by the author key and two-digit
-    publication year (`XX` denoting undated), followed by an *optional* 
-    character to allow resolution of conflicts (with separating colons 
-    where appropriate),
+    i.e., 
+    1) a  domain separator,
+    2) an author key,
+    3) a  two-digit publication year (if dated), 
+    4) an optional character to resolve any conflicts,
+    with separating colons where appropriate,
 
-  - the format of author keys depends on the number of authors:
+  - the format of author keys depends on the number of authors, namely
 
-    -       1-author         =>                      full (ASCII'ised) last name, e.g., "W.M. Hu" => `Hu`
-    - 2- or 3-author         => first 3 character of each (ASCII'ised) last name, e.g., "O. Ac\i{}i\c{c}mez and \c{C}.K. Ko\c{c}" => `AciKoc`
-    -       4-author or more => first   character of each (ASCII'ised) last name, e.g., "Y. Wang and A. Ferraiuolo and D. Zhang and A.C. Myers and E.G. Suh" => `WFZMS`
+    -       1-author         =>                       full (ASCII'ised) last name, e.g., "W.M. Hu"                                                            => Hu
+    - 2- or 3-author         => first 3 characters of each (ASCII'ised) last name, e.g., "O. Ac\i{}i\c{c}mez and \c{C}.K. Ko\c{c}"                            => AciKoc
+    -       4-author or more => first 1 character  of each (ASCII'ised) last name, e.g., "Y. Wang and A. Ferraiuolo and D. Zhang and A.C. Myers and E.G. Suh" => WFZMS
+
+    although one caveat relates to named resource (e.g., software) where
+    it makes more sense to use the resource name than the author name.

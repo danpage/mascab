@@ -1,5 +1,5 @@
 % =============================================================================
-@STRING{KEYWORDS={misc/history}}
+@STRING{KEYWORDS={class=misc/history}}
 
 @inproceedings{MASCAB:Trostle:98,
   author       = {J.T. Trostle},
@@ -75,8 +75,15 @@
   year         = {1976}
 }
 
-% =============================================================================
-@STRING{KEYWORDS={misc/thesis}}
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=misc/thesis}}
+
+@phdthesis{MASCAB:Falzon:16,
+  author       = {K. Falzon},
+  title        = {On the Use of Migration to Stop Illicit Channels}, 
+  school       = {Technischen Universit\"{a}t Darmstadt},
+  year         = {2016}
+}
 
 @mastersthesis{MASCAB:Godfrey:13,
   author       = {M. Godfrey},
@@ -86,62 +93,7 @@
 }
 
 % =============================================================================
-@STRING{KEYWORDS={misc/reverse}}
-
-@inproceedings{MASCAB:PGMSM:16,
-  author       = {P. Pessl and D. Gruss and C. Maurice and M. Schwarz and S. Mangard},
-  title        = {{DRAMA}: Exploiting {DRAM} Addressing for Cross-{CPU} Attacks},
-  booktitle    = {USENIX Security Symposium},
-  pages        = {565--581},
-  year         = {2016}
-}
-
-@unpublished{MASCAB:YGLLH:15,
-  author       = {Y. Yarom and Q. Ge and F. Liu and R.B. Lee and G. Heiser},
-  title        = {Mapping the Intel Last-Level Cache},
-  howpublished = {Cryptology ePrint Archive, Report 2015/905},
-  year         = {2015},
-  url          = {http://eprint.iacr.org/2015/905}
-}
-
-@inproceedings{MASCAB:MSNHF:15,
-  author       = {C. Maurice and N. Le Scouarnec and C. Neumann and O. Heen and A. Francillon},
-  title        = {Reverse Engineering {Intel} Last-Level Cache Complex Addressing Using Performance Counters},
-  booktitle    = {Recent Advances in Intrusion Detection (RAID)},
-  publisher    = {Springer-Verlag},
-  series       = {LNCS 9404},
-  pages        = {48--65},
-  year         = {2015}
-}
-
-@inproceedings{MASCAB:UzeMil:09,
-  author       = {V. Uzelac and A. Milenkovic},
-  title        = {Experiment flows and microbenchmarks for reverse engineering of branch predictor structures},
-  booktitle    = {IEEE International Symposium on Performance Analysis of Systems and Software (ISPASS)},
-  pages        = {207--217},
-  year         = {2009}
-}
-
-@article{MASCAB:MilMilKul:04,
-  author       = {M. Milenkovic and A. Milenkovic and J. Kulick},
-  title        = {Microbenchmarks for Determining Branch Predictor Organization},
-  journal      = {Software -- Practice \& Experience},
-  volume       = {34},
-  number       = {5},
-  pages        = {465--487},
-  year         = {2004}
-} 
-
-% =============================================================================
-@STRING{KEYWORDS={covert/destructive}}
-
-@unpublished{MASCAB:IGES:16,
-  author       = {M.S. Inci and B. G\"{u}lmezoglu and T. Eisenbarth and B. Sunar},
-  title        = {Co-location detection on the Cloud},
-  howpublished = {Cryptology ePrint Archive, Report 2016/284},
-  year         = {2016},
-  url          = {http://eprint.iacr.org/2016/284}
-}
+@STRING{KEYWORDS={class=channel/covert,topic=neg}}
 
 @inproceedings{MASCAB:EvtPon:16,
   author       = {D. Evtyushkin and D. Ponomarev},
@@ -185,14 +137,6 @@
   year         = {2012}
 } 
 
-@inproceedings{MASCAB:ZJOR:11,
-  author       = {Y. Zhang and A. Juels and A. Oprea and M.K. Reiter},
-  title        = {{HomeAlone}: Co-residency Detection in the Cloud via Side-Channel Analysis},
-  booktitle    = {IEEE Symposium on Security \& Privacy (S\&P)},
-  pages        = {313--328},
-  year         = {2011}
-}
-
 @inproceedings{MASCAB:LGASSK:09,
   author       = {Y. Liu and D. Ghosal and F. Armknecht and A.-R. Sadeghi and S. Schulz and S. Katzenbeisser},
   title        = {Hide and Seek in Time: Robust Covert Timing Channels},
@@ -201,8 +145,8 @@
   year         = {2009}
 } 
 
-% =============================================================================
-@STRING{KEYWORDS={covert/constructive}}
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=channel/covert,topic=pos}}
 
 @article{MASCAB:EvtPonAbu:16,
   author       = {D. Evtyushkin and D. Ponomarev and N. Abu-Ghazaleh},
@@ -255,133 +199,34 @@
   url          = {http://hdl.handle.net/1783.1/25}
 }
 
-% =============================================================================
-@STRING{KEYWORDS={side/noc/destructive}}
-
-@inproceedings{MASCAB:RSBSS:16,
-  author       = {C. Reinbrecht and A. Susin and L. Bossuet and G. Sigl and J. Sep\'{u}lveda},
-  title        = {Side channel attack on NoC-based MPSoCs are practical: NoC Prime+ Probe attack},
-  booktitle    = {Integrated Circuits and Systems Design (SBCCI)},
-  pages        = {1--6},
-  year         = {2016}
-}
-
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side/noc/constructive}}
+@STRING{KEYWORDS={class=channel/covert,topic=alt}}
 
-@article{MASCAB:WGOHKCS:14,
-  author       = {H.M.G. Wassel and Y. Gao and J.K. Oberg and T. Huffmire and R. Kastner and F.T. Chong and T. Sherwood},
-  title        = {Networks on Chip with Provable Security Properties},
-  journal      = {IEEE Micro},
-  volume       = {34},
-  number       = {3},
-  pages        = {57--68},
-  year         = {2014}
+@inproceedings{MASCAB:MWSGGBRM:17,
+  author       = {C. Maurice and M. Weber and M. Schwarz and L. Giner and D. Gruss and C.A. Boano and K. Romer and S. Mangard},
+  title        = {Hello from the Other Side: {SSH} over Robust Cache Covert Channels in the Cloud},
+  booktitle    = {Network and Distributed System Security Symposium (NDSS)},
+  year         = {2017}
 }
-
-@inproceedings{MASCAB:AncChaRoy:14,
-  author       = {D.M. Ancajas and K. Chakraborty and S. Roy},
-  title        = {{Fort-NoCs}: Mitigating the Threat of a Compromised {NoC}},
-  booktitle    = {Design Automation Conference (DAC)},
-  pages        = {158:1--158:6},
-  year         = {2014}
-} 
-
-@inproceedings{MASCAB:WanFerSuh:14,
-  author       = {Y. Wang and A. Ferraiuolo and G.E. Suh},
-  title        = {Timing Channel Protection for a Shared Memory Controller},
-  booktitle    = {High-Performance Computer Architecture (HPCA)},
-  pages        = {225--236},
-  year         = {2014}
-}
-
-@inproceedings{MASCAB:WanSuh:12,
-  author       = {Y. Wang and G.E. Suh},
-  title        = {Efficient Timing Channel Protection for On-Chip Networks},
-  booktitle    = {IEEE/ACM International Symposium on Networks-on-Chip (NOCS)},
-  pages        = {142--151},
-  year         = {2012}
-} 
-
-@inproceedings{MASCAB:FioPalSil:08,
-  author    = {L. Fiorin and G. Palermo and C. Silvano},
-  title     = {A Security Monitoring Service for {NoCs}},
-  booktitle = {IEEE/ACM/IFIP International Conference on Hardware/Software Codesign and System Synthesis (CODES+ISSS)},
-  pages     = {197--202},
-  year      = {2008}
-} 
 
 % =============================================================================
-@STRING{KEYWORDS={side/arith/constructive}}
+@STRING{KEYWORDS={class=channel/side/cache,topic=neg,style=dcache}}
 
-@inproceedings{MASCAB:RanLinTiw:16,
-  author       = {A. Rane and C. Lin and M. Tiwari},
-  title        = {Secure, Precise, and Fast Floating-Point Operations on {x86} Processors},
+@inproceedings{MASCAB:IraEisSun:16,
+  author       = {G. Irazoqui and T. Eisenbarth and B. Sunar},
+  title        = {Cross Processor Cache Attacks},
+  booktitle    = {ACM Symposium on Information, Computer and Communications Security (AsiaCCS)},
+  pages        = {353--364},
+  year         = {2016}
+} 
+
+@inproceedings{MASCAB:PGMSM:16,
+  author       = {P. Pessl and D. Gruss and C. Maurice and M. Schwarz and S. Mangard},
+  title        = {{DRAMA}: Exploiting {DRAM} Addressing for Cross-{CPU} Attacks},
   booktitle    = {USENIX Security Symposium},
-  pages        = {71--86},
+  pages        = {565--581},
   year         = {2016}
 }
-
-% =============================================================================
-@STRING{KEYWORDS={side/branch/destructive}}
-
-@inproceedings{MASCAB:EvtPonAbu:16,
-  author       = {D. Evtyushkin and D.V. Ponomarev and N.B. Abu-Ghazaleh},
-  title        = {Jump over {ASLR}: Attacking branch predictors to bypass {ASLR}},
-  booktitle    = {IEEE/ACM International Symposium on Microarchitecture (MICRO)},
-  pages        = {1--13},
-  year         = {2016}
-} 
-
-@unpublished{MASCAB:AciKocSei:07,
-  author       = {O. Ac\i{}i\c{c}mez and \c{C}.K. Ko\c{c} and J.-P. Seifert},
-  title        = {On the Power of Simple Branch Prediction Analysis},
-  booktitle    = {ACM Symposium on Information, Computer and Communications Security},
-  pages        = {312--320},
-  year         = {2007}
-}
-
-@unpublished{MASCAB:AciGueSei:07,
-  author       = {O. Ac\i{}i\c{c}mez and S. Gueron and J.-P. Seifert},
-  title        = {New Branch Prediction Vulnerabilities in {OpenSSL} and Necessary Software Countermeasures},
-  booktitle    = {IMA Conference on Cryptography and Coding (IMACC)},
-  publisher    = {Springer-Verlag},
-  series       = {LNCS 4887},   
-  pages        = {185--203},
-  year         = {2007}
-}
-
-@inproceedings{MASCAB:AciSeiKoc:07a,
-  author       = {O. Ac\i{}i\c{c}mez and J.-P. Seifert and \c{C}.K. Ko\c{c}},
-  title        = {Predicting Secret Keys via Branch Prediction},
-  booktitle    = {Topics in Cryptology (CT-RSA)},
-  publisher    = {Springer-Verlag},
-  series       = {LNCS 4377}, 
-  pages        = {225--242}, 
-  year         = {2007}
-}
-
-@unpublished{MASCAB:AgoPel:06,
-  author       = {G. Agosta and G. Pelosi},
-  title        = {Countermeasures for the Simple Branch Prediction Analysis},
-  note         = {Cryptology ePrint Archive, Report 2006/482}, 
-  year         = {2006},
-  url          = {http://eprint.iacr.org/2006/482.pdf}
-}
-
-% -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side/branch/constructive}}
-
-@inproceedings{MASCAB:TanWeiGuo:14,
-  author       = {Y. Tan and J. Wei and W. Guo},
-  title        = {The Micro-architectural Support Countermeasures against the Branch Prediction Analysis Attack},
-  booktitle    = {Trust, Security and Privacy in Computing and Communications (TrustCom)},
-  pages        = {276--283}, 
-  year         = {2014}
-}
-
-% =============================================================================
-@STRING{KEYWORDS={side/cache/destructive/data}}
 
 @inproceedings{MASCAB:KAPJ:16,
   author       = {M. Kayaalp and N. Abu-Ghazaleh and D. Ponomarev and A. Jaleel},
@@ -551,7 +396,7 @@
   year         = {2013}
 }
 
-@inproceedings{MASCAB:SprPlo:13a,
+@inproceedings{MASCAB:SprPlo:13:a,
   author       = {R. Spreitzer and T. Plos},
   title        = {Cache-Access Pattern Attack on Disaligned {AES} {T}-Tables},
   booktitle    = {Constructive Side-Channel Analysis and Secure Design (COSADE)},
@@ -561,7 +406,7 @@
   year         = {2013}
 }
 
-@inproceedings{MASCAB:SprPlo:13b,
+@inproceedings{MASCAB:SprPlo:13:b,
   author       = {R. Spreitzer and T. Plos},
   title        = {On the Applicability of Time-Driven Cache Attacks on Mobile Devices},
   booktitle    = {Network and System Security (NSS)},
@@ -599,14 +444,6 @@
   year         = {2012}
 }
 
-@inproceedings{MASCAB:BhaRebMuk:12,
-  author       = {S. Bhattacharya and C. Rebeiro and D. Mukhopadhyay},
-  title        = {Hardware Prefetchers Leak: A Revisit of {SVF} for Cache-Timing Attacks},
-  booktitle    = {IEEE/ACM International Symposium on Microarchitecture Workshops (MICROW)},
-  pages        = {17--23},
-  year         = {2012}
-}
-
 @inproceedings{MASCAB:RPDM:11,
   author       = {C.D. Rebeiro and R. Poddar and A. Datta and D. Mukhopadhyay},
   title        = {An Enhanced Differential Cache Attack on {CLEFIA} for Large Cache Lines},
@@ -636,7 +473,7 @@
 } 
 
 @inproceedings{MASCAB:PodDatReb:11,
-  author       = {R. Poddar and A. Datta and C. Rebeiro},
+  author       = {R. Poddar and A. Datta and C.D. Rebeiro},
   title        = {A Cache Trace Attack on {CAMELLIA}},
   booktitle    = {Security Aspects in Information Technology},
   publisher    = {Springer-Verlag},
@@ -664,7 +501,7 @@
 }
   
 @inproceedings{MASCAB:RebMonMuk:10,
-  author       = {C. Rebeiro and M. Mondal and D. Mukhopadhyay},
+  author       = {C.D. Rebeiro and M. Mondal and D. Mukhopadhyay},
   title        = {Pinpointing Cache Timing Attacks on {AES}},
   booktitle    = {International Conference on VLSI Design (VLSID)},
   pages        = {306--311},
@@ -708,7 +545,7 @@
 }
 
 @inproceedings{MASCAB:RMTF:09,
-  author       = {C. Rebeiro and D. Mukhopadhyay and J. Takahashi and T. Fukunaga},
+  author       = {C.D. Rebeiro and D. Mukhopadhyay and J. Takahashi and T. Fukunaga},
   title        = {Cache Timing Attacks on {Clefia}},
   booktitle    = {Progress in Cryptology (INDOCRYPT)},
   publisher    = {Springer-Verlag},
@@ -725,7 +562,7 @@
   year         = {2008}
 }
 
-@inproceedings{MASCAB:AciSeiKoc:07b,
+@inproceedings{MASCAB:AciSeiKoc:07:b,
   author       = {O. Ac\i i\c{c}mez, W. Schindler and \c{C}.K. Ko\c{c}},
   title        = {Cache Based Remote Timing Attacks on the {AES}},
   booktitle    = {Topics in Cryptology (CT-RSA)},
@@ -871,7 +708,7 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side/cache/destructive/instruction}}
+@STRING{KEYWORDS={class=channel/side/cache,topic=neg,style=icache}}
 
 @article{MASCAB:CWKCL:13,
  author        = {C. Chen and T. Wang and Y. Kou and X. Chen and X. Li},
@@ -884,7 +721,26 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side/cache/constructive/hardware}}
+@STRING{KEYWORDS={class=channel/side/cache,topic=neg,style=fetch}}
+
+@inproceedings{MASCAB:GMFLM:16,
+  author       = {D. Gruss and C. Maurice and A. Fogh and M. Lipp and S. Mangard},
+  title        = {Prefetch Side-Channel Attacks: Bypassing {SMAP} and Kernel {ASLR}},
+  booktitle    = {Computer and Communications Security (CCS)},
+  pages        = {368--379},
+  year         = {2016}
+} 
+
+@inproceedings{MASCAB:BhaRebMuk:12,
+  author       = {S. Bhattacharya and C.D. Rebeiro and D. Mukhopadhyay},
+  title        = {Hardware Prefetchers Leak: A Revisit of {SVF} for Cache-Timing Attacks},
+  booktitle    = {IEEE/ACM International Symposium on Microarchitecture Workshops (MICROW)},
+  pages        = {17--23},
+  year         = {2012}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=channel/side/cache,topic=pos/hardware}}
 
 @inproceedings{MASCAB:WFZMS:16,
   author       = {Y. Wang and A. Ferraiuolo and D. Zhang and A.C. Myers and E.G. Suh},
@@ -953,7 +809,7 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side/cache/constructive/software}}
+@STRING{KEYWORDS={class=channel/side/cache,topic=pos/software}}
 
 @article{MASCAB:SadJam:16,
   author       = {M. Sadiquea and D. Jamesa},
@@ -1040,7 +896,36 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side/cache/misc}}
+@STRING{KEYWORDS={class=channel/side/cache,topic=analysis/hw}}
+
+@unpublished{MASCAB:YGLLH:15,
+  author       = {Y. Yarom and Q. Ge and F. Liu and R.B. Lee and G. Heiser},
+  title        = {Mapping the Intel Last-Level Cache},
+  howpublished = {Cryptology ePrint Archive, Report 2015/905},
+  year         = {2015},
+  url          = {http://eprint.iacr.org/2015/905}
+}
+
+@inproceedings{MASCAB:MSNHF:15,
+  author       = {C. Maurice and N. Le Scouarnec and C. Neumann and O. Heen and A. Francillon},
+  title        = {Reverse Engineering {Intel} Last-Level Cache Complex Addressing Using Performance Counters},
+  booktitle    = {Recent Advances in Intrusion Detection (RAID)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 9404},
+  pages        = {48--65},
+  year         = {2015}
+}
+
+@inproceedings{MASCAB:IES:15,
+  author       = {G. Irazoqui and T. Eisenbarth and B. Sunar},
+  title        = {Systematic Reverse Engineering of Cache Slice Selection in {Intel} Processors},
+  booktitle    = {Digital System Design (DSD)},
+  pages        = {629--636},
+  year         = {2015}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=channel/side/cache,topic=analysis/attack}}
 
 @inproceedings{MASCAB:ZMHS:16,
   author       = {A. Zankl and K. Miller and J. Heyszl and G. Sigl},
@@ -1105,10 +990,163 @@
   year         = {2006}
 }
 
-% =============================================================================
-@STRING{KEYWORDS={side/misc/destructive}}
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=channel/side/cache,topic=analysis/misc}}
 
-@article{MASCAB:ZhaZhaLee:16,
+
+% =============================================================================
+@STRING{KEYWORDS={class=channel/side/branch,topic=neg}}
+
+@inproceedings{MASCAB:EvtPonAbu:16,
+  author       = {D. Evtyushkin and D.V. Ponomarev and N.B. Abu-Ghazaleh},
+  title        = {Jump over {ASLR}: Attacking branch predictors to bypass {ASLR}},
+  booktitle    = {IEEE/ACM International Symposium on Microarchitecture (MICRO)},
+  pages        = {1--13},
+  year         = {2016}
+} 
+
+@unpublished{MASCAB:AciKocSei:07,
+  author       = {O. Ac\i{}i\c{c}mez and \c{C}.K. Ko\c{c} and J.-P. Seifert},
+  title        = {On the Power of Simple Branch Prediction Analysis},
+  booktitle    = {ACM Symposium on Information, Computer and Communications Security},
+  pages        = {312--320},
+  year         = {2007}
+}
+
+@unpublished{MASCAB:AciGueSei:07,
+  author       = {O. Ac\i{}i\c{c}mez and S. Gueron and J.-P. Seifert},
+  title        = {New Branch Prediction Vulnerabilities in {OpenSSL} and Necessary Software Countermeasures},
+  booktitle    = {IMA Conference on Cryptography and Coding (IMACC)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 4887},   
+  pages        = {185--203},
+  year         = {2007}
+}
+
+@inproceedings{MASCAB:AciSeiKoc:07:a,
+  author       = {O. Ac\i{}i\c{c}mez and J.-P. Seifert and \c{C}.K. Ko\c{c}},
+  title        = {Predicting Secret Keys via Branch Prediction},
+  booktitle    = {Topics in Cryptology (CT-RSA)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 4377}, 
+  pages        = {225--242}, 
+  year         = {2007}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=channel/side/branch,topic=pos}}
+
+@inproceedings{MASCAB:TanWeiGuo:14,
+  author       = {Y. Tan and J. Wei and W. Guo},
+  title        = {The Micro-architectural Support Countermeasures against the Branch Prediction Analysis Attack},
+  booktitle    = {Trust, Security and Privacy in Computing and Communications (TrustCom)},
+  pages        = {276--283}, 
+  year         = {2014}
+}
+
+@unpublished{MASCAB:AgoPel:06,
+  author       = {G. Agosta and G. Pelosi},
+  title        = {Countermeasures for the Simple Branch Prediction Analysis},
+  note         = {Cryptology ePrint Archive, Report 2006/482}, 
+  year         = {2006},
+  url          = {http://eprint.iacr.org/2006/482.pdf}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=channel/side/branch,topic=analysis/hw}}
+
+@inproceedings{MASCAB:UzeMil:09,
+  author       = {V. Uzelac and A. Milenkovic},
+  title        = {Experiment flows and microbenchmarks for reverse engineering of branch predictor structures},
+  booktitle    = {IEEE International Symposium on Performance Analysis of Systems and Software (ISPASS)},
+  pages        = {207--217},
+  year         = {2009}
+}
+
+@article{MASCAB:MilMilKul:04,
+  author       = {M. Milenkovic and A. Milenkovic and J. Kulick},
+  title        = {Microbenchmarks for Determining Branch Predictor Organization},
+  journal      = {Software -- Practice \& Experience},
+  volume       = {34},
+  number       = {5},
+  pages        = {465--487},
+  year         = {2004}
+} 
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=channel/side/branch,topic=analysis/attack}}
+
+% =============================================================================
+@STRING{KEYWORDS={class=channel/side/arith,topic=pos}}
+
+@inproceedings{MASCAB:RanLinTiw:16,
+  author       = {A. Rane and C. Lin and M. Tiwari},
+  title        = {Secure, Precise, and Fast Floating-Point Operations on {x86} Processors},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {71--86},
+  year         = {2016}
+}
+
+% =============================================================================
+@STRING{KEYWORDS={class=channel/side/noc,topic=neg}}
+
+@inproceedings{MASCAB:RSBSS:16,
+  author       = {C. Reinbrecht and A. Susin and L. Bossuet and G. Sigl and J. Sep\'{u}lveda},
+  title        = {Side channel attack on {NoC}-based {MPSoCs} are practical: {NoC} {\sc Prime+Probe} attack},
+  booktitle    = {Integrated Circuits and Systems Design (SBCCI)},
+  pages        = {1--6},
+  year         = {2016}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=channel/side/noc,topic=pos}}
+
+@article{MASCAB:WGOHKCS:14,
+  author       = {H.M.G. Wassel and Y. Gao and J.K. Oberg and T. Huffmire and R. Kastner and F.T. Chong and T. Sherwood},
+  title        = {Networks on Chip with Provable Security Properties},
+  journal      = {IEEE Micro},
+  volume       = {34},
+  number       = {3},
+  pages        = {57--68},
+  year         = {2014}
+}
+
+@inproceedings{MASCAB:AncChaRoy:14,
+  author       = {D.M. Ancajas and K. Chakraborty and S. Roy},
+  title        = {{Fort-NoCs}: Mitigating the Threat of a Compromised {NoC}},
+  booktitle    = {Design Automation Conference (DAC)},
+  pages        = {158:1--158:6},
+  year         = {2014}
+} 
+
+@inproceedings{MASCAB:WanFerSuh:14,
+  author       = {Y. Wang and A. Ferraiuolo and G.E. Suh},
+  title        = {Timing Channel Protection for a Shared Memory Controller},
+  booktitle    = {High-Performance Computer Architecture (HPCA)},
+  pages        = {225--236},
+  year         = {2014}
+}
+
+@inproceedings{MASCAB:WanSuh:12,
+  author       = {Y. Wang and G.E. Suh},
+  title        = {Efficient Timing Channel Protection for On-Chip Networks},
+  booktitle    = {IEEE/ACM International Symposium on Networks-on-Chip (NOCS)},
+  pages        = {142--151},
+  year         = {2012}
+} 
+
+@inproceedings{MASCAB:FioPalSil:08,
+  author    = {L. Fiorin and G. Palermo and C. Silvano},
+  title     = {A Security Monitoring Service for {NoCs}},
+  booktitle = {IEEE/ACM/IFIP International Conference on Hardware/Software Codesign and System Synthesis (CODES+ISSS)},
+  pages     = {197--202},
+  year      = {2008}
+}
+
+% =============================================================================
+@STRING{KEYWORDS={class=channel/side/misc,topic=neg}}
+
+@article{MASCAB:ZhaZhaLee:16:b,
   author       = {T. Zhang and Y. Zhang and R.B. Lee},
   title        = {Memory {Do}S Attacks in Multi-tenant Clouds: Severity and Mitigation},
   journal      = {CoRR},
@@ -1116,24 +1154,8 @@
   year         = {2016},
 }
 
-@inproceedings{MASCAB:VZRS:15,
-  author       = {V. Varadarajan and Y. Zhang and T. Ristenpart and M. Swift},
-  title        = {A Placement Vulnerability Study in Multi-tenant Public Clouds},
-  booktitle    = {USENIX Security Symposium},
-  pages        = {913--928},
-  year         = {2015}
-}
-
-@inproceedings{MASCAB:XuWanZhe:15,
-  author       = {Z. Xu and H. Wang and Z. Wu},
-  title        = {A Measurement Study on Co-residence Threat Inside the Cloud},
-  booktitle    = {USENIX Security Symposium},
-  pages        = {929--944},
-  year         = {2015}
-} 
-
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side/misc/constructive/hardware}}
+@STRING{KEYWORDS={class=channel/side/misc,topic=pos/hardware}}
 
 @inproceedings{MASCAB:CosLebDev:16,
   author       = {V. Costan and I. Lebedev and S. Devadas},
@@ -1185,9 +1207,9 @@
 } 
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side/misc/constructive/software}}
+@STRING{KEYWORDS={class=channel/side/misc,topic=pos/software}}
 
-@inproceedings{MASCAB:ZhaZhaLee,
+@inproceedings{MASCAB:ZhaZhaLee:16:a,
   author       = {T. Zhang and Y. Zhang and R.B. Lee},
   title        = {{CloudRadar}: A Real-Time Side-Channel Attack Detection System in Clouds},
   booktitle    = {Research in Attacks, Intrusions, and Defenses (RAID)},
@@ -1202,6 +1224,13 @@
   title        = {{Nomad}: Mitigating Arbitrary Cloud Side Channels via Provider-Assisted Migration},
   booktitle    = {ACM Conference on Computer and Communications Security (CCS)},
   pages        = {1595--1606},
+  year         = {2015}
+}
+
+@inproceedings{MASCAB:CHBLF:15,
+  author       = {S. Crane and A. Homescu and S. Brunthaler and P. Larsen and M. Franz},
+  title        = {Thwarting Cache Side-Channel Attacks Through Dynamic Software Diversity},
+  booktitle    = {Network and Distributed System Security Symposium (NDSS)},
   year         = {2015}
 } 
 
@@ -1221,6 +1250,16 @@
   year         = {2010}
 } 
 
+@article{MASCAB:CleCopSut:12,
+  author       = {J.V. Cleemput and B. Coppens and B. De Sutter},
+  title        = {Compiler Mitigations for Time Attacks on Modern {x86} Processors},
+  journal      = {ACM Transactions on Architecture and Code Optimisation (TACO)},
+  volume       = {8},
+  number       = {4},
+  pages        = {23:1--23:20},
+  year         = {2012}
+} 
+
 @inproceedings{MASCAB:CVBS:09,
   author       = {B. Coppens and I. Verbauwhede and K. de Bosschere and B. de Sutter},
   title        = {Practical Mitigation for Timing-Based Side-Channel Attacks on Modern {x86} Processors},
@@ -1230,7 +1269,7 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={side/misc/misc}}
+@STRING{KEYWORDS={class=channel/side/misc,topic=misc}}
 
 @inproceedings{MASCAB:HKRDVT:15,
   author       = {C. Hunger and M. Kazdagli and A. Rawat and A. Dimakis and S. Vishwanath and M. Tiwari},
@@ -1256,6 +1295,113 @@
   booktitle    = {International Symposium on Computer Architecture (ISCA)},
   pages        = {106--117},
   year         = {2012},
+} 
+
+% =============================================================================
+@STRING{KEYWORDS={class=crosscut/oblivious}}
+
+@inproceedings{MASCAB:RanLinTiw:15,
+  author       = {A. Rane and C. Lin and M. Tiwari},
+  title        = {{Raccoon}: Closing Digital Side-channels Through Obfuscated Execution},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {431--446},
+  year         = {2015}
+} 
+
+@inproceedings{MASCAB:LHMHTS:15,
+  author       = {C. Liu and A. Harris and M. Maas and M. Hicks and M. Tiwari and E. Shi},
+  title        = {{GhostRider}: A Hardware-Software System for Memory Trace Oblivious Computation},
+  booktitle    = {Architectural Support for Programming Languages and Operating Systems (ASPLOS)},
+  pages        = {87--101},
+  year         = {2015}
+} 
+
+@inproceedings{MASCAB:MLSTSAKS:13,
+  author       = {M. Maas and E. Love and E. Stefanov and M. Tiwari and E. Shi and K. Asanovic and J. Kubiatowicz and D. Song},
+  title        = {{PHANTOM}: Practical Oblivious Computation in a Secure Processor},
+  booktitle    = {ACM Conference on Computer and Communications Security (CCS)},
+  pages        = {311--324},
+  year         = {2013}
+} 
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=crosscut/colocation}}
+
+@inproceedings{MASCAB:IGES:16,
+  author       = {M.S. Inci and B. G\"{u}lmezoglu and T. Eisenbarth and B. Sunar},
+  title        = {Co-location detection on the Cloud},
+  booktitle    = {Constructive Side-Channel Analysis and Secure Design (COSADE)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 9689},
+  pages        = {19--34},
+  year         = {2016}
+}
+
+@inproceedings{MASCAB:VZRS:15,
+  author       = {V. Varadarajan and Y. Zhang and T. Ristenpart and M. Swift},
+  title        = {A Placement Vulnerability Study in Multi-tenant Public Clouds},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {913--928},
+  year         = {2015}
+}
+
+@inproceedings{MASCAB:XuWanWu:15,
+  author       = {Z. Xu and H. Wang and Z. Wu},
+  title        = {A Measurement Study on Co-residence Threat Inside the Cloud},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {929--944},
+  year         = {2015}
+} 
+
+@inproceedings{MASCAB:ZJOR:11,
+  author       = {Y. Zhang and A. Juels and A. Oprea and M.K. Reiter},
+  title        = {{HomeAlone}: Co-residency Detection in the Cloud via Side-Channel Analysis},
+  booktitle    = {IEEE Symposium on Security \& Privacy (S\&P)},
+  pages        = {313--328},
+  year         = {2011}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=crosscut/aslr}}
+
+@inproceedings{MASCAB:BRPG:15,
+  author       = {A. Barresi and K. Razavi and M. Payer and T.R. Gross},
+  title        = {{CAIN}: Silently Breaking ASLR in the Cloud},
+  booktitle    = {USENIX Workshop on Offensive Technologies (WOOT)},
+  year         = {2015}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=crosscut/iee}}
+
+@inproceedings{MASCAB:SLKP:17,
+  author       = {M.-W. Shih and S. Lee and T. Kim and M. Peinado},
+  title        = {{T-SGX}: Eradicating Controlled-Channel Attacks Against Enclave Programs},
+  booktitle    = {Network and Distributed System Security Symposium (NDSS)},
+  year         = {2017}
+}
+
+@inproceedings{MASCAB:CZRZ:16,
+  author       = {S. Chen and X. Zhang and M.K. Reiter and Y. Zhang},
+  title        = {Detecting Privileged Side-Channel Attacks in Shielded Execution with D\'{e}j\'{a} Vu},
+  booktitle    = {ACM Symposium on Information, Computer and Communications Security (AsiaCCS)},
+  year         = {2017}
+}
+
+@inproceedings{MASCAB:XuCuiPei:15,
+  author       = {Y. Xu and W. Cui and M. Peinado},
+  title        = {Controlled-Channel Attacks: Deterministic Side Channels for Untrusted Operating Systems},
+  booktitle    = {IEEE Symposium on Security and Privacy (S\&P)},
+  pages        = {640--656},
+  year         = {2015}
+} 
+
+@inproceedings{MASCAB:SCNS:16,
+ author        = {S. Shinde and Z.L. Chua and V. Narayanan and P. Saxena},
+ title         = {Preventing Page Faults from Telling Your Secrets},
+  booktitle    = {ACM Symposium on Information, Computer and Communications Security (AsiaCCS)},
+ pages         = {317--328},
+ year          = {2016}
 } 
 
 % =============================================================================
