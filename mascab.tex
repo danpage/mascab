@@ -20,13 +20,16 @@
 \renewcommand*\finentrypunct{}
 \defbibheading{subsubbibnumbered}[\bibname]{\subsubsection{#1}\markboth{#1}{#1}}
 
-\title{{MASCAB}: a Micro-Architectural Side-Channel Attack Bibliography}
-\date{\today}
-\author{\url{http://www.github.com/danpage/mascab}}
-
 \begin{document}
 
-\maketitle \tableofcontents \nocite{*} 
+\begin{center}
+{\LARGE\scshape {MASCAB}: a Micro-Architectural Side-Channel Attack Bibliography \par} \vspace{0.5cm}
+{\LARGE         \url{http://www.github.com/danpage/mascab}                       \par} \vspace{1.0cm}
+{\Large\scshape D. Page                                                          \par}
+{\Large\scshape \today                                                           \par} \vspace{1.0cm}
+\end{center}
+
+\tableofcontents \nocite{*} \newpage
 
 % =============================================================================
 
@@ -170,7 +173,7 @@
 
 \subsection{IDS-like monitoring and detection}
 
-\defbibfilter{f}{keyword={class=crossbut/ids}}
+\defbibfilter{f}{keyword={class=crosscut/ids}}
 
 \printbibliography[ heading={none},              filter={f}                                                                                                                                     ]
 

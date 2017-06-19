@@ -75,23 +75,6 @@
   year         = {1976}
 }
 
-% -----------------------------------------------------------------------------
-@STRING{KEYWORDS={class=misc/thesis}}
-
-@phdthesis{MASCAB:Falzon:16,
-  author       = {K. Falzon},
-  title        = {On the Use of Migration to Stop Illicit Channels}, 
-  school       = {Technischen Universit\"{a}t Darmstadt},
-  year         = {2016}
-}
-
-@mastersthesis{MASCAB:Godfrey:13,
-  author       = {M. Godfrey},
-  title        = {On the Prevention of Cache-Based Side-Channel Attacks in a Cloud Environment},
-  school       = {Queen's University},
-  year         = {2013}
-}
-
 % =============================================================================
 @STRING{KEYWORDS={class=channel/covert,topic=neg}}
 
@@ -378,6 +361,16 @@
   year         = {2014}
 }
 
+@article{MASCAB:RebMuk:13,
+  author       = {C.D. Rebeiro and D. Mukhopadhyay},
+  title        = {Micro-Architectural Analysis of Time-Driven Cache Attacks: Quest for the Ideal Implementation},
+  journal      = {IEEE Transactions on Computers},
+  volume       = {64},
+  number       = {3},
+  pages        = {778--790},
+  year         = {2013}
+}
+
 @inproceedings{MASCAB:AlyElG:13,
   author       = {H. Aly and M. ElGayyar},
   title        = {Attacking {AES} Using {Bernstein's} Attack on Modern Processors},
@@ -637,7 +630,7 @@
 }
 
 @unpublished{MASCAB:AtiYilSav:16,
-  author       = {A.C. Atici and C. Yilmaz and E. Savas},
+  author       = {A.C. Atici and C. Yilmaz and E. Sava\c{s}},
   title        = {Remote Cache-Timing Attack without Learning Phase},
   howpublished = {Cryptology ePrint Archive, Report 2016/002},
   year         = {2016},
@@ -739,6 +732,14 @@
   year         = {2012}
 }
 
+@inproceedings{MASCAB:FucLee:15,
+  author       = {A. Fuchs and R.B. Lee},
+  title        = {Disruptive Prefetching: Impact on Side-channel Attacks and Cache Designs},
+  booktitle    = {ACM International Systems and Storage Conference (SYSTOR)},
+  pages        = {14:1--14:12},
+  year         = {2015}
+} 
+
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=channel/side/cache,topic=pos/hardware}}
 
@@ -749,6 +750,14 @@
   pages        = {74:1--74:6},
   year         = {2016}
 }
+
+@inproceedings{MASCAB:LiuWuLee:15,
+  author       = {F. Liu and H. Wu and R.B. Lee},
+  title        = {Can Randomized Mapping Secure Instruction Caches from Side-channel Attacks?},
+  booktitle    = {Hardware and Architectural Support for Security and Privacy (HASP)},
+  pages        = {4:1--4:8},
+  year         = {2015}
+} 
 
 @inproceedings{MASCAB:LiuLee:14,
   author       = {F. Liu and R.B. Lee},
@@ -925,7 +934,26 @@
 }
 
 % -----------------------------------------------------------------------------
-@STRING{KEYWORDS={class=channel/side/cache,topic=analysis/attack}}
+@STRING{KEYWORDS={class=channel/side/cache,topic=pos/analysis}}
+
+@inproceedings{MASCAB:AtiYilSav:13,
+  author       = {A.C. Atici and C. Yilmaz and E. Sava\c{s}},
+  title        = {An Approach for Isolating the Sources of Information Leakage Exploited in Cache-Based Side-Channel Attacks},
+  booktitle    = {Software Security and Reliability-Companion (SERE-C)},
+  pages        = {74--83},
+  year         = {2013}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=channel/side/cache,topic=analysis/security}}
+
+@inproceedings{MASCAB:BMRM:16,
+ author        = {S. Briongos and P. Malag\'{o}n and J.L. Risco-Mart\'{\i}n and J.M. Moya},
+ title         = {Modeling Side-channel Cache Attacks on {AES}},
+ booktitle     = {Summer Computer Simulation Conference (SCSC)},
+ pages         = {37:1--37:8},
+ year          = {2016}
+} 
 
 @inproceedings{MASCAB:ZMHS:16,
   author       = {A. Zankl and K. Miller and J. Heyszl and G. Sigl},
@@ -935,6 +963,47 @@
   series       = {LNCS 9879},
   pages        = {3--19},
   year         = {2016}
+}
+
+@article{MASCAB:SavYil:15,
+  author       = {E. Sava\c{s} and C. Yilmaz},
+  title        = {A Generic Method for the Analysis of a Class of Cache Attacks: A Case Study for {AES}},
+  journal      = {The Computer Journal},
+  volume       = {58},
+  number       = {10},
+  pages        = {2716--2737},
+  year         = {2015}
+}
+
+@inproceedings{MASCAB:LiuLee:13,
+  author       = {F. Liu and R.B. Lee},
+  title        = {Security Testing of a Secure Cache Design},
+  booktitle    = {Hardware and Architectural Support for Security and Privacy (HASP)},
+  pages        = {3:1--3:8},
+  year         = {2013}
+} 
+
+@inproceedings{MASCAB:TANA:07,
+  author       = {K. Tiri and O. Ac\i{}i\c{c}mez and M. Neve and F. Andersen},
+  title        = {An Analytical Model for Time-Driven Cache Attacks},
+  booktitle    = {Fast Software Encryption (FSE)}, 
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 4593},
+  pages        = {399--413}, 
+  year         = {2007}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=channel/side/cache,topic=analysis/misc}}
+
+@article{MASCAB:ZWLZZ:15,
+  author       = {P. Zhou and T. Wang and G. Li and F. Zhang and X. Zhao},
+  title        = {Analysis on the parameter selection method for {\sc Flush+Reload} based cache timing attack on {RSA}},
+  journal      = {China Communications},
+  volume       = {12},
+  issue        = {6},
+  pages        = {33--45},
+  year         = {2015}
 }
 
 @inproceedings{MASCAB:TFAF:13,
@@ -962,16 +1031,6 @@
   year         = {2011}
 }
 
-@inproceedings{MASCAB:TANA:07,
-  author       = {K. Tiri and O. Ac\i{}i\c{c}mez and M. Neve and F. Andersen},
-  title        = {An Analytical Model for Time-Driven Cache Attacks},
-  booktitle    = {Fast Software Encryption (FSE)}, 
-  publisher    = {Springer-Verlag},
-  series       = {LNCS 4593},
-  pages        = {399--413}, 
-  year         = {2007}
-}
-
 @inproceedings{MASCAB:BloKru:07,
   author       = {J. Bl\"{o}mer and V. Krummel},
   title        = {Analysis of Countermeasures Against Access Driven Cache Attacks on {AES}},
@@ -989,10 +1048,6 @@
   pages        = {369--369}, 
   year         = {2006}
 }
-
-% -----------------------------------------------------------------------------
-@STRING{KEYWORDS={class=channel/side/cache,topic=analysis/misc}}
-
 
 % =============================================================================
 @STRING{KEYWORDS={class=channel/side/branch,topic=neg}}
@@ -1136,11 +1191,11 @@
 } 
 
 @inproceedings{MASCAB:FioPalSil:08,
-  author    = {L. Fiorin and G. Palermo and C. Silvano},
-  title     = {A Security Monitoring Service for {NoCs}},
-  booktitle = {IEEE/ACM/IFIP International Conference on Hardware/Software Codesign and System Synthesis (CODES+ISSS)},
-  pages     = {197--202},
-  year      = {2008}
+  author       = {L. Fiorin and G. Palermo and C. Silvano},
+  title        = {A Security Monitoring Service for {NoCs}},
+  booktitle    = {IEEE/ACM/IFIP International Conference on Hardware/Software Codesign and System Synthesis (CODES+ISSS)},
+  pages        = {197--202},
+  year         = {2008}
 }
 
 % =============================================================================
@@ -1322,6 +1377,43 @@
   booktitle    = {ACM Conference on Computer and Communications Security (CCS)},
   pages        = {311--324},
   year         = {2013}
+} 
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=crosscut/schedule}}
+
+@incollection{MASCAB:KadKiy:13,
+  author       = {S. Kadloor and N. Kiyavash},
+  title        = {Exploiting Timing Side Channel in Secure Cloud Scheduling},
+  chapter      = {6},
+  pages        = {147--168},
+  editor       = {K.J. Han and B.-Y. Choi and S. Song},
+  booktitle    = {High Performance Cloud Auditing and Applications},
+  publisher    = {Springer},
+  year         = {2013}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=crosscut/interrupt}}
+
+@article{MASCAB:GayManSub:15,
+  author       = {R. Gay and H. Mantel and H. Sudbrock},
+  title        = {An Empirical Bandwidth Analysis of Interrupt-Related Covert Channels},
+  journal      = {International Journal of Secure Software Engineering},
+  volume       = {6},
+  number       = {2},
+  pages        = {1--22},
+  year         = {2015}
+} 
+
+@incollection{MASCAB:ManSub:09,
+  author       = {H. Mantel and H. Sudbrock},
+  chapter      = {Information-Theoretic Modeling and Analysis of Interrupt-Related Covert Channels},
+  title        = {Formal Aspects in Security and Trust},
+  editor       = {P. Degano and J. Guttman and F. Martinelli},
+  publisher    = {Springer-Verlag},
+  pages        = {67--81},
+  year         = {2009}
 } 
 
 % -----------------------------------------------------------------------------
