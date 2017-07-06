@@ -157,6 +157,14 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=misc/patent}}
 
+@unpublished{MASCAB:Kavi:16,
+  keywords     = KEYWORDS,
+  author       = {K.M. Kavi},
+  title        = {Method and apparatus for improving computer cache performance and for protecting memory systems against some side channel attacks},
+  note         = {U.S. Patent Number 13/458,145},
+  year         = {2016}
+}
+
 @unpublished{MASCAB:Fine:13,
   keywords     = KEYWORDS,
   author       = {K.S. Fine},
@@ -366,6 +374,34 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=misc/thesis}}
 
+@phdthesis{MASCAB:Bao:17,
+  keywords     = KEYWORDS,  
+  author       = {C. Bao},
+  title        = {Hardware Attacks And Mitigation Techniques}, 
+  school       = {University of Maryland},
+  year         = {2017},
+  addendum     = {
+    In particular, see
+    Chapter $4$ (relating to use of 3D integration as a countermeasure against cache-based attacks).
+  }
+}
+
+@phdthesis{MASCAB:Irazoqui:17,
+  keywords     = KEYWORDS,  
+  author       = {G. Irazoqui},
+  title        = {Cross-core Microarchitectural Side Channel Attacks and Countermeasures}, 
+  school       = {Worcester Polytechnic Institute},
+  year         = {2017}
+}
+
+@phdthesis{MASCAB:Gruss:17,
+  keywords     = KEYWORDS,  
+  author       = {D. Gruss},
+  title        = {Software-based Microarchitectural Attacks}, 
+  school       = {Institute of Applied Information Processing and Communications (IAIK), Graz University of Technology},
+  year         = {2017}
+}
+
 @mastersthesis{MASCAB:Green:17,
   keywords     = KEYWORDS,  
   author       = {M. Green},
@@ -375,6 +411,7 @@
 }
 
 @phdthesis{MASCAB:Falzon:16,
+  keywords     = KEYWORDS,  
   author       = {K. Falzon},
   title        = {On the Use of Migration to Stop Illicit Channels}, 
   school       = {Technischen Universit\"{a}t Darmstadt},
@@ -534,6 +571,25 @@
   author       = {C. Percival},
   title        = {{TRICL}: a timing attack resistant cryptographic library},
   url          = {http://www.daemonology.net/tricl}
+}
+
+% =============================================================================
+@STRING{KEYWORDS={class=channel/covert,topic=neg}}
+
+@article{MASCAB:NagAbu:17,
+  keywords     = KEYWORDS,
+  author       = {H. Naghibijouybari and N. Abu-Ghazaleh},
+  title        = {Covert Channels on {GPGPUs}},
+  journal      = {IEEE Computer Architecture Letters}, 
+  volume       = {16},
+  number       = {1},   
+  pages        = {22--25},
+  year         = {2017},
+  addendum     = {
+    This paper constructs a contention-based covert channel, using either L1
+    or L2 caches on a specific, Nvidia-based GPU; this permits communication
+    within or between constituent streaming multi-processors.
+  }
 }
 
 % =============================================================================
@@ -1140,6 +1196,22 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=channel/side/cache,topic=neg,style=dcache/time}}
 
+@inproceedings{MASCAB:JiaFeiKae:16,
+  keywords     = KEYWORDS,
+  author       = {Z.H. Jiang and Y. Fei and D. Kaeli},
+  title        = {A complete key recovery timing attack on a {GPU}},
+  booktitle    = {High Performance Computer Architecture (HPCA)},
+  pages        = {394--405},
+  year         = {2016},
+  addendum     = {
+    This paper presents a cache-based timing attack on AES: per Figure $1$,
+    the context is similar to analogous remote timing attacks, except that
+    the target executes AES using a GPU (vs. a CPU).  As such, the central 
+    observation is that on the experimental Nvidia-based GPU, for example,
+    execution time is correlated with L1 cache behaviour.
+  }
+} 
+
 @inproceedings{MASCAB:BHNS:10,
   keywords     = KEYWORDS,
   author       = {B.B. Brumley and R.M. Hakala and K. Nyberg and S. Sovio},
@@ -1360,6 +1432,32 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=channel/side/cache,topic=pos/hardware}}
 
+@inproceedings{MASCAB:FucLee:15,
+  keywords     = KEYWORDS,
+  author       = {A. Fuchs and R.B. Lee},
+  title        = {Disruptive Prefetching: Impact on Side-channel Attacks and Cache Designs},
+  booktitle    = {ACM International Systems and Storage Conference (SYSTOR)},
+  pages        = {14:1--14:12},
+  year         = {2015},
+  addendum     = {
+    The central idea in this paper is to harness hardware pre-fetchers as a
+    countermeasure against cache-based side-channel attacks: various papers
+    note the negative influence pre-fetching can have on attack success (by 
+    polluting the cache state vs. that expected, for example), so this idea 
+    attempts to intentionally maximise said influence in a sense.  
+
+    Alterations to two different pre-fetching algorithms are investigated,
+    namely
+    1) the approach in Section $3.2$ randomises the length and order of 
+       accesses in the pre-fetched address stream, attempting to balance
+       the degree of randomisation with resulting performance,
+    2) the approach in Section $3.3$ alters the selection of cache set, so
+       as to achieve a uniform set access pattern.
+    Section $4$ demonstrates that a combination of 1) and 2) act to prevent
+    a (simulated) {\sc Prime+Probe}-based attack.
+  }
+} 
+
 @article{MASCAB:KASK:08,
   keywords     = KEYWORDS,
   author       = {G. Keramidas and A. Antonopoulos and D. N. Serpanos and S. Kaxiras},
@@ -1533,9 +1631,35 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=channel/side/cache,topic=pos/analysis}}
 
-@inproceedings {MASCAB:DFKMR:13,
+@inproceedings{MASCAB:ManWebKoe:17,
   keywords     = KEYWORDS,
-  author       = {G. Doychev and D. Feld and B. Kopf and L. Mauborgne and J. Reineke},
+  author       = {H. Mantel and A. Weber and B. K\"{o}epf},
+  title        = {A Systematic Study of Cache Side Channels across {AES} Implementations},
+  booktitle    = {Engineering Secure Software and Systems (ESSoS)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 10379},
+  pages        = {213--230},
+  year         = {2017},
+  addendum     = {
+    Having extended the {\sc CacheAudit} tool of~\cite{MASCAB:DFKMR:13} to
+    cope with a larger set of x86 instructions, the main goal of the paper
+    is a systematic evaluation of leakage from deployed AES implementations
+    (wrt. cache-based attacks); it considers LibTomCrypt, mbed TLS, Nettle,
+    and OpenSSL.  Various conclusions are presented, with perhaps the most
+    interesting being the interaction with look-up table geometry (e.g.,
+    their number, element type, and memory footprint) and security.
+
+    As an aside, a number of nicely organised micro-surveys are included, 
+    such as
+    a) Section $3.1$ on static analysis techniques for leakage assessment,
+       and
+    b) Section $6$ on related work, especially lineage of countermeasures.
+  }
+}
+
+@inproceedings{MASCAB:DFKMR:13,
+  keywords     = KEYWORDS,
+  author       = {G. Doychev and D. Feld and B. K\"{o}pf and L. Mauborgne and J. Reineke},
   title        = {{CacheAudit}: A Tool for the Static Analysis of Cache Side Channels},
   booktitle    = {USENIX Security Symposium},
   pages        = {431--446},
@@ -1545,12 +1669,14 @@
     cache-related behaviour of target and attack processes, and then also
     implements and evaluates a (concrete) tool based on this; the tool is
     able to accept x86 binaries as input, and provide guarantees wrt. the
-    leakage possible and hence viability of an attack.  Evaluation with
-    AES (per PolarSSL) and Salsa20 allows several general conclusions in
-    certain settings (e.g., that pre-loading can reduce leakage, or that 
-    a larger line size can reduce leakage); perhaps the strongest claim
-    is that (the implementation of) Salsa20 provably avoids all attacks 
-    (wrt. the model at least).
+    leakage possible and hence viability of an attack.  The tool itself,
+    termed {\sc CacheAudit}, employs static analysis based on the use of
+    abstract interpretation (of the binary).
+    Evaluation with AES (per PolarSSL) and Salsa20 allows several general
+    conclusions (e.g., that pre-loading can reduce leakage, or that larger 
+    line size can reduce leakage); perhaps the strongest claim is that 
+    (the implementation of) Salsa20 provably avoids all attacks (wrt. the 
+    model at least).
 
     Interestingly, Section $3.4$ seems to model an access-driven attacker 
     that is able to interrogate the cache state {\em on termination} of
@@ -1960,6 +2086,20 @@
 
 % =============================================================================
 @STRING{KEYWORDS={class=channel/side/misc,topic=neg}}
+
+@inproceedings{MASCAB:JiaFeiKae:17,
+  keywords     = KEYWORDS,
+  author       = {Z.H. Jiang and Y. Fei and D. Kaeli},
+  title        = {A Novel Side-Channel Timing Attack on {GPUs}},
+  booktitle    = {Great Lakes Symposium on VLSI (GLSVLSI)},
+  pages        = {167--172},
+  year         = {2017},
+  addendum     = {
+    Somewhat similarly to \cite{MASCAB:Fomin:16}, this paper harnesses bank 
+    conflicts (causing data-dependent execution time) in the shared memory 
+    of an Nvidia-based GPU to mount a time-based side-channel attack on AES.
+  }
+} 
 
 @article{MASCAB:Fomin:16,
   keywords     = KEYWORDS,
