@@ -1432,6 +1432,28 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=channel/side/cache,topic=pos/hardware}}
 
+@inproceedings{MASCAB:KKEEAPJ:17,
+  keywords     = KEYWORDS,
+  author       = {M. Kayaalp and K.N. Khasawneh and H. Esfeden and J. Elwell and N. Abu-Ghazaleh and D. Ponomarev and A. Jaleel},
+  title        = {{RIC}: Relaxed Inclusion Caches for Mitigating {LLC} Side-Channel Attacks},
+  booktitle    = {Design Automation Conference (DAC)}, 
+  pages        = {7:1--7:6},
+  year         = {2017},
+  addendum     = {
+    This paper presents RIC, a design concept to secure LLCs vs. cache-based
+    side-channel attack.  The idea is to (selectively) relax the inclusivity
+    property of (e.g., x86-based) LLC designs; this is achieved by adding a
+    per line flag to enable RIC, which is controlled to allow
+    a) read-only    (e.g., S-box tables, or instructions)
+       or
+    b) thread-local (e.g., any pre-computation for windowed exponentiation)
+    to avoid eviction due to inclusivity.  As such, RIC aims to prevent any
+    attack strategy (e.g., {\sc Flush+Reload}) that depends on inclusivity;
+    it does so without disadvantages, such as degraded performance, that may
+    be levelled at alternatives such as partitioning.
+  }
+}
+
 @inproceedings{MASCAB:FucLee:15,
   keywords     = KEYWORDS,
   author       = {A. Fuchs and R.B. Lee},

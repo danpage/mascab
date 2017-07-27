@@ -43,7 +43,7 @@ to navigate the sub-field, it seems likely to be of use to others as well.
   ```
   @misc{mascab,
     author = {D. Page},
-    title  = {{MASCAB}: a Micro-Architectural Side-Channel Attack Bibliography},
+    title  = {{MASCAB}: a {M}icro-{A}rchitectural {S}ide-{C}hannel {A}ttack {B}ibliography},
     url    = {http://www.github.com/danpage/mascab}
   }
   ```
@@ -55,7 +55,8 @@ to navigate the sub-field, it seems likely to be of use to others as well.
 
 - Although I attempted to summarise (some) papers, this is was initially
   intended for my use: at the moment this isn't meant to be a standalone 
-  survey, mainly as are already good examples elsewhere, see, e.g., 
+  survey, mainly because there are already good examples elsewhere, see, 
+  e.g., 
 
   [1] J. Szefer.
       [Survey of Microarchitectural Side and Covert Channels, Attacks, and Defences](http://eprint.iacr.org/2016/479).

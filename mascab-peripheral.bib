@@ -137,6 +137,7 @@
 }
 
 @inproceedings{MASCAB:QiaSea:16,
+  keywords     = KEYWORDS,
   author       = {R. Qiao and M. Seaborn},
   title        = {A new approach for rowhammer attacks},
   booktitle    = {Hardware Oriented Security and Trust (HOST)},
@@ -145,6 +146,7 @@
 }
 
 @inproceedings{MASCAB:BhaMuk:16,
+  keywords     = KEYWORDS,
   author       = {S. Bhattacharya and D. Mukhopadhyay},
   title        = {Curious Case of Rowhammer: Flipping Secret Exponent Bits Using Timing Analysis},
   booktitle    = {Cryptographic Hardware and Embedded Systems (CHES)},
@@ -155,6 +157,7 @@
 }
 
 @article{MASCAB:BDGLS:16,
+  keywords     = KEYWORDS,
   author       = {F.F. Brasser and L. Davi and D. Gens and C. Liebchen and A.-R. Sadeghi},
   title        = {{CAn't Touch This}: Practical and Generic Software-only Defenses Against Rowhammer Attacks},
   journal      = {CoRR},
@@ -277,6 +280,7 @@
 @STRING{KEYWORDS={class=peripheral,topic=verify}}
 
 @inproceedings{MASCAB:ABBDE:16,
+  keywords     = KEYWORDS,
   author       = {J.B. Almeida and M. Barbosa and G. Barthe and F. Dupressoir and M. Emmi},
   title        = {Verifying Constant-Time Implementations},
   booktitle    = {USENIX Security Symposium},
@@ -285,6 +289,7 @@
 }
 
 @inproceedings{MASCAB:CGMH:14,
+  keywords     = KEYWORDS,
   author       = {D. Cock and Q. Ge and T. Murray and G. Heiser},
   title        = {The last mile: An empirical study of some timing channels on {seL4}},
   booktitle    = {Computer and Communications Security (CCS)}, 
@@ -293,6 +298,7 @@
 }
 
 @inproceedings{MASCAB:MMBGBSLGK:13,
+  keywords     = KEYWORDS,
   author       = {T. Murray and D. Matichuk and M. Brassil and P. Gammie and T. Bourke and S. Seefried and C. Lewis and X. Gao and G. Klein},
   title        = {{seL4}: from general purpose to a proof of information flow enforcement},
   booktitle    = {IEEE Symposium on Security \& Privicy (S\&P)},
@@ -310,6 +316,24 @@
 
 % =============================================================================
 @STRING{KEYWORDS={class=peripheral,topic=misc}}
+
+@article{MASCAB:PieLomVil:16,
+  keywords     = KEYWORDS,
+  author       = {R. Di Pietro and F. Lombardi and A. Villani},
+  title        = {{CUDA} Leaks: A Detailed Hack for {CUDA} and a (Partial) Fix},
+  journal      = {ACM Transactions on Embedded Computing Systems (TECS)},
+  volume       = {15},
+  number       = {1},
+  pages        = {15:1--15:25},
+  year         = {2016},
+  addendum     = {
+    This paper is included mainly to highlight the fact it is {\em not} 
+    about information leakage in the sense of side-channel attacks: the
+    leakage here is (arguably) closer aligned with the concept of data 
+    remnants, stemming from inadequate access controlled to various GPU 
+    memory structures (by hardware and/or driver infrastructure).
+  }
+} 
 
 @inproceedings{MASCAB:DKLMQW:98,
   keywords     = KEYWORDS,
