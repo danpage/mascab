@@ -595,6 +595,39 @@
 % =============================================================================
 @STRING{KEYWORDS={class=channel/side/cache,style=dcache/access,topic=neg/method}}
 
+@inproceedings{MASCAB:DKPT:17,
+  keywords     = KEYWORDS,
+  author       = {C. Disselkoen and D. Kohlbrenner and L. Porter and D. Tullsen},
+  title        = {{\sc Prime+Abort}: A Timer-Free High-Precision {L3} Cache Attack using {Intel} {TSX}},
+  booktitle    = {Computer and Communications Security (CCS)},
+  pages        = {51--67},
+  year         = {2017},
+  addendum     = {
+    Within the context of access-driven cache attacks,
+    this paper presents an attack        technique which harnesses the Intel 
+    transactional memory, or TSX feature.
+    The technique moniker {\sc Prime+Abort} hints at the underlying idea: it
+    is basically similar to {\sc Prime+Probe}, but, rather than interrogate
+    residency of some target address by timing the execution of a ``probe'' 
+    access, it makes use of TSX.  More specifically, the attacker primes TSX
+    wrt. the target address st. access to it by the target process causes a
+    transaction abort; this essentially triggers the attack process, which 
+    can then act accordingly.  Section $3$ overviews several strategies in 
+    more detail, but some high-level advantages and disadvantages are common
+    to most:
+    a) there is no need for a timer, also implying the side-channel involves
+       less noise,
+    b) there is no need for synchronisation with or detection of the target
+       process: the attack process can essentially just wait, until it is
+       triggered {\em precisely} when the target process performs an access,
+    c) it is harder to cope with (i.e., multiplex) multiple target addresses.
+
+    Note that Figure $1$ offers a neat comparison of different attack styles,
+    wrt. a variety of properties, and that~\cite{MASCAB:JanLeeKim:16} use the
+    same sort of technique to target KASLR.
+  }
+}
+
 @inproceedings{MASCAB:ABFPY:16,
   keywords     = KEYWORDS,
   author       = {T. Allan and B.B. Brumley and K. Falkner and J. van de Pol and Y. Yarom}, 
@@ -616,6 +649,7 @@
 
 @inproceedings{MASCAB:GruSprMan:15,
   keywords     = KEYWORDS,
+  author       = {D. Gruss and R. Spreitzer and S. Mangard},
   title        = {Cache Template Attacks: Automating Attacks on Inclusive Last-Level Caches},
   booktitle    = {USENIX Security Symposium},
   pages        = {897--912},
@@ -648,7 +682,7 @@
 @article{MASCAB:GruMauWag:15,
   keywords     = KEYWORDS,
   author       = {D. Gruss and C. Maurice and K. Wagner},
-  title        = {Flush+Flush: {A} Stealthier Last-Level Cache Attack},
+  title        = {{\sc Flush+Flush}: {A} Stealthier Last-Level Cache Attack},
   journal      = {CoRR},
   volume       = {abs/1511.04594},
   year         = {2015},
@@ -851,6 +885,33 @@
 % .............................................................................
 @STRING{KEYWORDS={class=channel/side/cache,style=dcache/access,topic=neg/attack/crypto}}
 
+@inproceedings{MASCAB:GarBru:17,
+  keywords     = KEYWORDS,
+  author       = {C.P. Garc\'{i}a and B.B. Brumley},
+  title        = {Constant-Time Callees with Variable-Time Callers},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {83--98},
+  year         = {2017},
+  addendum     = {
+    This paper mounts a {\sc Flush+Reload} style, access-driven cache attack
+    on OpenSSL-based ECDSA.  Although this has been targeted previously, the
+    paper proceeds in a somewhat different manner:
+    a) noticing a supposed countermeasure (a constant-time implementation of
+       binary EEA) was not activated due to a bug wrt. propogation of flags
+       (embedded as meta-data in the multi-precision integer object),
+    b) attacking the binary EEA (vs. scalar multipliplication) in ECDSA, and
+       thus recovering inputs (the ephemeral key, or nonce $k$) via a shift 
+       and subtraction sequence in turn recovered from the cache attack
+       (cf.~\cite{MASCAB:AciGueSei:07} and \cite{MASCAB:AraThu:07} who use
+       side-channels based on branch prediction and power analysis with the
+       same goal),
+    c) enhancing the robustness of this approach by employing performance 
+       degredation~\cite{MASCAB:ABFPY:16},
+    d) recovering the ECDSA signing key from a set of ephemeral keys using
+       a final, lattice-based cryptanalytic step.
+  }
+}
+
 @inproceedings{MASCAB:GarBruYar:16,
   keywords     = KEYWORDS,
   author       = {C.P. Garc\'{i}a and B.B. Brumley and Y. Yarom},
@@ -919,6 +980,42 @@
   pages        = {323--345}, 
   year         = {2016}
 }
+
+@inproceedings{MASCAB:ZanXiaZha:16,
+  keywords     = KEYWORDS,
+  author       = {X. Zhang and Y. Xiao and Y. Zhang},
+  title        = {Return-Oriented Flush-Reload Side Channels on {ARM} and Their Implications for {Android} Devices},
+  booktitle    = {ACM Conference on Computer and Communications Security (CCS)},
+  pages        = {858--870},
+  year         = {2016},
+  addendum     = {
+    The focus of this paper is the application of {\sc Flush+Reload}-style, 
+    access-driven cache attacks on ARM-based devices executing Android; the
+    L2 cache (i.e., LLC) is used as a target.
+    A range of challenges are address, but there are effectively three main
+    contributions:
+    1) Although user-mode processes cannot directly control the caches, the
+       OS provides the {\tt clearcache} system call to {\em clean} the data 
+       cache (i.e., write-back) and {\em flush} the instruction cache; in a
+       sense, this permits {\tt clflush}-like behaviour for the instruction   
+       cache only.  A characterisation of this system call, and user-mode
+       timers (since ARM also lacks a user-mode {\tt tdtsc})) is presented.
+    2) {\sc Flush+Reload} attacks are them mounted using {\tt clearcache},
+       targeting the instruction cache.  The most interesting aspect here
+       is the use of Return Oriented Programming (ROP) gadgets as a means
+       of reloading: calling a ``full'' target function is problematic in
+       the sense
+       a) a sane caller context (e.g., parameters) must be constructed,
+       b) the achievable granularity of the attack may be to low to capture
+          the function if the associated execution time is short.
+       Instead, the idea is to use ROP gadgets as a proxy for the function 
+       itself: these need no context and, by definition, will have a short 
+       execution time (of a few cycles typically: automatically returning 
+       after a few instructions).
+    3) The attack is leveraged to target some real-world Android use-cases,
+       including detection of hardware and UI events.
+  }    
+} 
 
 @inproceedings{MASCAB:LGSM:16,
   keywords     = KEYWORDS,
@@ -1507,6 +1604,36 @@
 
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=channel/side/cache,topic=pos/software}}
+
+@inproceedings{MASCAB:GSOHLC:17,
+  keywords     = KEYWORDS,
+  author       = {D. Gruss and F. Schuster and O. Ohrimenko and I. Haller and J. Lettner and M. Costa},
+  title        = {Strong and Efficient Cache Side-Channel Protection using Hardware Transactional Memory},
+  booktitle    = {Computer and Communications Security (CCS)},
+  pages        = {217--233},
+  year         = {2017},
+  addendum     = {
+    Within the context of access-driven cache attacks,
+    this paper presents a  countermeasure technique which harnesses the Intel 
+    transactional memory, or TSX feature; 
+    the technique is dubbed {\sc Cloak}.
+    The basic idea is to execute the target functionality within a TSX-based
+    transaction: by first warming the cache with the data required, doing so
+    means any deliberate manipulation (e.g., eviction) by an attack process
+    will abort the transaction and hence foil the attack.  Conceptually, the
+    approach is similar to AESSE~\cite{MASCAB:MulDewFre:10} (and/or similar)
+    which mitigate cold-boot attacks by maintaining a working set of data in
+    the register file; here, the working set is instead maintained in a (or 
+    the) cache, and eviction is detected (vs. avoided) via the transaction
+    abort.
+
+    Some care is required (e.g., wrt. correct warming) to apply {\sc Cloak},
+    but doing so is reality non-invasive: the transaction can be applied to
+    ``wrap'' target functionality, at a higher level than the functionality
+    itself for example.  Section $6$ highlights this fact by retrofitting
+    and evaluating {\sc Cloak} using previously vulnerable functionality.
+  }
+}
 
 @inproceedings{MASCAB:ZouReiZan:16,
   keywords     = KEYWORDS,

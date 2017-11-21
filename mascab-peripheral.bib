@@ -186,6 +186,49 @@
 }
 
 % -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=peripheral,topic=attack/aslr}}
+
+@inproceedings{MASCAB:JanLeeKim:16,
+  keywords     = KEYWORDS,
+  author       = {Y. Jang and S. Lee and T. Kim},
+  title        = {Breaking Kernel Address Space Layout Randomization with {Intel} {TSX}},
+  booktitle    = {Conference on Computer and Communications Security (CCS)},
+  pages        = {380--392},
+  year         = {2016}
+} 
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=peripheral,topic=attack/debug}}
+
+@article{MASCAB:HuaMis:17,
+  keywords     = KEYWORDS,
+  author       = {Y. Huang and P. Mishra},
+  title        = {Trace Buffer Attack on the AES Cipher},
+  journal      = {Journal of Hardware and Systems Security},
+  publisher    = {Springer-Verlag},
+  volume       = {1},
+  issue        = {1},
+  pages        = {68--84},
+  year         = {2017},
+  addendum     = {
+    The ARM trace buffer is essentially an on-chip test and debug mechanism:
+    one can configure it to capture a subset of signals for some period, and
+    then export the result for analysis.  In a sense, this yields a problem 
+    of the same style as scan-chain based attacks, namely a tension between
+    the needs of observability and security.
+  }
+}
+
+@inproceedings{MASCAB:HuaChaMis:17,
+  keywords     = KEYWORDS,
+  author       = {Y. Huang and A. Chattopadhyay and P. Mishra},
+  title        = {Trace Buffer Attack: Security versus observability study in post-silicon debug},
+  booktitle    = {Very Large Scale Integration (VLSI-SoC)},
+  pages        = {355--360},
+  year         = {2015}
+}
+
+% -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=peripheral,topic=attack/degrade}}
 
 @inproceedings{MASCAB:TsaEtsFei:07,
@@ -276,6 +319,30 @@
   year         = {2002}
 } 
 
+@inproceedings{MASCAB:TanSetSto:17,
+  keywords     = KEYWORDS,
+  author       = {A. Tang and S. Sethumadhavan and S. Stolfo},
+  title        = {{CLKSCREW}: Exposing the Perils of Security-Oblivious Energy Management},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {1057--1074},
+  year         = {2017},
+  addendum     = {
+    Dynamic Frequency and Voltage Scaling (DVFS) is a mechanism to manage the
+    energy consumption of, for example, processor cores; the idea is the core
+    voltage level and/or clock frequency can be dynamically controlled, which
+    allows them to be reduced during periods of relative inactivy in order to
+    reduce energy consumption.  
+
+    On ARM-based platforms using Android, DVFS is managed by the kernel.  The
+    paper shows that {\em if} a malicious kernel driver can gain control over 
+    DVFS, this abilility can be leverage to drive the core beyond the stated
+    operational limits; the result is fault(s) during execution, which can be
+    capitalised upon per traditional fault attacks (e.g., based on clock or
+    power glitching: in essence, this is a software-defined fault vs. a fault
+    injected by physical means).
+  }
+}
+
 % =============================================================================
 @STRING{KEYWORDS={class=peripheral,topic=verify}}
 
@@ -317,6 +384,15 @@
 % =============================================================================
 @STRING{KEYWORDS={class=peripheral,topic=misc}}
 
+@inproceedings{MASCAB:AraThu:07,
+  keywords     = KEYWORDS,
+  author       = {S. Aravamuthan and V.R. Thumparthy},
+  title        = {A Parallelization of {ECDSA} Resistant to Simple Power Analysis Attacks},
+  booktitle    = {Communication Systems Software and Middleware (COMSWARE)},
+  pages        = {1--7},
+  year         = {2007}
+}
+
 @article{MASCAB:PieLomVil:16,
   keywords     = KEYWORDS,
   author       = {R. Di Pietro and F. Lombardi and A. Villani},
@@ -353,6 +429,15 @@
   howpublished = {Cryptology ePrint Archive, Report 2016/086},
   year         = {2016},
   url          = {http://eprint.iacr.org/2016/086}
+}
+
+@inproceedings{MASCAB:MulDewFre:10,
+  keywords     = KEYWORDS,
+ author       = {T. M\"{u}ller and A. Dewald and F.C. Freiling},
+ title        = {{AESSE}: A Cold-boot Resistant Implementation of {AES}},
+ booktitle    = {European Workshop on System Security (EUROSEC)},
+ pages        = {42--47},
+ year         = {2010}
 }
 
 % =============================================================================
