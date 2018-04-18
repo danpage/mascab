@@ -3,6 +3,7 @@
 \usepackage{adjustbox}
 \usepackage{hyperref}
 \usepackage[backend=biber,style=draft,hyperref=true,defernumbers=true]{biblatex}
+\usepackage{listings}
 \usepackage[margin=2cm]{geometry}
 \usepackage[usenames,dvipsnames,svgnames,table]{xcolor}
 
@@ -40,6 +41,7 @@
 \printbibliography[ heading={subbibnumbered},                keyword={class=misc/patent},       title={Patent                                                                                 } ]
 \printbibliography[ heading={subbibnumbered},                keyword={class=misc/standard},     title={Standard                                                                               } ]
 \printbibliography[ heading={subbibnumbered},                keyword={class=misc/survey},       title={Survey                                                                                 } ]
+\printbibliography[ heading={subbibnumbered},                keyword={class=misc/position},     title={Position                                                                               } ]
 \printbibliography[ heading={subbibnumbered},                keyword={class=misc/book},         title={Book                                                                                   } ]
 \printbibliography[ heading={subbibnumbered},                keyword={class=misc/thesis},       title={Thesis                                                                                 } ]
 \printbibliography[ heading={subbibnumbered},                keyword={class=misc/software},     title={Software                                                                               } ]
@@ -101,6 +103,25 @@
 \subsection{Branch prediction}
 
 \defbibfilter{f}{keyword={class=channel/side/branch}}
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg},               title={Negative use-cases: attacks                                                            } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/hardware},      title={Positive use-cases: hardware-based countermeasures                                     } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/software},      title={Positive use-cases: software-based countermeasures                                     } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=pos/analysis},      title={Positive use-cases: analysis-based countermeasures (e.g., of source code)              } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=alt}                title={Alternative use-cases                                                                  } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=analysis/attack},   title={Analysis (of attacks)                                                                  } ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=analysis/hw},       title={Analysis (of hardware)                                                                 } ]
+
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=misc},              title={Miscellaneous                                                                          } ]
+
+% -----------------------------------------------------------------------------
+
+\subsection{Speculative and/or out-of-order execution}
+
+\defbibfilter{f}{keyword={class=channel/side/spec}}
 
 \printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg},               title={Negative use-cases: attacks                                                            } ]
 

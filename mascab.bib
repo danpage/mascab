@@ -91,6 +91,35 @@
   }
 }
 
+@inproceedings{MASCAB:SibPorLin:95,
+  keywords     = KEYWORDS,
+  author       = {O. Sibert and P.A. Porras and R. Lindell},
+  title        = {The {Intel} {80x86} Processor Architecture: Pitfalls for Secure Systems},
+  booktitle    = {IEEE Symposium on Security \& Privicy (S\&P)},
+  pages        = {211--222},
+  year         = {1995},
+  addendum     = {
+    This paper presents an analysis of features and defects in x86,
+    spanning both architecture (or ISA) and micro-architecture (or
+    implementation), focusing on their security implications; there
+    are quite a number of concrete storage- and timing-based covert
+    and side-channels outlined.  In addition, some content 
+
+    1) Section $3.8$:           (ab)use of high resolution timers,
+       ``[a]s with any high-resolution clock, the TSC must be either virtualized or eliminated entirely to reduce the covert channel threat''
+    2) Section $3.9$:           (ab)use of performance counters, 
+       ``[u]nlike the TSC, which measures an external clock, some performance MSRs can measuree effects of other concurrent activities (e.g., cache snoops by another processor) or of previous activities (e.g., cache hits and misses due to cache activity by a previous subject)''
+    3) Section $3.10$:          caches,
+       ``caches present potential for covert timing channels''
+    4) Section $4.2$ point $6$: prefetching,
+       ``[p]refetching may fetch otherwise inaccessible instructions in virtual 8086 mode''.
+    The latter point as been pitched as an early warning of modern 
+    attacks~\cite{MASCAB:LSGPHMKGYH:18,MASCAB:KGGHHLMPSY:18}; given
+    prefetching and speculative execution (of instructions) differ
+    considerably, this argument seems reasonable only so far.
+  }
+} 
+
 @article{MASCAB:Lampson:73,
   keywords     = KEYWORDS,
   author       = {B.W. Lampson},
@@ -157,6 +186,14 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=misc/patent}}
 
+@unpublished{MASCAB:Rempel:17,
+  keywords     = KEYWORDS,
+  author       = {C. Rempel},
+  title        = {Protection against access violation during the execution of an operating sequence in a portable data carrier},
+  note         = {U.S. Patent Number 13/581,955},
+  year         = {2017}
+}
+
 @unpublished{MASCAB:Kavi:16,
   keywords     = KEYWORDS,
   author       = {K.M. Kavi},
@@ -195,6 +232,14 @@
   title        = {Line allocation in multi-level hierarchical data stores},
   note         = {U.S. Patent Number 12/458,690},
   year         = {2012}
+}
+
+@unpublished{MASCAB:LeeWan:10,
+  keywords     = KEYWORDS,
+  author       = {R.B. Lee and Z. Wang},
+  title        = {Cache Memory Having Enhanced Performance and Security Features},
+  note         = {U.S. Patent Number 12/633,500},
+  year         = {2010}
 }
 
 @unpublished{MASCAB:DolAha:08,
@@ -237,12 +282,12 @@
   year         = {2006}
 }
 
-@unpublished{MASCAB:MPBC:06,
+@unpublished{MASCAB:MPBC:08,
   keywords     = KEYWORDS,
   author       = {F.X. McKeen and L.K. Puthiyedath and E.F. Brickell and J.B. Crossland},
   title        = {Method and apparatus for preventing software side channel attacks},
   note         = {U.S. Patent Number 11/513,871},
-  year         = {2006}
+  year         = {2008}
 }
 
 @unpublished{MASCAB:NevSei:05,
@@ -264,13 +309,22 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=misc/standard}}
 
+@inproceedings{MASCAB:NCSC:93,
+  keywords     = KEYWORDS,
+  title        = {A Guide To Understanding Covert Channel Analysis Of Trusted Systems},
+  institute    = {National Computer Security Center},
+  number       = {NCSC-TG-030},
+  year         = {1993},
+  url          = {http://fas.org/irp/nsa/rainbow/tg030.htm} 
+}
+
 @inproceedings{MASCAB:DOD:85,
   keywords     = KEYWORDS,
   title        = {Trusted Computer System Evaluation Criteria},
   institute    = {Department Of Defence},
   number       = {5200.28-STD},
   year         = {1985},
-  url          = {http://csrc.nist.gov/publications/history/dod85.pdf},
+  url          = {http://fas.org/irp/nsa/rainbow/std001.htm},
   addendum     = {
     Section $8.0$ of the so-called {\sc Orange Book} includes some specific 
     attention to covert channels: it demands a Trusted Computing Base (TCB), 
@@ -285,6 +339,15 @@
 
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=misc/survey}}
+
+@inproceedings{MASCAB:Zhang:17,
+  keywords     = KEYWORDS,
+  author       = {Y. Zhang},
+  title        = {Cache Side Channels: State of the Art and Research Opportunities},
+  booktitle    = {ACM Conference on Computer and Communications Security (CCS)},
+  pages        = {2617--2619},
+  year         = {2017}
+}
 
 @misc{MASCAB:Szefer:16,
   keywords     = KEYWORDS,
@@ -334,6 +397,87 @@
   year         = {2007}
 }
 
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=misc/position}}
+
+@inproceedings{MASCAB:DunBea:18,
+  keywords     = KEYWORDS,
+  author       = {C. Dunham and J. Beard},
+  title        = {This Architecture Tastes Like Microarchitecture},
+  journal      = {Pioneering Processor Paradigms},
+  year         = {2018},
+  addendum     = {
+    This position paper (retrospectively) surveys the concept of an ISA 
+    representing an abstraction of the underlying implementation, i.e., 
+    that of decoupling the ISA from the microarchitecture.  The authors
+    argue in favour of this approach, vs. the alternative of exposing 
+    microarchitectural features in the ISA: focusing in particular on 
+    the original RISC design, they cite design decisions such as 
+    a) use of branch delay slots or hints 
+       (vs. aggressive prediction and speculation), 
+       and
+    b) SIMD (e.g., Intel SSE) with fixed length vectors 
+       (vs. true vector designs, e.g., Cray, with arbitrary length vectors),
+    as mistakes in hindsight.
+
+    While not totally incompatible with~\cite{MASCAB:Heiser:17} (e.g.,
+    this paper is focused mainly on access to, vs. transparency about,
+    functionality and resources in the microarchitecture), there is a
+    fairly clear contrast in philosophy.  Specifically,
+    1)  here, the argument is that treating the ISA as an abstraction 
+        affords flexibility; this can be leveraged to satisfy market 
+        demands wrt. metrics such as performance and compatibility,
+    2) there, the argument is that said abstraction and flexibility is
+       a problem: {\em it} represents at least a complicating factor 
+       in producing secure software implementations, because important
+       aspects of the execution semantics for a given instruction 
+       cannot be known or, therefore, relied upon.
+  }
+}
+
+@article{MASCAB:Heiser:17,
+  keywords     = KEYWORDS,
+  author       = {G. Heiser},
+  title        = {For Safety's Sake: We Need a New Hardware-Software Contract!},
+  journal      = {IEEE Design \& Test},
+  volume       = {},
+  number       = {},
+  pages        = {},
+  year         = {2017},
+  addendum     = {
+    This position paper explicitly proposes an idea implicit suggested in
+    a variety of other work.  The idea is basically greater transparency
+    from or stronger guarantees by the ISA: exposing micro-architectural 
+    detail (e.g., temporal properties of execution) normally abstracted 
+    and hidden by the ISA, the premise is that more robust verification 
+    (e.g., wrt. secure execution) can result.  Although the paper offers
+    few concrete details, there are some high-level suggestions for what
+    a so-called Augmented ISA (AISA) {\em could} include.
+
+    One could point at the announcement by ARM of a new processor mode in
+    Armv8.4-A as an example of this idea, guaranteeing that most (notably
+    {\em not} memory access) instructions have data-independent execution 
+    time; this forms part of the ARM IoT Security Manifesto\footnote{
+      \url{http://pages.arm.com/iot-security-manifesto.html}
+    } (e.g., see Page $10$ re. ``the rise of side-channels '').  However,
+    although it seems unclear\footnote{
+      \url{http://twitter.com/Kensan42/status/946681596001902593}
+    } {\em why}, the original\footnote{
+      \url{http://web.archive.org/web/20171108010153/http://community.arm.com/processors/b/blog/posts/introducing-2017s-extensions-to-the-arm-architecture}
+    } announcement was later amended to remove this feature\footnote{
+      \url{http://community.arm.com/processors/b/blog/posts/introducing-2017s-extensions-to-the-arm-architecture}
+    }.
+  }
+}
+
+@inproceedings{MASCAB:BurMutTiw:16,
+  keywords     = KEYWORDS,
+  author       = {W. Burleson and O. Mutlu and M. Tiwari},
+  title        = {Who is the major threat to tomorrow's security?  You, the hardware designer},
+  booktitle    = {Design Automation Conference (DAC)},
+  year         = {2016}
+}
+
 @inproceedings{MASCAB:Tiri:07,
   keywords     = KEYWORDS,
   author       = {K. Tiri},
@@ -347,6 +491,26 @@
     However, it has a focus on micro-architectural attacks in Section $2$.
   }
 } 
+
+@article{MASCAB:RRKH:04,
+  keywords     = KEYWORDS,
+  author       = {S. Ravi and A. Raghunathan and P.C. Kocher and S. Hattangady},
+  title        = {Security in embedded systems: Design challenges},
+  journal      = {ACM Transactions on Embedded Computer Systems},
+  volume       = {3},
+  number       = {3},
+  pages        = {461--491},
+  year         = {2004}
+}
+
+@inproceedings{MASCAB:RKLMR:04,
+  keywords     = KEYWORDS,
+  author       = {S. Ravi and P.C. Kocher and R.B. Lee and G. McGraw and A. Raghunathan},
+  title        = {Security as a new dimension in embedded system design},
+  booktitle    = {Design Automation Conference (DAC)},
+  pages        = {753--760},
+  year         = {2004}
+}
 
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=misc/book}}
@@ -407,6 +571,14 @@
   author       = {M. Green},
   title        = {Implicit Cache Lockdown on {ARM}: An Accidental Countermeasure to Cache-Timing Attacks},
   school       = {Worcester Polytechnic Institute},
+  year         = {2017}
+}
+
+@mastersthesis{MASCAB:Krak:17,
+  keywords     = KEYWORDS,  
+  author       = {R.S. Krak},
+  title        = {Cycle-Accurate Timing Channel Analysis of Binary Code},
+  school       = {University of Twente},
   year         = {2017}
 }
 
@@ -558,6 +730,18 @@
 
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=misc/software}}
+
+@unpublished{MASCAB:CTTK,
+  keywords     = KEYWORDS,
+  title        = {{CTTK}: Constant-Time Toolkit)},
+  url          = {http://github.com/pornin/CTTK}
+}
+
+@unpublished{MASCAB:CacheGrab,
+  keywords     = KEYWORDS,
+  title        = {{CacheGrab}},
+  url          = {http://github.com/nccgroup/cachegrab}
+}
 
 @unpublished{MASCAB:Mastik,
   keywords     = KEYWORDS,
@@ -1413,6 +1597,18 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=channel/side/cache,topic=neg,style=dcache/trace}}
 
+@inproceedings{MASCAB:NRMW:13,
+  keywords     = KEYWORDS,
+  author       = {P.H. Nguyen and C. Rebeiro and D. Mukhopadhyay and H. Wang},
+  title        = {Improved Differential Cache-Trace Attacks on {SMS4}},
+  booktitle    = {Information Security and Cryptology (INSCRYPT)},
+  publisher    = {Springer-Verlag},
+  issue        = {LNCS 7763},
+  pages        = {29--45},
+  year         = {2013}
+}
+
+
 @inproceedings{MASCAB:AciKoc:06,
   keywords     = KEYWORDS,
   author       = {O. Ac\i{}i\c{c}mez and \c{C}.K. Ko\c{c}},
@@ -1604,6 +1800,24 @@
 
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=channel/side/cache,topic=pos/software}}
+
+@inproceedings{MASCAB:XTPCL:17,
+  keywords     = KEYWORDS,
+  author       = {M. Xu and L. Thi and X. Phan and H.-Y. Choi and I. Lee},
+  title        = {{vCAT}: Dynamic Cache Management Using {CAT} Virtualization},
+  booktitle    = {Real-Time and Embedded Technology and Applications Symposium (RTAS)}, 
+  pages        = {211--222}, 
+  year         = {2017},
+  addendum     = {
+    Although Section II mentions security (i.e., cache-based side-channels)
+    as a use-case, this paper focuses on delivery of general mechanisms for
+    partitioned LLCs based on Intel CAT.  The idea is to virtualise, and so
+    allow multiplexing of, the fixed number of CAT partitions; these can
+    then be managed by, e.g., the kernel, wrt. some policy.  Clearly that
+    policy might be security-conscious, pitching vCAT as a potentially then
+    generalising the approach of CATalyst~\cite{MASCAB:LGYMRHL:16}.
+  }
+}
 
 @inproceedings{MASCAB:GSOHLC:17,
   keywords     = KEYWORDS,
@@ -2046,7 +2260,198 @@
 }
 
 % =============================================================================
+@STRING{KEYWORDS={class=channel/side/spec,topic=neg}}
+
+@article{MASCAB:MaiRos:18,
+  keywords     = KEYWORDS,
+  author       = {G. Maisuradze and C. Rossow},
+  title        = {{Speculose}: Analyzing the Security Implications of Speculative Execution in {CPUs}},
+  journal      = {CoRR},
+  volume       = {abs/1801.04084},
+  year         = {2018},
+  url          = {http://arxiv.org/abs/1801.04084}
+}
+
+@article{MASCAB:LSGPHMKGYH:18,
+  keywords     = KEYWORDS,
+  title        = {Meltdown},
+  author       = {M. Lipp and M. Schwarz and D. Gruss and T. Prescher and W. Haas and S. Mangard and P.C. Kocher and D. Genkin and Y. Yarom and M. Hamburg},
+  year         = {2018},
+  url          = {http://meltdownattack.com/meltdown.pdf},
+  addendum     = {
+    See also~\cite{MASCAB:KGGHHLMPSY:18}.
+    Aligning with the co-discovery by Jann Horn\footnote{
+      \url{http://googleprojectzero.blogspot.co.uk/2018/01/reading-privileged-memory-with-side.html}
+    } of Google Project Zero, the technique captures
+    variant 3 (CVE-2017-5754 or ``Rogue Data Cache Load'').
+    There are a wide range of summaries, but that of Bilar\footnote{
+      \url{http://twitter.com/daniel_bilar/status/948884520316653569}
+    } is impressively clear and concise: 
+    Various high-level explanations also exist; the overview\footnote{
+      \url{http://www.raspberrypi.org/blog/why-raspberry-pi-isnt-vulnerable-to-spectre-or-meltdown/}
+    } from Raspberry Pi founder Eben Upton is typically clear, though
+    also quite high-level.
+
+    The attack technique allows an (unprivileged) user process to load 
+    from any (mapped) address in the associated virtual address space.  
+    This is problematic because
+    a) the kernel address space is typically mapped into the virtual 
+       address space for each user process
+       (e.g., to reduce the overhead of context switches), 
+       so the attack violates user-kernel address space isolation,
+       plus
+    b) the entirety of physical memory may be mapped into the kernel 
+       address space
+       (e.g., to allow access to pages allocated to user processes),
+       so the attack violates user-user   address space isolation.
+    Note that one {\em could} classify this as an attack stemming from
+    the behaviour of 
+    caches;
+    however, it seems more reasonable to cite speculative execution as 
+    the root cause and 
+    caches
+    simply as one mechanism involved.
+
+    The attack itself can be summarised (Section $5.1$) as follows:
+    1) a target value, at an attacker-selected address, is loaded into
+       into a register,
+    2) a speculatively executed instruction accesses an address based
+       on the target value, thus altering the cache state,
+    3) the cache state is inspected using a {\sc Flush+Reload}-based
+       strategy, thus recovering the target value.
+    This essentially works because the exception caused by 1) is not
+    enforced until 2) has been speculative executed, hence altering
+    the cache state (which is then not reverted); clearly the steps
+    can be iterated.  
+    Listing $2$ presents the following concise example: 
+
+    \begin{flushleft}
+    {\tt retry:                      } \\
+    {\tt mov al, byte [ rcx ]        } \\
+    {\tt shl rax, 0xC                } \\
+    {\tt jz  retry                   } \\
+    {\tt mov rbx, qword [ rbx + rax ]} \\
+    \end{flushleft}
+
+    \noindent
+    although it includes a 
+    reset mechanism (to cope with a property of exception handling 
+    mechanism), lines $2$ and $5$ essentially capture steps 1) and 
+    2) from above.
+    Line $2$ loads a byte from the address in {\tt rcx} (selected by
+    the attacker), which should be inaccessible and so will cause an
+    exception, into {\tt rax}.
+    Line $5$ loads a byte from an  address in a probe array (pointed 
+    to by {\tt rbx}) at an index dictated by {\tt rax}; this alters 
+    the cache state, which can be inspected by {\sc Flush+Reload}.
+    Various challenges are address to optimise the attack, e.g., 
+    a) use of the retry mechanism mentioned above,
+    b) scattering accesses to the probe array across pages to avoid 
+       any influence from the prefetcher,
+       and
+    c) the need to deal with continued execution after the exception
+       (via exception suppression or handling).
+  }
+}
+
+@article{MASCAB:KGGHHLMPSY:18,
+  keywords     = KEYWORDS,
+  author       = {P.C. Kocher and D. Genkin and D. Gruss and W. Haas and M. Hamburg and M. Lipp and S. Mangard and T. Prescher and M. Schwarz and Y. Yarom},
+  title        = {Spectre Attacks: Exploiting Speculative Execution},
+  year         = {2018},
+  url          = {http://spectreattack.com/spectre.pdf},
+  addendum     = {
+    See also~\cite{MASCAB:LSGPHMKGYH:18}.
+    Aligning with the co-discovery by Horn\footnote{
+      \url{http://googleprojectzero.blogspot.co.uk/2018/01/reading-privileged-memory-with-side.html}
+    } of Google Project Zero, the technique captures
+    variant 1 (CVE-2017-5753 or ``Bounds Check Bypass'')
+    and
+    variant 2 (CVE-2017-5715 or ``Branch Target Injection'').
+    There are a wide range of summaries, but that of Bilar\footnote{
+      \url{http://twitter.com/daniel_bilar/status/948884520316653569}
+    } is impressively clear and concise.
+    Various high-level explanations also exist; the overview\footnote{
+      \url{http://www.raspberrypi.org/blog/why-raspberry-pi-isnt-vulnerable-to-spectre-or-meltdown/}
+    } from Raspberry Pi founder Eben Upton is typically clear, though
+    also quite high-level.
+
+    The attack technique allows an (unprivileged) user process to load 
+    from any (mapped) address in the virtual address space of another
+    process.
+    Note that one {\em could} classify this as an attack stemming from
+    the behaviour of 
+    branch predictors;
+    however, it seems more reasonable to cite speculative execution as 
+    the root cause and 
+    branch predictors
+    simply as one mechanism involved.
+
+    The first  variant (per Section $4$) targets conditional branches,
+    e.g., those used to guard array access via a bounds check.
+    The attack itself can be summarised as follows:
+    1) a 
+       target branch 
+       is identified within the address space of the target process,
+    2) the target process is used (e.g., provided with input) 
+       st. the branch predictor is trained to believe the branch will
+       be taken,
+    3) the target process is used (e.g., provided with input) 
+       st. the branch is not taken: 
+       due to 2), speculative execution means transient instructions
+       from the 
+       ``branch taken path''
+       are executed,
+    4) a speculatively executed, transient instruction accesses an 
+       address based on a target value, thereby altering the cache 
+       state,
+    5) the cache state is inspected using a {\sc Flush+Reload}-based
+       strategy, thus recovering the target value.
+
+    The second variant (per Section $5$) targets indirect    branches,
+    e.g., those capable of branching to an address computed and stored
+    within a register (such as x86 {\tt jmp}).
+    The attack itself can be summarised as follows:
+    1) a 
+       target branch 
+       is identified within the address space of the target process,
+    2) a 
+       ``gadget''
+       is identified within the address space of the target process,
+    3) the attacker then ``poisons'' the branch target buffer, i.e.,
+       trains it to believe the target branch transfers control-flow
+       to the gadget address,
+    4) the target process is used (e.g., provided with input) 
+       st. the target branch is executed: 
+       due to 3), speculative execution means transient instructions
+       from the 
+       ``gadget''
+       are executed,
+    4) a speculatively executed, transient instruction accesses an 
+       address based on a target value, thereby altering the cache 
+       state,
+    5) the cache state is inspected using a {\sc Flush+Reload}-based
+       strategy, thus recovering the target value.
+    There are a few things to note about this strategy, e.g.,
+    a) the use of an existing instruction sequence (or gadget) hints
+       at an analogy with Return-Oriented Programming (ROP),
+    b) the training in 3) can be performed using a branch within the
+       address space of the attack process: this is because only a
+       subset of bits are used to index the branch target buffer.
+  }
+}
+
+% =============================================================================
 @STRING{KEYWORDS={class=channel/side/arith,topic=neg}}
+
+@inproceedings{MASCAB:KohSha:17,
+  keywords     = KEYWORDS,
+  author       = {D. Kohlbrenner and H. Shacham},
+  title        = {On the effectiveness of mitigations against floating-point timing channels},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {69--81},
+  year         = {2017}
+}
 
 @inproceedings{MASCAB:KPVV:16,
   keywords     = KEYWORDS,
@@ -2194,6 +2599,15 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=channel/side/arith,topic=pos/software}}
 
+@inproceedings{MASCAB:RanLinTiw:16,
+  keywords     = KEYWORDS,
+  author       = {A. Rane and C. Lin and M. Tiwari},
+  title        = {Secure, Precise, and Fast Floating-Point Operations on {x86} Processors},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {71--86},
+  year         = {2016}
+}
+
 @unpublished{MASCAB:BenHamouda:11,
   keywords     = KEYWORDS,
   author       = {F. Ben Hamouda},
@@ -2274,6 +2688,47 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=channel/side/misc,topic=pos/hardware}}
 
+@article{MASCAB:AweAus:17,
+  keywords     = KEYWORDS,
+  author       = {Z.B. Aweke and T.M. Austin},
+  title        = {{Ozone}: Efficient Execution with Zero Timing Leakage for Modern Microarchitectures},
+  journal      = {CoRR},
+  volume       = {abs/1703.07706},
+  year         = {2017},
+  url          = {http://arxiv.org/abs/1703.07706},
+  addendum     = {
+    Ozone is a system for supporting constant execution time, comprising
+    two components:
+    1) A processor micro-architecture,
+       prototyped using x86 via gem5.
+       Conceptually, the idea is to isolate execution of security-critical 
+       program fragments; in that sense, there is some similarity with the
+       design in~\cite{MASCAB:YumSav:15}.  To do so, several resources are
+       added, including
+       a) dedicated, Ozone-specific state,
+          and
+       b) data and instruction stratch-pad memories.
+       The security-critical program fragment executes, 
+       a) a fixed (micro-)architectural state on entry
+          (e.g., of any branch predictor, meaning it cannot be primed by
+          an attacker),
+       b){\em without} the possibility of interruption, 
+       c) out of scratch-pad memory (so avoiding cache-based attacks),
+       d) within a WCET limit enforced by a watchdog timer. 
+    2) A compiler,
+       prototyped using LLVM.
+       The goal is to translate an annotated program fragment into a form
+       suitable for execution by the associated micro-architecture; there
+       is an overview of the process in Figure $3$, which includes
+       a) performing standard transformations 
+          (e.g., if-conversion via {\tt cmov}), 
+       b) verification of control-flow properties
+          (e.g., non-existance of data-dependent conditional branches),
+          and
+       c) allocation of scratch-pad memory.
+  }
+}
+
 @inproceedings{MASCAB:ZonYen:16,
   keywords     = KEYWORDS,
   author       = {A.D. Zonenberg and B. Yener},
@@ -2296,6 +2751,31 @@
     2) the L1 cache is essentially partitioned on a thread basis: each of
        the threads accesses a region of the cache whose separation is
        enforced in hardware.
+  }
+}
+
+@article{MASCAB:YumSav:15,
+  keywords     = KEYWORDS,
+  author       = {K. Yumbul and E. Sava\c{s}},
+  title        = {Enhancing an Embedded Processor Core for Efficient and Isolated Execution of Cryptographic Algorithms},
+  journal      = {The Computer Journal},
+  volume       = {58},
+  number       = {10},
+  pages        = {2368--2387},
+  year         = {2015},
+  addendum     = {
+    This paper presents an unnamed processor design, based on Tensilica
+    Xtensa LX3 (a $32$-bit RISC architecture) by prototype (although of
+    more general applicability).  The central idea is isolation of any
+    cryptographic computation within a specially designed secure zone; 
+    per Figure $1$, this includes
+    a) a unified (data plus instruction) scratch-pad memory,
+    b) a $128$-bit cryptographic register file,
+    c) various special-purpose functional units, such as a Block Cipher
+       Unit (BCU).
+    The connection to micro-architectural attacks is the stated aim of
+    a) to avoid cache-based attacks: access to scratch-pad memory will
+    be constant time, by virtue of {\em not} involving any caches.
   }
 }
 

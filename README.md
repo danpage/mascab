@@ -1,5 +1,7 @@
 # MASCAB: a Micro-Architectural Side-Channel Attack Bibliography
 
+<!--- -------------------------------------------------------------------- --->
+
 ## Introduction
 
 Cryptography is a fast-moving field, which is enormously exciting but also
@@ -27,13 +29,7 @@ MASCAB is the result: after starting to advise MSc and PhD students on how
 to navigate the sub-field, it seems likely to be of use to others as well.
 
 - By definition this is an ongoing project; I'd welcome updates, e.g., raw 
-  BiBTeX entries, pointers to missing papers, or, ideally, a pull request
-  with some content.
-
-- I've started to collate videos via a YouTube
-  [playlist](http://www.youtube.com/playlist?list=PLcjiHk8Sl-KK1qY4JOzTDu095TscjcEVa)
-  of the same name; often, these are presentations of a paper captured
-  by the databases.
+  BiBTeX entries or pointers to missing papers.
 
 - If you want to make reference to 
   MASCAB
@@ -51,20 +47,24 @@ to navigate the sub-field, it seems likely to be of use to others as well.
   since this will maximise the cases where it's picked up by automated
   citation indexes.
 
+- Partly motivated by 
+  [Meltdown](http://meltdownattack.com)
+  and
+  [Spectre](http://spectreattack.com),
+  there are now various alternative to MASCAB that you might prefer; for
+  example 
+  [here](http://www.peerlyst.com/posts/a-collection-of-links-to-pdfs-of-papers-on-micro-architectural-side-channel-attacks-sorted-by-date-paul-harvey)
+  or
+  [here](http://github.com/MattPD/cpplinks/blob/master/comparch.micro.channels.md).
+
+<!--- -------------------------------------------------------------------- --->
+
 ## Content
 
 - Although I attempted to summarise (some) papers, this is was initially
   intended for my use: at the moment this isn't meant to be a standalone 
   survey, mainly because there are already good examples elsewhere, see, 
-  e.g., 
-
-  [1] J. Szefer.
-      [Survey of Microarchitectural Side and Covert Channels, Attacks, and Defences](http://eprint.iacr.org/2016/479).
-      Cryptology ePrint Archive, Report 2016/479. 2016.
-
-  [2] Q. Ge, Y. Yarom, D. Cock and G. Heiser.
-      [A Survey of Microarchitectural Timing Attacks and Countermeasures on Contemporary Hardware](http://eprint.iacr.org/2016/613).
-      Cryptology ePrint Archive, Report 2016/613. 2016.
+  e.g., [1,2].
 
 - The content is intended to be factual and, obviously, correct; anything 
   other than that, including any inaccuracies, are simply human error.  I
@@ -128,3 +128,17 @@ to navigate the sub-field, it seems likely to be of use to others as well.
 
     although one caveat relates to named resource (e.g., software) where
     it makes more sense to use the resource name than the author name.
+
+<!--- -------------------------------------------------------------------- --->
+
+## References
+
+1. J. Szefer.
+   [Survey of Microarchitectural Side and Covert Channels, Attacks, and Defences](http://eprint.iacr.org/2016/479).
+   Cryptology ePrint Archive, Report 2016/479. 2016.
+
+2. Q. Ge, Y. Yarom, D. Cock and G. Heiser.
+   [A Survey of Microarchitectural Timing Attacks and Countermeasures on Contemporary Hardware](http://eprint.iacr.org/2016/613).
+   Cryptology ePrint Archive, Report 2016/613. 2016.
+
+<!--- -------------------------------------------------------------------- --->
