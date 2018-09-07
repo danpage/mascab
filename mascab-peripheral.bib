@@ -1,3 +1,9 @@
+% Copyright (C) 2018 Daniel Page <dan@phoo.org>
+%
+% Use of this source code is restricted per the CC BY-SA license, a copy of
+% which can be found via http://creativecommons.org (and should be included 
+% as LICENSE.txt within the associated archive or repository).
+
 % =============================================================================
 @STRING{KEYWORDS={class=peripheral,topic=cache/security}}
 
@@ -70,6 +76,15 @@
 
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=peripheral,topic=cache/partition}}
+
+@inproceedings{MASCAB:SanKoz:11,
+  keywords     = KEYWORDS,
+  author       = {D. Sanchez and C. Kozyrakis},
+  title        = {Vantage: Scalable and efficient fine-grain cache partitioning},
+  booktitle    = {International Symposium on Computer Architecture (ISCA)},
+  pages        = {57--68},
+  year         = {2011}
+}
 
 @inproceedings{MASCAB:RacPat:03,
   keywords     = KEYWORDS,
@@ -211,6 +226,7 @@
   pages        = {68--84},
   year         = {2017},
   addendum     = {
+    See also~\cite{MASCAB:HuaChaMis:15}.
     The ARM trace buffer is essentially an on-chip test and debug mechanism:
     one can configure it to capture a subset of signals for some period, and
     then export the result for analysis.  In a sense, this yields a problem 
@@ -219,7 +235,7 @@
   }
 }
 
-@inproceedings{MASCAB:HuaChaMis:17,
+@inproceedings{MASCAB:HuaChaMis:15,
   keywords     = KEYWORDS,
   author       = {Y. Huang and A. Chattopadhyay and P. Mishra},
   title        = {Trace Buffer Attack: Security versus observability study in post-silicon debug},
@@ -254,7 +270,7 @@
   year         = {2015} 
 }
 
-@inproceedings{MASCAB:PoeSib:15,
+@inproceedings{MASCAB:PatPolSib:12,
   keywords     = KEYWORDS,
   author       = {K.G. Paterson and A. Polychroniadou and D.L. Sibborn},
   title        = {A Coding-Theoretic Approach to Recovering Noisy {RSA} Keys},
@@ -361,7 +377,14 @@
   title        = {The last mile: An empirical study of some timing channels on {seL4}},
   booktitle    = {Computer and Communications Security (CCS)}, 
   pages        = {570--581},
-  year         = {2014}
+  year         = {2014},
+  addendum     = {
+    Although this paper is interesting for other reasons, a (subtle) point to
+    note is use of the (information theory based) channel matrix to visualise
+    timing channels: points in the matrix (visualised as a heat map) capture 
+    the probability of observing each output symbol, given transmission of an 
+    input symbol.
+  }
 }
 
 @inproceedings{MASCAB:MMBGBSLGK:13,

@@ -5,10 +5,13 @@ mascab.pdf : $(wildcard *.bib) mascab.tex
 	@biber    mascab
 	@pdflatex mascab
 
-all      : mascab.pdf
+mascab.tax : $(wildcard *.bib)
+	@grep -H STRING ${?} > ${@}
+
+all      : mascab.pdf mascab.tax
 
 clean    :
 	@rm -f *.aux *.bbl *.bcf *.blg *.log *.out *.toc *.xml
 
 spotless : clean
-	@rm -f *.pdf
+	@rm -f *.pdf *.tax

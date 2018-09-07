@@ -1,3 +1,9 @@
+% Copyright (C) 2018 Daniel Page <dan@phoo.org>
+%
+% Use of this source code is restricted per the CC BY-SA license, a copy of
+% which can be found via http://creativecommons.org (and should be included 
+% as LICENSE.txt within the associated archive or repository).
+
 \documentclass[a4paper,10pt]{article}
 
 \usepackage{adjustbox}
@@ -72,7 +78,7 @@
 \printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg/method},        title={Negative    use-cases: attacks using        data-cache (access-based,      methodology)} ]
 \printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg/attack/crypto}, title={Negative    use-cases: attacks using        data-cache (access-based, vs. cryptography)} ]
 \printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg/attack/ui},     title={Negative    use-cases: attacks using        data-cache (access-based, vs.           UI)} ]
-\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg/attack/iee},    title={Negative    use-cases: attacks using        data-cache (access-based, vs.          IEE)} ]
+\printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg/attack/tee},    title={Negative    use-cases: attacks using        data-cache (access-based, vs.          TEE)} ]
 \printbibliography[ heading={subsubbibnumbered}, filter={f}, keyword={topic=neg/attack/aslr},   title={Negative    use-cases: attacks using        data-cache (access-based, vs.         ASLR)} ]
 
 \defbibfilter{f}{keyword={class=channel/side/cache} and keyword={topic=neg}}
@@ -226,6 +232,6 @@
 
 \printbibliography[heading={bibnumbered},                    keyword={unclassified},            title={Residual unclassified entries                                                          } ]
 
-%% =============================================================================
+% =============================================================================
 
 \end{document}

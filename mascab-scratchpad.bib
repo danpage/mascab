@@ -1,3 +1,9 @@
+% Copyright (C) 2018 Daniel Page <dan@phoo.org>
+%
+% Use of this source code is restricted per the CC BY-SA license, a copy of
+% which can be found via http://creativecommons.org (and should be included 
+% as LICENSE.txt within the associated archive or repository).
+
 % =============================================================================
 @STRING{KEYWORDS={class=misc/history}}
 
@@ -131,7 +137,7 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=channel/covert,topic=pos}}
 
-@article{MASCAB:EvtPonAbu:16,
+@article{MASCAB:EvtPonAbu:16:b,
   author       = {D. Evtyushkin and D. Ponomarev and N. Abu-Ghazaleh},
   title        = {Understanding and Mitigating Covert Channels Through Branch Predictors},
   journal      = {ACM Transactions on Architecture and Code Optimisation (TACO)},
@@ -195,7 +201,7 @@
 % =============================================================================
 @STRING{KEYWORDS={class=channel/side/cache,topic=neg,style=dcache}}
 
-@inproceedings{MASCAB:IraEisSun:16,
+@inproceedings{MASCAB:IraEisSun:16:a,
   author       = {G. Irazoqui and T. Eisenbarth and B. Sunar},
   title        = {Cross Processor Cache Attacks},
   booktitle    = {ACM Symposium on Information, Computer and Communications Security (AsiaCCS)},
@@ -289,7 +295,7 @@
   year         = {2015}
 }
 
-@inproceedings{MASCAB:IIES:15,
+@inproceedings{MASCAB:IIES:15:a,
   author       = {G. Irazoqui and M.S. Inci and T. Eisenbarth and B. Sunar},
   title        = {Lucky 13 Strikes Back},
   booktitle    = {ACM Symposium on Information, Computer and Communications Security (AsiaCCS)},
@@ -613,7 +619,7 @@
   note         = {(in Japanese)}
 }
 
-@inproceedings{MASCAB:MinTsuTsu:03,
+@inproceedings{MASCAB:OKSM:03,
   author       = {K. Ohkuma and S. Kawamura and H. Shimizu and H. Muratani},
   title        = {Key Inference in a Side-Channel Attack Based on Cache Miss},
   booktitle    = {Symposium on Cryptography and Information Security (SCIS)},
@@ -851,8 +857,9 @@
   author       = {J. Alawatugoda and D. Jayasinghe and R. Ragel},
   title        = {Countermeasures against {Bernstein's} remote cache timing attack},
   booktitle    = {IEEE International Conference on Industrial and Information Systems (ICIIS)},
-  pages        = {},
-  year         = {2011}
+  pages        = {43--48},
+  year         = {2011},
+  note         = {See also~\url{http://arxiv.org/pdf/1403.7297}}
 }
 
 @inproceedings{MASCAB:BruTuv:11,
@@ -1052,7 +1059,7 @@
 % =============================================================================
 @STRING{KEYWORDS={class=channel/side/branch,topic=neg}}
 
-@inproceedings{MASCAB:EvtPonAbu:16,
+@inproceedings{MASCAB:EvtPonAbu:16:a,
   author       = {D. Evtyushkin and D.V. Ponomarev and N.B. Abu-Ghazaleh},
   title        = {Jump over {ASLR}: Attacking branch predictors to bypass {ASLR}},
   booktitle    = {ACM/IEEE International Symposium on Microarchitecture (MICRO)},
@@ -1133,14 +1140,6 @@
 
 % =============================================================================
 @STRING{KEYWORDS={class=channel/side/arith,topic=pos}}
-
-@inproceedings{MASCAB:RanLinTiw:16,
-  author       = {A. Rane and C. Lin and M. Tiwari},
-  title        = {Secure, Precise, and Fast Floating-Point Operations on {x86} Processors},
-  booktitle    = {USENIX Security Symposium},
-  pages        = {71--86},
-  year         = {2016}
-}
 
 % =============================================================================
 @STRING{KEYWORDS={class=channel/side/noc,topic=neg}}
@@ -1321,6 +1320,25 @@
   booktitle    = {IEEE Symposium on Security \& Privacy (S\&P)},
   pages        = {45--60},
   year         = {2009}
+}
+
+% -----------------------------------------------------------------------------
+@STRING{KEYWORDS={class=channel/side/misc,topic=analysis}}
+
+@inproceedings{MASCAB:KopBas:07,
+ author        = {B. K\"{o}pf and D. Basin},
+ title         = {An Information-theoretic Model for Adaptive Side-channel Attacks},
+ booktitle     = {Computer and Communications Security (CCS)},
+  pages        = {286--296},
+  year         = {2007}
+} 
+
+@inproceedings{MASCAB:PBPMB:17,
+  author       = {Q.-S. Phan and L. Bang and C.S. Pasareanu and P. Malacaria and T. Bultan},
+  title        = {Synthesis of Adaptive Side-Channel Attacks},
+  booktitle    = {Computer Security Foundations Symposium (CSF)},
+  pages        = {328--342},
+  year         = {2017}
 }
 
 % -----------------------------------------------------------------------------

@@ -1,3 +1,9 @@
+% Copyright (C) 2018 Daniel Page <dan@phoo.org>
+%
+% Use of this source code is restricted per the CC BY-SA license, a copy of
+% which can be found via http://creativecommons.org (and should be included 
+% as LICENSE.txt within the associated archive or repository).
+
 % =============================================================================
 @STRING{KEYWORDS={class=misc/history}}
 
@@ -114,9 +120,9 @@
     4) Section $4.2$ point $6$: prefetching,
        ``[p]refetching may fetch otherwise inaccessible instructions in virtual 8086 mode''.
     The latter point as been pitched as an early warning of modern 
-    attacks~\cite{MASCAB:LSGPHMKGYH:18,MASCAB:KGGHHLMPSY:18}; given
-    prefetching and speculative execution (of instructions) differ
-    considerably, this argument seems reasonable only so far.
+    attacks~\cite{MASCAB:LSGPHMKGYH:18,MASCAB:KHFGGHHLMPSY:18}, but,
+    because prefetching and speculative execution (of instructions) 
+    differ considerably, this argument seems reasonable only so far.
   }
 } 
 
@@ -185,6 +191,14 @@
 
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=misc/patent}}
+
+@unpublished{MASCAB:SetMarDem:18,
+  keywords     = KEYWORDS,
+  author       = {L. Sethumadhavan and R. Martin and J. Demme},
+  title        = {Systems and methods to counter side channel attacks},
+  note         = {U.S. Patent Number 9,887,833 B2},
+  year         = {2018}
+}
 
 @unpublished{MASCAB:Rempel:17,
   keywords     = KEYWORDS,
@@ -340,6 +354,18 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=misc/survey}}
 
+@article{MASCAB:LyuMis:18,
+  keywords     = KEYWORDS,
+  author       = {Y. Lyu and P. Mishra},
+  title        = {A Survey of Side-Channel Attacks on Caches and Countermeasures},  
+  journal      = {Journal of Hardware and Systems Security},
+  publisher    = {Springer},
+  volume       = {2},
+  number       = {1},
+  pages        = {33--50},
+  year         = {2018}
+}
+
 @inproceedings{MASCAB:Zhang:17,
   keywords     = KEYWORDS,
   author       = {Y. Zhang},
@@ -358,13 +384,17 @@
   url          = {http://eprint.iacr.org/2016/479}
 }
 
-@misc{MASCAB:GYCH:16,
+@article{MASCAB:GYCH:18,
   keywords     = KEYWORDS,
   author       = {Q. Ge and Y. Yarom and D. Cock and G. Heiser},
   title        = {A Survey of Microarchitectural Timing Attacks and Countermeasures on Contemporary Hardware},
-  howpublished = {Cryptology ePrint Archive, Report 2016/613},
-  year         = {2016},
-  url          = {http://eprint.iacr.org/2016/613}
+  journal      = {Journal of Cryptographic Engineering (JCEN)},
+  publisher    = {Springer-Verlag},
+  volume       = {8},
+  issue        = {1},
+  pages        = {1--27},
+  year         = {2018},
+  note         = {See also~\url{http://eprint.iacr.org/2016/613}}
 }
 
 @article{MASCAB:SaiSar:16,
@@ -400,6 +430,115 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=misc/position}}
 
+@inproceedings{MASCAB:SimChiAnd:18,
+  keywords     = KEYWORDS,
+  author       = {L. Simon and D. Chisnall and R. Anderson},
+  title        = {What you get is what you {C}: Controlling side effects in mainstream {C} compilers},
+  booktitle    = {IEEE European Symposium on Security \& Privicy (Euro-S\&P)},
+  pages        = {1--15},
+  year         = {2018},
+  addendum     = {
+    Although not a position paper per se, there is a clear point made in
+    content.  The argument, also made elsewhere, is that writing secure
+    implementations requires cooperation with the development toolchain;
+    this is true of both software {\em and} hardware, and all elements 
+    of said toolchain, e.g., compiler {\em and} assembler.  The point is 
+    illustrated using two examples, namely challenges wrt.
+    1) developing constant-time software implementations,
+       and
+    2) secure erasure of stack content (or memory content generally).
+    The former is clearly pertinent to side-channel attack, in that any
+    countermeasure implemented by the developer must then be transformed
+    reliably by the toolchain; any overly agressive optimisation by the
+    compiler, for example, can impact robustness of said countermeasure.
+
+    As a step toward solution of this issue, the paper first introduces 
+    implicit invarients: these are properties the developer {\em wants}
+    their implementation to retain after translation.  The paper argues
+    that implicit invarients need to be communicated by the developer,
+    and presents various explicit controls to do so.  For example, a
+    dedicated {\tt \_\_builtin\_ct\_choose} LLVM built-in is used to 
+    signal a need for constant-time selection between two inputs (i.e., 
+    as an alternative to a ternary operator).
+  }
+} 
+
+@inproceedings{MASCAB:GeYarHei:18,
+  keywords     = KEYWORDS,
+  author       = {Q. Ge and Y. Yarom and G. Heiser},
+  title        = {No security without time protection: we need a new hardware-software contract},
+  booktitle    = {Asia-Pacific Workshop on Systems (APSys)},
+  year         = {2018},
+  addendum     = {
+    This paper could be viewed as a follow-up to, or at least related to
+    the ideas in \cite{MASCAB:Heiser:17}.
+    Sections $1$ and $2$ outline the central problem, and so requirements,
+    at a high level.  The goal is to prevent (unintended, or unauthorised) 
+    information flow between security domains.  As such, the platform and 
+    kernel must, in combination, enforce time protection or isolation (cf. 
+    memory protection); to do so, the hardware must offer mechanisms that 
+    allow the kernel to either
+    1) strictly partition
+       and/or 
+    2) cleanly reset
+    pertinent (micro-)architectural resources.
+    The choice of mechanism is quite context dependent, but, for example,
+    and again at a high level,
+    the former can cater for off-core resources
+    (e.g., LLC, which is used concurrently by multiple cores),
+    whereas
+    the latter can cater for  on-core resources
+    (e.g., BTB, whose state might otherwise be retained and probed across security domains).
+    Some subtle caveats apply to both, including 
+    a) differences between virually and physically indexed state,
+       and
+    b) need for a constant-time (or padded, worst-case) reset operation.
+    Sections $3$ and $4$ survey existing reset mechanism in x86 and ARM,
+    and provide evidence of their efficacy; per~\cite{MASCAB:GeYarHei:17}, 
+    which offers a related analysis, neither is ideal.
+    Finally, Section $5$ introduces a set of five design properties for
+    ISAs that allow them to satisfy requirements 1) and 2) above; these
+    are termed an augumented ISA (aISA), and capture a (more) security,
+    or at least information leakage, aware contract between hardware and 
+    software per\cite{MASCAB:Heiser:17}.
+  }
+}
+
+@article{MASCAB:Heiser:17,
+  keywords     = KEYWORDS,
+  author       = {G. Heiser},
+  title        = {For Safety's Sake: We Need a New Hardware-Software Contract!},
+  journal      = {IEEE Design \& Test},
+  volume       = {35},
+  number       = {2},
+  pages        = {27--30},
+  year         = {2018},
+  addendum     = {
+    This position paper explicitly proposes an idea implicit suggested in
+    a variety of other work.  The idea is basically greater transparency
+    from or stronger guarantees by the ISA: exposing micro-architectural 
+    detail (e.g., temporal properties of execution) normally abstracted 
+    and hidden by the ISA, the premise is that more robust verification 
+    (e.g., wrt. secure execution) can result.  Although the paper offers
+    few concrete details, there are some high-level suggestions for what
+    a so-called Augmented ISA (AISA) {\em could} include.
+
+    One could point at the announcement by ARM of a new processor mode in
+    Armv8.4-A as an example of this idea, guaranteeing that most (notably
+    {\em not} memory access) instructions have data-independent execution 
+    time; this forms part of the ARM IoT Security Manifesto\footnote{
+      \url{http://pages.arm.com/iot-security-manifesto.html}
+    } (e.g., see Page $10$ re. ``the rise of side-channels '').  However,
+    although it seems unclear\footnote{
+      \url{http://twitter.com/Kensan42/status/946681596001902593}
+    } {\em why}, the original\footnote{
+      \url{http://web.archive.org/web/20171108010153/http://community.arm.com/processors/b/blog/posts/introducing-2017s-extensions-to-the-arm-architecture}
+    } announcement was later amended to remove this feature\footnote{
+      \url{http://community.arm.com/processors/b/blog/posts/introducing-2017s-extensions-to-the-arm-architecture}
+    }.
+  }
+}
+
 @inproceedings{MASCAB:DunBea:18,
   keywords     = KEYWORDS,
   author       = {C. Dunham and J. Beard},
@@ -432,41 +571,6 @@
        in producing secure software implementations, because important
        aspects of the execution semantics for a given instruction 
        cannot be known or, therefore, relied upon.
-  }
-}
-
-@article{MASCAB:Heiser:17,
-  keywords     = KEYWORDS,
-  author       = {G. Heiser},
-  title        = {For Safety's Sake: We Need a New Hardware-Software Contract!},
-  journal      = {IEEE Design \& Test},
-  volume       = {},
-  number       = {},
-  pages        = {},
-  year         = {2017},
-  addendum     = {
-    This position paper explicitly proposes an idea implicit suggested in
-    a variety of other work.  The idea is basically greater transparency
-    from or stronger guarantees by the ISA: exposing micro-architectural 
-    detail (e.g., temporal properties of execution) normally abstracted 
-    and hidden by the ISA, the premise is that more robust verification 
-    (e.g., wrt. secure execution) can result.  Although the paper offers
-    few concrete details, there are some high-level suggestions for what
-    a so-called Augmented ISA (AISA) {\em could} include.
-
-    One could point at the announcement by ARM of a new processor mode in
-    Armv8.4-A as an example of this idea, guaranteeing that most (notably
-    {\em not} memory access) instructions have data-independent execution 
-    time; this forms part of the ARM IoT Security Manifesto\footnote{
-      \url{http://pages.arm.com/iot-security-manifesto.html}
-    } (e.g., see Page $10$ re. ``the rise of side-channels '').  However,
-    although it seems unclear\footnote{
-      \url{http://twitter.com/Kensan42/status/946681596001902593}
-    } {\em why}, the original\footnote{
-      \url{http://web.archive.org/web/20171108010153/http://community.arm.com/processors/b/blog/posts/introducing-2017s-extensions-to-the-arm-architecture}
-    } announcement was later amended to remove this feature\footnote{
-      \url{http://community.arm.com/processors/b/blog/posts/introducing-2017s-extensions-to-the-arm-architecture}
-    }.
   }
 }
 
@@ -537,6 +641,22 @@
 
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=misc/thesis}}
+
+@mastersthesis{MASCAB:Schroder:17,
+  keywords     = KEYWORDS,  
+  author       = {F. Schr\"{o}der},
+  title        = {Security of Cache Replacement Policies under Side-Channel Attacks}, 
+  school       = {Technischen Universit\"{a}t Berlin},
+  year         = {2018}
+}
+
+@mastersthesis{MASCAB:Frigo:17,
+  keywords     = KEYWORDS,  
+  author       = {P. Frigo},
+  title        = {Practical Microarchitectural Attacks from Integrated {GPUs}}, 
+  school       = {Delft University of Technology},
+  year         = {2017}
+}
 
 @phdthesis{MASCAB:Bao:17,
   keywords     = KEYWORDS,  
@@ -777,7 +897,7 @@
 }
 
 % =============================================================================
-@STRING{KEYWORDS={class=channel/side/cache,style=dcache/access,topic=neg/method}}
+@STRING{KEYWORDS={class=channel/side/cache,topic=neg/method,style=dcache/access}}
 
 @inproceedings{MASCAB:DKPT:17,
   keywords     = KEYWORDS,
@@ -817,7 +937,7 @@
   author       = {T. Allan and B.B. Brumley and K. Falkner and J. van de Pol and Y. Yarom}, 
   title        = {Amplifying Side Channels Through Performance Degradation},
   booktitle    = {Annual Computer Security Applications Conference (ACSAC)},
-  pages        = {},
+  pages        = {422--435},
   year         = {2016},
   addendum     = {
     There is a central idea in this paper, then used in a second step so as
@@ -979,7 +1099,7 @@
   }
 }
 
-@inproceedings{MASCAB:TroOsvSha:10,
+@article{MASCAB:TroOsvSha:10,
   keywords     = KEYWORDS,
   author       = {E. Tromer and D.A. Osvik and A. Shamir},
   title        = {Efficient Cache Attacks on {AES}, and Countermeasures},
@@ -1067,7 +1187,7 @@
 }
 
 % .............................................................................
-@STRING{KEYWORDS={class=channel/side/cache,style=dcache/access,topic=neg/attack/crypto}}
+@STRING{KEYWORDS={class=channel/side/cache,topic=neg/attack/crypto,style=dcache/access}}
 
 @inproceedings{MASCAB:GarBru:17,
   keywords     = KEYWORDS,
@@ -1229,7 +1349,7 @@
 }
 
 % .............................................................................
-@STRING{KEYWORDS={class=channel/side/cache,style=dcache/access,topic=neg/attack/ui}}
+@STRING{KEYWORDS={class=channel/side/cache,topic=neg/attack/ui,style=dcache/access}}
 
 
 @inproceedings{MASCAB:Hornby:16,
@@ -1251,7 +1371,7 @@
 }
 
 % .............................................................................
-@STRING{KEYWORDS={class=channel/side/cache,style=dcache/access,topic=neg/attack/iee}}
+@STRING{KEYWORDS={class=channel/side/cache,topic=neg/attack/tee,style=dcache/access}}
 
 @article{MASCAB:MogIraEis:17,
   keywords     = KEYWORDS,
@@ -1725,6 +1845,26 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=channel/side/cache,topic=pos/hardware}}
 
+@inproceedings{MASCAB:YGST:17,
+  keywords     = KEYWORDS,
+  author       = {M. Yan and B. Gopireddy and T. Shull and J. Torrellas},
+  title        = {{S}ecure {H}ierarchy-{A}ware cache {R}eplacement {P}olicy ({SHARP}): Defending against cache-based side channel attacks},
+  booktitle    = {International Symposium on Computer Architecture (ISCA)},
+  pages        = {347--360},
+  year         = {2017}
+}
+
+@inproceedings{MASCAB:CanKopRei:17,
+  keywords     = KEYWORDS,
+  author       = {P. Ca\~{n}ones and B. K\"{o}pf and J. Reineke},
+  title        = {Security Analysis of Cache Replacement Policies},
+  booktitle    = {Principles of Security and Trust (POST)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 10204},
+  pages        = {189--209},
+  year         = {2017}
+} 
+
 @inproceedings{MASCAB:KKEEAPJ:17,
   keywords     = KEYWORDS,
   author       = {M. Kayaalp and K.N. Khasawneh and H. Esfeden and J. Elwell and N. Abu-Ghazaleh and D. Ponomarev and A. Jaleel},
@@ -1927,7 +2067,7 @@
   keywords     = KEYWORDS,
   author       = {S. Gueron},
   title        = {Efficient software implementations of modular exponentiation},
-  journal      = {Journal of Cryptographic Engineering},
+  journal      = {Journal of Cryptographic Engineering (JCEN)},
   publisher    = {Springer-Verlag},
   volume       = {2},
   number       = {1},
@@ -1936,6 +2076,23 @@
   addendum     = {
     See Section $7$  re. scatter-gather technique for layout of pre-computed
     values in modular exponentiation (cf. RSA).
+  }
+}
+
+@inproceedings{MASCAB:Hamburg:09,
+  keywords     = KEYWORDS,
+  author       = {M. Hamburg},
+  title        = {Accelerating {AES} with Vector Permute Instructions},
+  booktitle    = {Cryptographic Hardware and Embedded Systems (CHES)},
+  publisher    = {Springer-Verlag},
+  series       = {LNCS 5747},
+  pages        = {18--32},
+  year         = {2009},
+  addendum     = {
+    This paper explores vector-based (namely SSE and Altivec) implementation 
+    techniques for AES.  The results demonstrate such implementations can be
+    efficient, while also preventing cache-based side-channel attacks: they
+    essentially represent a class of constant-time countermeasure.
   }
 }
 
@@ -2072,7 +2229,7 @@
   }
 } 
 
-@article{MASCAB:IIES:15,
+@article{MASCAB:IIES:15:b,
   keywords     = KEYWORDS,
   author       = {G. Irazoqui and M.S. Inci and T. Eisenbarth and B. Sunar},
   title        = {Know Thy Neighbor: Crypto Library Detection in the Cloud},
@@ -2107,11 +2264,11 @@
 @article{MASCAB:GRZIHE:17,
   keywords     = KEYWORDS,
   author       = {M. Green and L. Rodrigues-Lima and A. Zankl and G. Irazoqui and J. Heyszl and T. Eisenbarth},
-  title        = {{\tt AutoLock}: Why Cache Attacks on ARM Are Harder Than You Think},
-  journal      = {CoRR},
-  volume       = {abs/1703.09763},
+  title        = {{\tt AutoLock}: Why Cache Attacks on {ARM} Are Harder Than You Think},
+  booktitle    = {USENIX Security Symposium},
+  pages        = {1075-1091},
   year         = {2017},
-  url          = {http://arxiv.org/abs/1703.09763},
+  note         = {See also~\url{http://arxiv.org/abs/1703.09763}},
   addendum     = {
     This paper (see also~\cite{MASCAB:Green:17}) outlines a subtle discovery
     wrt. access-driven, cache-based attacks on ARM-based targets: though not
@@ -2139,13 +2296,13 @@
   }
 }
 
-@article{MASCAB:GeYarHei:16,
+@article{MASCAB:GeYarHei:17,
   keywords     = KEYWORDS,
   author       = {Q. Ge and Y. Yarom and G. Heiser},
-  title        = {Do hardware cache flushing operations actually meet our expectations?},
+  title        = {Your Processor Leaks Information - and There's Nothing You Can Do About It},
   journal      = {CoRR},
   volume       = {abs/1612.04474},
-  year         = {2016},
+  year         = {2017},
   url          = {http://arxiv.org/abs/1612.04474},
   addendum     = {
     Provided the execution of target and attack processes do not overlap, a
@@ -2252,7 +2409,7 @@
        implementation of Montgomery multiplication; 
     3) considers various countermeasures against the mechanism, which
        include a flush-based approach (predicated on hardware support, 
-       cf.~\cite{MASCAB:GeYarHei:16}), and a software-based approach 
+       cf.~\cite{MASCAB:GeYarHei:17}), and a software-based approach 
        termed {\sc Zigzagger}; the latter realises all branches via a
        form of dispatch, imposes a performance overhead at run-time,
        but could be automated (by the compiler) at compile-time.
@@ -2261,6 +2418,42 @@
 
 % =============================================================================
 @STRING{KEYWORDS={class=channel/side/spec,topic=neg}}
+
+@article{MASCAB:StePre:18,
+  keywords     = KEYWORDS,
+  author       = {J. Stecklina and T. Prescher},
+  title        = {{LazyFP}: Leaking {FPU} Register State using Microarchitectural Side-Channels},
+  journal      = {CoRR},
+  volume       = {abs/1806.07480},
+  year         = {2018},
+  url          = {http://arxiv.org/abs/1806.07480},
+  addendum     = {
+    This paper hinges on the use of lazy FPU context switching, which
+    is a performance-enhancing technique for x86 stemming from use of
+    the (separate) x87 FPU.  Motivated (originally) by limited use of
+    the FPU, and so needless overhead, the concept basically defers a 
+    full context switch of the FPU registers.  The FPU is disabled vs.
+    context switched, st. later use causes an interrupt; at this point
+    the context switch is realised, to preserve/restore the FPU state 
+    ``just in time''.
+
+    Use of this mechanism (which is optional, and arguably of limited
+    value in most modern contexts) implies the FPU state for one user
+    process could be accessed by another {\em if} the access control
+    mechanism can be bypassed.  This is problematic, since extensions
+    such as AES-NI use (logical) SSE-based registers that overlay the 
+    (physical) FPU registers: access to the FPU registers could leak
+    AES-NI key material.  The LazyFP attack basically does just this,
+    using the Meltdown~\cite{MASCAB:LSGPHFHMKGYH:18} strategy to bypass
+    the access control via speculatively executed instructions (which
+    access the FPU registers before the access control can trigger an
+    interrupt).
+
+    The attack target could be related to~\cite{MASCAB:TakNogMor:11},
+    except of course the attacker uses a normal, user process vs. a 
+    malicious hypervisor.
+  }
+}
 
 @article{MASCAB:MaiRos:18,
   keywords     = KEYWORDS,
@@ -2272,14 +2465,16 @@
   url          = {http://arxiv.org/abs/1801.04084}
 }
 
-@article{MASCAB:LSGPHMKGYH:18,
+@article{MASCAB:LSGPHFHMKGYH:18,
   keywords     = KEYWORDS,
-  title        = {Meltdown},
-  author       = {M. Lipp and M. Schwarz and D. Gruss and T. Prescher and W. Haas and S. Mangard and P.C. Kocher and D. Genkin and Y. Yarom and M. Hamburg},
+  author       = {M. Lipp and M. Schwarz and D. Gruss and T. Prescher and W. Haas and A. Fogh and J. Horn and S. Mangard and P.C. Kocher and D. Genkin and Y. Yarom and M. Hamburg},
+  title        = {Meltdown: Reading Kernel Memory from User Space},
+  booktitle    = {{USENIX} Security Symposium},
+  pages        = {973--990},
   year         = {2018},
-  url          = {http://meltdownattack.com/meltdown.pdf},
+  note         = {See also~\url{http://meltdownattack.com/meltdown.pdf}},
   addendum     = {
-    See also~\cite{MASCAB:KGGHHLMPSY:18}.
+    See also~\cite{MASCAB:KHFGGHHLMPSY:18}.
     Aligning with the co-discovery by Jann Horn\footnote{
       \url{http://googleprojectzero.blogspot.co.uk/2018/01/reading-privileged-memory-with-side.html}
     } of Google Project Zero, the technique captures
@@ -2354,14 +2549,16 @@
   }
 }
 
-@article{MASCAB:KGGHHLMPSY:18,
+@article{MASCAB:KHFGGHHLMPSY:18,
   keywords     = KEYWORDS,
-  author       = {P.C. Kocher and D. Genkin and D. Gruss and W. Haas and M. Hamburg and M. Lipp and S. Mangard and T. Prescher and M. Schwarz and Y. Yarom},
+  author       = {P. Kocher and J. Horn and A. Fogh and D. Genkin and D. Gruss and W. Haas and M. Hamburg and M. Lipp and S. Mangard and T. Prescher and M. Schwarz and Y. Yarom},
   title        = {Spectre Attacks: Exploiting Speculative Execution},
-  year         = {2018},
-  url          = {http://spectreattack.com/spectre.pdf},
+  booktitle    = {IEEE Symposium on Security and Privacy (S\&P)},
+  pages        = {19--37},
+  year         = {2019},
+  note         = {See also~\url{http://spectreattack.com/spectre.pdf}},
   addendum     = {
-    See also~\cite{MASCAB:LSGPHMKGYH:18}.
+    See also~\cite{MASCAB:LSGPHFHMKGYH:18}.
     Aligning with the co-discovery by Horn\footnote{
       \url{http://googleprojectzero.blogspot.co.uk/2018/01/reading-privileged-memory-with-side.html}
     } of Google Project Zero, the technique captures
@@ -2840,7 +3037,7 @@
 % -----------------------------------------------------------------------------
 @STRING{KEYWORDS={class=channel/side/misc,topic=pos/analysis}}
 
-@unpublished{MASCAB:IraEisSun:16,
+@unpublished{MASCAB:IraEisSun:16:b,
   keywords     = KEYWORDS,
   author       = {G. Irazoqui and T. Eisenbarth and B. Sunar},
   title        = {{MASScan}: Stopping Microarchitectural Attacks Before Execution},
